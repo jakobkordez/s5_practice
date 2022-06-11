@@ -10,10 +10,11 @@ abstract class QuestionsState extends Equatable {
 class QuestionsInitial extends QuestionsState {}
 
 class QuestionsLoaded extends QuestionsState {
+  final List<Category> categories;
   final List<Question> questions;
 
-  const QuestionsLoaded(this.questions);
+  const QuestionsLoaded(this.categories, this.questions);
 
   @override
-  List<Object> get props => questions;
+  List<Object> get props => [categories, questions];
 }
