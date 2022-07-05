@@ -14,7 +14,9 @@ class Category extends Equatable {
   factory Category.fromJson(Map<String, dynamic> json) => Category(
         id: json['id'],
         title: json['title'],
-        questions: (json['questions'] as List).cast(),
+        questions: (json['questions'] as List)
+            .map((e) => (e as List).cast<int>())
+            .toList(),
       );
 
   @override
