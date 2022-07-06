@@ -215,7 +215,7 @@
       "title": "Fizika, elektrotehnika",
       "questions": [
         [
-          376,
+          395,
           454
         ],
         [
@@ -5029,7 +5029,7 @@
       "answers": [
         "Amper [A]",
         "Watt [W]",
-        "Ohm [W]"
+        "Ohm [Ω]"
       ],
       "correct": 2
     },
@@ -5062,7 +5062,7 @@
       "answers": [
         "stalni upor",
         "spremenljivi upor",
-        "Varovalko"
+        "varovalko"
       ],
       "correct": 0
     },
@@ -5797,9 +5797,9 @@
       "question": "Generator ima notranjo upornost 50 ohmov. Pri kateri upornosti bremena dobimo največji prenos moči?",
       "image": null,
       "answers": [
-        "25 W",
-        "50 W",
-        "75 W"
+        "25 ohmov",
+        "50 ohmov",
+        "75 ohmov"
       ],
       "correct": 1
     },
