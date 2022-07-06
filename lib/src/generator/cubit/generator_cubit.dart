@@ -8,6 +8,10 @@ part 'generator_state.dart';
 class GeneratorCubit extends Cubit<GeneratorState> {
   GeneratorCubit() : super(const GeneratorPractice(singleCategory: false));
 
+  void setPractice() => emit(const GeneratorPractice(singleCategory: false));
+
+  void setTest() => emit(const GeneratorTest());
+
   void setSingleCategory(bool singleCategory) => emit(
       (state as GeneratorPractice).copyWith(singleCategory: singleCategory));
 

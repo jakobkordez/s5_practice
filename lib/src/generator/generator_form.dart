@@ -7,49 +7,6 @@ import '../cubit/questions_cubit.dart';
 import '../models/category.dart';
 import 'cubit/generator_cubit.dart';
 
-class GeneratorForm extends StatelessWidget {
-  const GeneratorForm({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) => BlocProvider(
-        create: (context) => GeneratorCubit(),
-        child: Card(
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: DefaultTabController(
-              length: 2,
-              child: Column(
-                children: [
-                  Text(
-                    'Generator vprašanj',
-                    style: Theme.of(context).textTheme.headlineMedium,
-                  ),
-                  const SizedBox(height: 10),
-                  const TabBar(
-                    labelColor: Colors.black,
-                    labelPadding: EdgeInsets.all(5),
-                    tabs: [
-                      Text('Vaja'),
-                      Text('Preizkus uspeha'),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  const Expanded(
-                    child: TabBarView(
-                      children: [
-                        PracticeTab(),
-                        TestTab(),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      );
-}
-
 class PracticeTab extends StatelessWidget {
   const PracticeTab({Key? key}) : super(key: key);
 
@@ -94,7 +51,6 @@ class _CategoryOnlyInput extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Text('Generiraj vprašanja le iz določenega področja:'),
-          const SizedBox(width: 10),
           BlocBuilder<GeneratorCubit, GeneratorState>(
             buildWhen: (previous, current) {
               previous as GeneratorPractice;

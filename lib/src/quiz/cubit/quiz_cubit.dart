@@ -35,7 +35,5 @@ class QuizCubit extends Cubit<QuizState> {
     emit(state.copyWith(answers: answers));
   }
 
-  void extend() => emit(state.copyWith(
-        count: min(state.count + state.firstCount, state.questions.length),
-      ));
+  void extend() => emit(state.copyWith(count: state.count + state.firstCount));
 }

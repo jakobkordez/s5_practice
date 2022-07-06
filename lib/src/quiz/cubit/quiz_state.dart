@@ -12,17 +12,18 @@ class QuizState extends Equatable {
   final List<int?>? answers;
   final List<Set<int>?>? revealed;
 
-  const QuizState({
+  QuizState({
     required this.title,
     required this.questions,
     int? firstCount,
-    required this.count,
+    required int count,
     this.duration,
     required this.revealInstantly,
     this.startTime,
     this.answers,
     this.revealed,
-  }) : firstCount = firstCount ?? count;
+  })  : firstCount = firstCount ?? min(count, questions.length),
+        count = min(count, questions.length);
 
   QuizState copyWith({
     String? title,
