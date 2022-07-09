@@ -9,8 +9,18 @@ class QuizState extends Equatable {
   final bool revealInstantly;
 
   final DateTime? startTime;
+  final DateTime? endTime;
   final List<int?>? answers;
   final List<Set<int>?>? revealed;
+
+  int? get score {
+    if (answers == null) return null;
+    int c = 0;
+    for (int i = 0; i < answers!.length; ++i) {
+      if (answers![i] == questions[i].correct) ++c;
+    }
+    return c;
+  }
 
   QuizState({
     required this.title,
@@ -20,6 +30,7 @@ class QuizState extends Equatable {
     this.duration,
     required this.revealInstantly,
     this.startTime,
+    this.endTime,
     this.answers,
     this.revealed,
   })  : firstCount = firstCount ?? min(count, questions.length),
@@ -32,6 +43,7 @@ class QuizState extends Equatable {
     Duration? duration,
     bool? revealInstantly,
     DateTime? startTime,
+    DateTime? endTime,
     List<int?>? answers,
     List<Set<int>?>? revealed,
   }) =>
@@ -42,6 +54,7 @@ class QuizState extends Equatable {
         duration: duration ?? this.duration,
         revealInstantly: revealInstantly ?? this.revealInstantly,
         startTime: startTime ?? this.startTime,
+        endTime: endTime ?? this.endTime,
         answers: answers ?? this.answers,
         revealed: revealed ?? this.revealed,
         firstCount: firstCount,
@@ -56,6 +69,7 @@ class QuizState extends Equatable {
         duration,
         revealInstantly,
         startTime,
+        endTime,
         answers,
         revealed,
       ];

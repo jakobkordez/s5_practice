@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:s5_practice/src/cubit/questions_cubit.dart';
-import 'package:s5_practice/src/quiz/cubit/quiz_cubit.dart';
-import 'package:s5_practice/src/home_screen.dart';
 
-import 'models/question.dart';
+import 'cubit/questions_cubit.dart';
+import 'home_screen.dart';
+import 'quiz/cubit/quiz_cubit.dart';
 import 'quiz/quiz_screen.dart';
 
 class App extends StatelessWidget {
@@ -16,14 +15,14 @@ class App extends StatelessWidget {
         child: MaterialApp(
           title: 'Izpitna vprašanja za radioamaterje',
           theme: ThemeData(
-            // colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue),
-            cardTheme: CardTheme(
-              elevation: 4,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
+              // colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue),
+              // cardTheme: CardTheme(
+              //   elevation: 4,
+              //   shape: RoundedRectangleBorder(
+              //     borderRadius: BorderRadius.circular(8),
+              //   ),
+              // ),
               ),
-            ),
-          ),
           initialRoute: '/',
           routes: <String, WidgetBuilder>{
             '/': (context) => const HomeScreen(),

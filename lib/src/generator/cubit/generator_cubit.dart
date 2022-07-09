@@ -21,7 +21,18 @@ class GeneratorCubit extends Cubit<GeneratorState> {
         category: category,
       ));
 
-  void setQuestionCount(int questionCount) => emit(state is GeneratorPractice
-      ? (state as GeneratorPractice).copyWith(questionCount: questionCount)
-      : (state as GeneratorTest).copyWith(questionCount: questionCount));
+  void setQuestionCount(String questions) {
+    final qc = int.tryParse(questions);
+    if (qc == null) return;
+    emit(state is GeneratorPractice
+        ? (state as GeneratorPractice).copyWith(questionCount: qc)
+        : (state as GeneratorTest).copyWith(questionCount: qc));
+  }
+
+  void setDuration(String minutes) {
+    final min = int.tryParse(minutes);
+    if (min == null) return;
+    emit((state as GeneratorTest)
+        .copyWith(timerDuration: Duration(minutes: min)));
+  }
 }

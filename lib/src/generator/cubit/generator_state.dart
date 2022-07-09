@@ -33,7 +33,7 @@ class GeneratorPractice extends GeneratorState {
 }
 
 class GeneratorTest extends GeneratorState {
-  final Duration? timerDuration;
+  final Duration timerDuration;
 
   const GeneratorTest({
     int questionCount = 60,

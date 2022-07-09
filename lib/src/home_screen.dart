@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:s5_practice/src/cubit/questions_cubit.dart';
 import 'package:s5_practice/src/generator/generator_form.dart';
 
+import 'components/sized_card.dart';
 import 'generator/cubit/generator_cubit.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,6 +15,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
+  final GeneratorCubit _generatorCubit = GeneratorCubit();
+
   static const _tabs = [
     Text('Vaja'),
     Text('Preizkus uspeha'),
@@ -26,13 +29,12 @@ class _HomeScreenState extends State<HomeScreen>
     super.initState();
     _tabController = TabController(length: _tabs.length, vsync: this);
     _tabController.addListener(() {
-      final gCubit = context.read<GeneratorCubit>();
       switch (_tabController.index) {
         case 0:
-          gCubit.setPractice();
+          _generatorCubit.setPractice();
           break;
         case 1:
-          gCubit.setTest();
+          _generatorCubit.setTest();
           break;
         default:
       }
@@ -58,8 +60,8 @@ class _HomeScreenState extends State<HomeScreen>
         body: BlocBuilder<QuestionsCubit, QuestionsState>(
           builder: (context, state) => state is! QuestionsLoaded
               ? const Center(child: CircularProgressIndicator())
-              : BlocProvider(
-                  create: (context) => GeneratorCubit(),
+              : BlocProvider.value(
+                  value: _generatorCubit,
                   child: TabBarView(
                     controller: _tabController,
                     children: [
@@ -69,12 +71,7 @@ class _HomeScreenState extends State<HomeScreen>
                         .map(
                           (e) => SingleChildScrollView(
                             padding: const EdgeInsets.all(20),
-                            child: Card(
-                              child: Padding(
-                                padding: const EdgeInsets.all(20),
-                                child: e,
-                              ),
-                            ),
+                            child: SizedCard(child: e),
                           ),
                         )
                         .toList(),

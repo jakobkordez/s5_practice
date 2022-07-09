@@ -1,11 +1,18 @@
 {
     "configurations": [
         {
-            "name": "Flutter (lib\\main.dart)",
+            "name": "HTML (lib\\main.dart)",
             "type": "dart",
             "request": "launch",
             "program": "lib\\main.dart",
             "args": ["--web-renderer", "html"]
+        },
+        {
+            "name": "Canvaskit (lib\\main.dart)",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib\\main.dart",
+            "args": ["--web-renderer", "canvaskit"]
         }
     ]
 }

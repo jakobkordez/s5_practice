@@ -36,4 +36,6 @@ class QuizCubit extends Cubit<QuizState> {
   }
 
   void extend() => emit(state.copyWith(count: state.count + state.firstCount));
+
+  void finish() => emit(state.copyWith(endTime: DateTime.now()));
 }
