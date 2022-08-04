@@ -30,9 +30,9 @@ class _QuizScreenState extends State<QuizScreen> {
 
     _quizCubit = QuizCubit(widget.quizState);
     if (widget.quizState.duration != null) {
-      _timer = Timer.periodic(
+      _timer = Timer(
         widget.quizState.duration!,
-        (_) => _quizCubit.finish(),
+        () => _quizCubit.finish(),
       );
     } else {
       _quizCubit.start();
@@ -63,6 +63,14 @@ class _QuizScreenState extends State<QuizScreen> {
                     TextButton(
                       onPressed: () => Navigator.pop(context, false),
                       child: const Text('Ostani'),
+                    ),
+                    TextButton(
+                      style: TextButton.styleFrom(primary: Colors.green),
+                      onPressed: () {
+                        _quizCubit.finish();
+                        Navigator.pop(context);
+                      },
+                      child: const Text('Zaključi'),
                     ),
                     TextButton(
                       style: TextButton.styleFrom(primary: Colors.red),
@@ -131,7 +139,7 @@ class _TimerCountdown extends StatelessWidget {
               alignment: Alignment.center,
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: TimerBuilder.periodic(
-                const Duration(milliseconds: 500),
+                const Duration(seconds: 1),
                 builder: (context) {
                   final dur = state.startTime!
                       .add(state.duration!)
@@ -273,6 +281,7 @@ class _ResultPage extends StatelessWidget {
                   }
 
                   return ListView.separated(
+                    physics: const NeverScrollableScrollPhysics(),
                     padding: const EdgeInsets.only(top: 15),
                     shrinkWrap: true,
                     itemCount: wrongs.length + 2,

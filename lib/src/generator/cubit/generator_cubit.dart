@@ -7,33 +7,29 @@ import '../../models/category.dart';
 part 'generator_state.dart';
 
 class GeneratorCubit extends Cubit<GeneratorState> {
-  GeneratorCubit() : super(const GeneratorPractice(singleCategory: false));
+  GeneratorCubit() : super(const GeneratorState());
 
-  void setPractice() => emit(const GeneratorPractice(singleCategory: false));
+  void setPractice() => emit(state.copyWith(type: GeneratorType.practice));
 
-  void setTest() => emit(const GeneratorTest());
+  void setTest() => emit(state.copyWith(type: GeneratorType.test));
 
-  void setSingleCategory(bool singleCategory) => emit(
-      (state as GeneratorPractice).copyWith(singleCategory: singleCategory));
+  void setSingleCategory(bool singleCategory) =>
+      emit(state.copyWith(singleCategory: singleCategory));
 
-  void setCategory(Category category) =>
-      emit((state as GeneratorPractice).copyWith(
+  void setCategory(Category category) => emit(state.copyWith(
         singleCategory: true,
         category: category,
       ));
 
-  void setQuestionCount(String questions) {
-    final qc = int.tryParse(questions);
-    if (qc == null) return;
-    emit(state is GeneratorPractice
-        ? (state as GeneratorPractice).copyWith(questionCount: qc)
-        : (state as GeneratorTest).copyWith(questionCount: qc));
-  }
+  void setPracticeQuestionCount(String questions) =>
+      emit(state.copyWith(practiceQuestionCount: int.tryParse(questions)));
+
+  void setTestQuestionCount(String questions) =>
+      emit(state.copyWith(testQuestionCount: int.tryParse(questions)));
 
   void setDuration(String minutes) {
     final min = int.tryParse(minutes);
     if (min == null) return;
-    emit((state as GeneratorTest)
-        .copyWith(timerDuration: Duration(minutes: min)));
+    emit(state.copyWith(timerDuration: Duration(minutes: min)));
   }
 }

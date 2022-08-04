@@ -14,15 +14,6 @@ class App extends StatelessWidget {
         create: (context) => QuestionsCubit()..load(),
         child: MaterialApp(
           title: 'Izpitna vprašanja za radioamaterje',
-          theme: ThemeData(
-              // colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue),
-              // cardTheme: CardTheme(
-              //   elevation: 4,
-              //   shape: RoundedRectangleBorder(
-              //     borderRadius: BorderRadius.circular(8),
-              //   ),
-              // ),
-              ),
           initialRoute: '/',
           routes: <String, WidgetBuilder>{
             '/': (context) => const HomeScreen(),

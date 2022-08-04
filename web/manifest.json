@@ -1,11 +1,11 @@
 {
-    "name": "s5_practice",
-    "short_name": "s5_practice",
+    "name": "Izpitna vprašanja za radioamaterje",
+    "short_name": "S5 Vaja",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "S5 Practice Exam Questions",
+    "background_color": "#197CD7",
+    "theme_color": "#197CD7",
+    "description": "Izpitna vprašanja za radioamaterje",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.5
   flutter_bloc: ^8.0.1
   equatable: ^2.0.3
   timer_builder: ^2.0.0
@@ -21,7 +21,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.1
+  flutter_launcher_icons: ^0.9.3
 
 flutter:
   uses-material-design: true
@@ -29,3 +30,10 @@ flutter:
   assets:
     - assets/questions.json
     - assets/images/
+
+flutter_icons:
+  android: true
+  ios: false
+  image_path: "assets/icons/S5_practice.png"
+  adaptive_icon_background: "#197CD7"
+  adaptive_icon_foreground: "assets/icons/S5_practice_front.png"

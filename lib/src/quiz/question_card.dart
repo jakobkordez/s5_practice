@@ -46,7 +46,7 @@ class QuestionCard extends StatelessWidget {
                     ),
                     padding: const EdgeInsets.only(bottom: 10),
                     child: question.answers != null
-                        ? Image.asset('images/${question.image}')
+                        ? Image.asset('assets/images/${question.image}')
                         : HiddenImage(
                             img: question.image!,
                             isHidden: state.revealed![qIndex] == null,
@@ -65,6 +65,7 @@ class QuestionCard extends StatelessWidget {
                     side: BorderSide(color: Colors.grey.shade300),
                   ),
                   child: ListView.separated(
+                    physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: question.answers!.length,
                     itemBuilder: (_, aIndex) {
@@ -133,7 +134,7 @@ class HiddenImage extends StatelessWidget {
     return FramedWidget(
       child: Stack(
         children: [
-          Image.asset('images/$img'),
+          Image.asset('assets/images/$img'),
           if (isHidden)
             Positioned.fill(
               child: Material(

@@ -1,54 +1,55 @@
 part of 'generator_cubit.dart';
 
-abstract class GeneratorState extends Equatable {
-  final int questionCount;
-
-  const GeneratorState(this.questionCount);
+enum GeneratorType {
+  practice,
+  test,
 }
 
-class GeneratorPractice extends GeneratorState {
+class GeneratorState extends Equatable {
+  final GeneratorType type;
+  final int practiceQuestionCount;
+  final int testQuestionCount;
   final bool singleCategory;
   final Category? category;
-
-  const GeneratorPractice({
-    int questionCount = 5,
-    required this.singleCategory,
-    Category? category,
-  })  : category = singleCategory ? category : null,
-        super(questionCount);
-
-  GeneratorPractice copyWith({
-    int? questionCount,
-    bool? singleCategory,
-    Category? category,
-  }) =>
-      GeneratorPractice(
-        questionCount: questionCount ?? this.questionCount,
-        singleCategory: singleCategory ?? this.singleCategory,
-        category: category ?? this.category,
-      );
-
-  @override
-  List<Object?> get props => [questionCount, singleCategory, category];
-}
-
-class GeneratorTest extends GeneratorState {
   final Duration timerDuration;
 
-  const GeneratorTest({
-    questionCount = kDebugMode ? 6 : 60,
+  const GeneratorState({
+    this.type = GeneratorType.practice,
+    this.practiceQuestionCount = 5,
+    this.testQuestionCount = kDebugMode ? 6 : 60,
+    this.singleCategory = false,
+    this.category,
     this.timerDuration = const Duration(minutes: kDebugMode ? 9 : 90),
-  }) : super(questionCount);
+  });
 
-  GeneratorTest copyWith({
-    int? questionCount,
+  GeneratorState copyWith({
+    GeneratorType? type,
+    int? practiceQuestionCount,
+    int? testQuestionCount,
+    bool? singleCategory,
+    Category? category,
     Duration? timerDuration,
-  }) =>
-      GeneratorTest(
-        questionCount: questionCount ?? this.questionCount,
-        timerDuration: timerDuration ?? this.timerDuration,
-      );
+  }) {
+    final newSingleCategory = singleCategory ?? this.singleCategory;
+
+    return GeneratorState(
+      type: type ?? this.type,
+      practiceQuestionCount:
+          practiceQuestionCount ?? this.practiceQuestionCount,
+      testQuestionCount: testQuestionCount ?? this.testQuestionCount,
+      singleCategory: newSingleCategory,
+      category: newSingleCategory ? (category ?? this.category) : null,
+      timerDuration: timerDuration ?? this.timerDuration,
+    );
+  }
 
   @override
-  List<Object?> get props => [questionCount, timerDuration];
+  List<Object?> get props => [
+        type,
+        practiceQuestionCount,
+        testQuestionCount,
+        singleCategory,
+        category,
+        timerDuration,
+      ];
 }

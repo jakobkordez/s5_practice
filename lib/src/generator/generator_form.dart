@@ -39,7 +39,7 @@ class PracticeTab extends StatelessWidget {
                   Container(
                     width: mxW / 3,
                     constraints: const BoxConstraints(minWidth: 100),
-                    child: _QuestionNumberInput(),
+                    child: _PracticeQuestionNumberInput(),
                   ),
                 ],
               );
@@ -50,8 +50,7 @@ class PracticeTab extends StatelessWidget {
             alignment: Alignment.bottomRight,
             child: ElevatedButton(
               onPressed: () {
-                final generatorState =
-                    context.read<GeneratorCubit>().state as GeneratorPractice;
+                final generatorState = context.read<GeneratorCubit>().state;
                 final questionsState =
                     context.read<QuestionsCubit>().state as QuestionsLoaded;
                 Navigator.pushNamed(context, '/quiz',
@@ -61,7 +60,7 @@ class PracticeTab extends StatelessWidget {
                           : 'Vaja - ${generatorState.category!.title}',
                       questions:
                           questionsState.getRandom(generatorState.category?.id),
-                      count: generatorState.questionCount,
+                      count: generatorState.practiceQuestionCount,
                       revealInstantly: true,
                     ));
               },
@@ -78,14 +77,16 @@ class _CategoryInput extends StatelessWidget {
       BlocBuilder<QuestionsCubit, QuestionsState>(
         builder: (context, qstate) =>
             BlocBuilder<GeneratorCubit, GeneratorState>(
-          buildWhen: (previous, current) => current is GeneratorPractice,
+          buildWhen: (previous, current) =>
+              current.type == GeneratorType.practice,
           builder: (context, gstate) {
             qstate as QuestionsLoaded;
-            gstate as GeneratorPractice;
 
             return DropdownButtonFormField<Category>(
+              isExpanded: true,
               value: gstate.category,
               decoration: InputDecoration(
+                isDense: true,
                 enabled: gstate.singleCategory,
                 labelText: 'Izberi področje',
                 suffixIcon: gstate.category == null
@@ -100,7 +101,10 @@ class _CategoryInput extends StatelessWidget {
               items: qstate.categories
                   .map((e) => DropdownMenuItem(
                         value: e,
-                        child: Text(e.title),
+                        child: Text(
+                          e.title,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ))
                   .toList(),
               onChanged: (value) {
@@ -113,20 +117,38 @@ class _CategoryInput extends StatelessWidget {
       );
 }
 
-class _QuestionNumberInput extends StatelessWidget {
+class _PracticeQuestionNumberInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) =>
       BlocBuilder<GeneratorCubit, GeneratorState>(
         buildWhen: (previous, current) =>
-            previous.questionCount != current.questionCount,
+            previous.practiceQuestionCount != current.practiceQuestionCount,
         builder: (context, state) => TextFormField(
-          initialValue: '${state.questionCount}',
+          initialValue: '${state.practiceQuestionCount}',
           decoration: const InputDecoration(
             labelText: 'Število vprašanj',
           ),
           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
           keyboardType: TextInputType.number,
-          onChanged: context.read<GeneratorCubit>().setQuestionCount,
+          onChanged: context.read<GeneratorCubit>().setPracticeQuestionCount,
+        ),
+      );
+}
+
+class _TestQuestionNumberInput extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) =>
+      BlocBuilder<GeneratorCubit, GeneratorState>(
+        buildWhen: (previous, current) =>
+            previous.testQuestionCount != current.testQuestionCount,
+        builder: (context, state) => TextFormField(
+          initialValue: '${state.testQuestionCount}',
+          decoration: const InputDecoration(
+            labelText: 'Število vprašanj',
+          ),
+          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+          keyboardType: TextInputType.number,
+          onChanged: context.read<GeneratorCubit>().setTestQuestionCount,
         ),
       );
 }
@@ -155,7 +177,7 @@ class TestTab extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Expanded(child: _QuestionNumberInput()),
+              Expanded(child: _TestQuestionNumberInput()),
               const SizedBox(width: 20),
               Expanded(child: _DurationInput()),
             ],
@@ -165,8 +187,7 @@ class TestTab extends StatelessWidget {
             alignment: Alignment.bottomRight,
             child: ElevatedButton(
               onPressed: () {
-                final generatorState =
-                    context.read<GeneratorCubit>().state as GeneratorTest;
+                final generatorState = context.read<GeneratorCubit>().state;
                 final questionsState =
                     context.read<QuestionsCubit>().state as QuestionsLoaded;
                 Navigator.pushNamed(context, '/quiz',
@@ -174,9 +195,9 @@ class TestTab extends StatelessWidget {
                       title: 'Preizkus uspeha',
                       questions: questionsState
                           .getRandom(null, true)
-                          .take(generatorState.questionCount)
+                          .take(generatorState.testQuestionCount)
                           .toList(),
-                      count: generatorState.questionCount,
+                      count: generatorState.testQuestionCount,
                       duration: generatorState.timerDuration,
                       revealInstantly: false,
                     ));
@@ -192,24 +213,17 @@ class _DurationInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) =>
       BlocBuilder<GeneratorCubit, GeneratorState>(
-        buildWhen: (previous, current) {
-          if (current is! GeneratorTest) return false;
-          if (previous is! GeneratorTest) return true;
-          return previous.timerDuration != current.timerDuration;
-        },
-        builder: (context, state) {
-          state as GeneratorTest;
-
-          return TextFormField(
-            initialValue: '${state.timerDuration.inMinutes}',
-            decoration: const InputDecoration(
-              suffixText: 'min',
-              labelText: 'Čas za reševanje',
-            ),
-            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-            keyboardType: TextInputType.number,
-            onChanged: context.read<GeneratorCubit>().setDuration,
-          );
-        },
+        buildWhen: (previous, current) =>
+            previous.timerDuration != current.timerDuration,
+        builder: (context, state) => TextFormField(
+          initialValue: '${state.timerDuration.inMinutes}',
+          decoration: const InputDecoration(
+            suffixText: 'min',
+            labelText: 'Čas za reševanje',
+          ),
+          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+          keyboardType: TextInputType.number,
+          onChanged: context.read<GeneratorCubit>().setDuration,
+        ),
       );
 }
