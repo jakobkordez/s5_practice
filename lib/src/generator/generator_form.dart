@@ -14,6 +14,11 @@ class PracticeTab extends StatelessWidget {
   Widget build(BuildContext context) => Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          Text(
+            'Vaja',
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          const SizedBox(height: 15),
           const Text(
               'Izberi pogročje in vpiši število vprašanj, ki jih želiš generirati. '
               'Če želiš generirati vprašanja iz vseh področij, pusti polje za področje prazno.'),
@@ -22,6 +27,7 @@ class PracticeTab extends StatelessWidget {
             builder: (context, constraints) {
               final mxW = constraints.maxWidth - 80;
               return Wrap(
+                alignment: WrapAlignment.center,
                 spacing: 20,
                 crossAxisAlignment: WrapCrossAlignment.end,
                 children: [
@@ -132,6 +138,11 @@ class TestTab extends StatelessWidget {
   Widget build(BuildContext context) => Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          Text(
+            'Preizkus uspeha',
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          const SizedBox(height: 15),
           const Text(
               'Kandidati za radioamaterja razreda A opravljajo izpit, ki je '
               'sestavljen iz 60 različnih vprašanj. Vsako vprašanje ima 3 možne odgovore, od katerih je '
@@ -170,7 +181,7 @@ class TestTab extends StatelessWidget {
                       revealInstantly: false,
                     ));
               },
-              child: const Text('Začni'),
+              child: const Text('Naprej'),
             ),
           ),
         ],

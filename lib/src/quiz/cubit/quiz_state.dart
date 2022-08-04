@@ -22,6 +22,14 @@ class QuizState extends Equatable {
     return c;
   }
 
+  List<int>? get incorrectAnswers {
+    final ret = <int>[];
+    for (int i = 0; i < answers!.length; ++i) {
+      if (answers![i] != questions[i].correct) ret.add(i);
+    }
+    return ret;
+  }
+
   QuizState({
     required this.title,
     required this.questions,

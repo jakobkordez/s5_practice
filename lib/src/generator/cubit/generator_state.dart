@@ -36,8 +36,8 @@ class GeneratorTest extends GeneratorState {
   final Duration timerDuration;
 
   const GeneratorTest({
-    int questionCount = 60,
-    this.timerDuration = const Duration(minutes: 90),
+    questionCount = kDebugMode ? 6 : 60,
+    this.timerDuration = const Duration(minutes: kDebugMode ? 9 : 90),
   }) : super(questionCount);
 
   GeneratorTest copyWith({

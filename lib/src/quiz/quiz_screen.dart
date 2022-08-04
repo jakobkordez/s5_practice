@@ -150,17 +150,82 @@ class _TimerCountdown extends StatelessWidget {
 
 class _StartPage extends StatelessWidget {
   @override
-  Widget build(BuildContext context) => SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
-        child: SizedCard(
-          child: Center(
-            child: ElevatedButton(
-              child: const Text('Začni preizkus'),
-              onPressed: () => context.read<QuizCubit>().start(),
+  Widget build(BuildContext context) {
+    final tTheme = Theme.of(context).textTheme;
+
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(20),
+      child: SizedCard(
+        child: Column(
+          children: [
+            Text(
+              'Preizkus uspeha',
+              style: tTheme.headlineSmall,
             ),
-          ),
+            const SizedBox(height: 15),
+            LayoutBuilder(
+              builder: (context, constraints) {
+                final halfW =
+                    BoxConstraints(minWidth: constraints.maxWidth / 2);
+
+                return BlocBuilder<QuizCubit, QuizState>(
+                  builder: (context, state) {
+                    return Wrap(
+                      alignment: WrapAlignment.center,
+                      children: [
+                        ConstrainedBox(
+                          constraints: halfW,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                '${state.count}',
+                                style: tTheme.headlineMedium,
+                              ),
+                              Text(
+                                'vprašanj',
+                                style: tTheme.titleMedium,
+                              ),
+                            ],
+                          ),
+                        ),
+                        ConstrainedBox(
+                          constraints: halfW,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                '${state.duration!.inMinutes}',
+                                style: tTheme.headlineMedium,
+                              ),
+                              Text(
+                                'minut',
+                                style: tTheme.titleMedium,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+            ),
+            const SizedBox(height: 20),
+            const Text('Ob pritisku na spodnji gumb, se preizkus začne. '
+                'Ob izteku časa, se samodejno zaključi.'),
+            const SizedBox(height: 10),
+            Center(
+              child: ElevatedButton(
+                child: const Text('Začni preizkus'),
+                onPressed: () => context.read<QuizCubit>().start(),
+              ),
+            ),
+          ],
         ),
-      );
+      ),
+    );
+  }
 }
 
 class _ResultPage extends StatelessWidget {
@@ -173,9 +238,9 @@ class _ResultPage extends StatelessWidget {
             children: [
               Text(
                 'Rezultat',
-                style: Theme.of(context).textTheme.titleLarge,
+                style: Theme.of(context).textTheme.headlineSmall,
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 10),
               BlocBuilder<QuizCubit, QuizState>(
                 builder: (context, state) {
                   final correct = state.score!;
@@ -199,6 +264,44 @@ class _ResultPage extends StatelessWidget {
                   onPressed: () => Navigator.pop(context),
                 ),
               ),
+              BlocBuilder<QuizCubit, QuizState>(
+                builder: (context, state) {
+                  final wrongs = state.incorrectAnswers!;
+
+                  if (wrongs.isEmpty) {
+                    return const SizedBox.shrink();
+                  }
+
+                  return ListView.separated(
+                    padding: const EdgeInsets.only(top: 15),
+                    shrinkWrap: true,
+                    itemCount: wrongs.length + 2,
+                    separatorBuilder: (_, __) => const SizedBox(height: 20),
+                    itemBuilder: (context, index) {
+                      if (index == 0) {
+                        return Divider(
+                          color: Colors.grey.shade200,
+                          thickness: 2,
+                        );
+                      }
+
+                      if (index == 1) {
+                        return Center(
+                          child: Text(
+                            'Napačni odgovori',
+                            style: Theme.of(context).textTheme.headlineSmall,
+                          ),
+                        );
+                      }
+
+                      return QuestionCard(
+                        qIndex: wrongs[index - 2],
+                        forResultScreen: true,
+                      );
+                    },
+                  );
+                },
+              )
             ],
           ),
         ),
