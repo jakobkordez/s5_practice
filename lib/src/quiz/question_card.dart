@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_math_fork/flutter_math.dart';
 
 import '../components/sized_card.dart';
 import 'cubit/quiz_cubit.dart';
@@ -215,8 +216,14 @@ class AnswerTile extends StatelessWidget {
     return ListTile(
       leading: _icon(),
       onTap: !isRevealed && isEnabled ? onClick : null,
-      title: Text(text),
-      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 2),
+      title: text.startsWith(r'$')
+          ? Math.tex(
+              text.substring(1, text.length - 1),
+              textScaleFactor: 1.2,
+            )
+          : Text(text),
+      minVerticalPadding: 10,
+      contentPadding: const EdgeInsets.symmetric(horizontal: 16),
       iconColor: isRevealed
           ? (isCorrect ? Colors.green.shade900 : Colors.red.shade900)
           : null,
