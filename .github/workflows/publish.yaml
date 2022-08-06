@@ -14,4 +14,4 @@ jobs:
       - uses: bluefireteam/flutter-gh-pages@v7
         with:
           webRenderer: canvaskit
-          baseHref: /s5_practice/
+          # baseHref: /s5_practice/
