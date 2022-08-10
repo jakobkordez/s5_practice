@@ -74,6 +74,7 @@ class QuestionCard extends StatelessWidget {
                         final revealed = state.revealed![qIndex] ?? {};
 
                         return AnswerTile(
+                          index: aIndex,
                           text: question.answers![aIndex],
                           isCorrect: aIndex == question.correct,
                           isRevealed: revealed.contains(aIndex),
@@ -85,6 +86,7 @@ class QuestionCard extends StatelessWidget {
 
                       if (forResultScreen) {
                         return AnswerTile(
+                          index: aIndex,
                           text: question.answers![aIndex],
                           isCorrect: aIndex == question.correct,
                           isRevealed: true,
@@ -94,6 +96,7 @@ class QuestionCard extends StatelessWidget {
                       }
 
                       return AnswerTile(
+                        index: aIndex,
                         text: question.answers![aIndex],
                         isCorrect: aIndex == question.correct,
                         isRevealed: false,
@@ -187,6 +190,7 @@ class FramedWidget extends StatelessWidget {
 }
 
 class AnswerTile extends StatelessWidget {
+  final int index;
   final String text;
   final bool isCorrect;
   final void Function()? onClick;
@@ -196,6 +200,7 @@ class AnswerTile extends StatelessWidget {
 
   const AnswerTile({
     Key? key,
+    required this.index,
     required this.text,
     required this.isCorrect,
     this.onClick,
@@ -214,7 +219,7 @@ class AnswerTile extends StatelessWidget {
         : null;
 
     return ListTile(
-      leading: _icon(),
+      leading: _leading(context),
       onTap: !isRevealed && isEnabled ? onClick : null,
       title: text.startsWith(r'$')
           ? Math.tex(
@@ -235,11 +240,21 @@ class AnswerTile extends StatelessWidget {
     );
   }
 
-  Icon? _icon() {
+  Widget? _leading(BuildContext context) {
     if (isSelected == true) return const Icon(Icons.radio_button_checked);
     if (isSelected == false) return const Icon(Icons.radio_button_off);
 
-    if (!isRevealed) return const Icon(Icons.question_mark);
+    if (!isRevealed) {
+      return SizedBox(
+        width: 24,
+        child: Text(
+          String.fromCharCode(65 + index),
+          style:
+              Theme.of(context).textTheme.displaySmall!.copyWith(fontSize: 20),
+          textAlign: TextAlign.center,
+        ),
+      );
+    }
     if (isCorrect) return const Icon(Icons.check);
     return const Icon(Icons.clear);
   }

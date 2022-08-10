@@ -5456,9 +5456,9 @@
       "question": "Katera od spodnjih enačb opisuje Ohmov zakon?",
       "image": null,
       "answers": [
-        "R = U * I",
-        "I = R * U",
-        "U = R * I"
+        "$R = U \\sdot I$",
+        "$I = R \\sdot U$",
+        "$U = R \\sdot I$"
       ],
       "correct": 2
     },
@@ -10065,9 +10065,9 @@
       "question": "Vod na sliki ima impedanco Z. S kakšnim bremenom R dobimo porazdelitev napetosti vzdolž voda, kot jo kaže slika?",
       "image": "image-115.png",
       "answers": [
-        "R = Z",
-        "R = 0",
-        "R = ∞"
+        "$R = Z$",
+        "$R = 0$",
+        "$R = \\infin$"
       ],
       "correct": 0
     },
@@ -10076,9 +10076,9 @@
       "question": "Vod na sliki ima impedanco Z. S kakšnim bremenom R dobimo porazdelitev napetosti vzdolž voda, kot jo kaže slika?",
       "image": "image-116.png",
       "answers": [
-        "R = Z",
-        "R = 0",
-        "R = ∞"
+        "$R = Z$",
+        "$R = 0$",
+        "$R = \\infin$"
       ],
       "correct": 1
     },
@@ -10087,9 +10087,9 @@
       "question": "Vod na sliki ima impedanco Z. S kakšnim bremenom R dobimo porazdelitev napetosti vzdolž voda, kot jo kaže slika?",
       "image": "image-117.png",
       "answers": [
-        "R = Z",
-        "R = 0",
-        "R = ∞"
+        "$R = Z$",
+        "$R = 0$",
+        "$R = \\infin$"
       ],
       "correct": 2
     },
@@ -10098,9 +10098,9 @@
       "question": "Vod na sliki ima impedanco Z. S kakšnim bremenom R dobimo porazdelitev napetosti vzdolž voda, kot jo kaže slika?",
       "image": "image-118.png",
       "answers": [
-        "R = Z",
-        "R < Z",
-        "R > Z"
+        "$R = Z$",
+        "$R < Z$",
+        "$R > Z$"
       ],
       "correct": 2
     },
@@ -10109,9 +10109,9 @@
       "question": "Vod na sliki ima impedanco Z. S kakšnim bremenom R dobimo porazdelitev napetosti vzdolž voda, kot jo kaže slika?",
       "image": "image-119.png",
       "answers": [
-        "R = 0",
-        "R < Z",
-        "R > Z"
+        "$R = 0$",
+        "$R < Z$",
+        "$R > Z$"
       ],
       "correct": 1
     },

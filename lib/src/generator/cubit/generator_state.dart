@@ -6,7 +6,6 @@ enum GeneratorType {
 }
 
 class GeneratorState extends Equatable {
-  final GeneratorType type;
   final int practiceQuestionCount;
   final int testQuestionCount;
   final bool singleCategory;
@@ -14,7 +13,6 @@ class GeneratorState extends Equatable {
   final Duration timerDuration;
 
   const GeneratorState({
-    this.type = GeneratorType.practice,
     this.practiceQuestionCount = 5,
     this.testQuestionCount = kDebugMode ? 6 : 60,
     this.singleCategory = false,
@@ -33,7 +31,6 @@ class GeneratorState extends Equatable {
     final newSingleCategory = singleCategory ?? this.singleCategory;
 
     return GeneratorState(
-      type: type ?? this.type,
       practiceQuestionCount:
           practiceQuestionCount ?? this.practiceQuestionCount,
       testQuestionCount: testQuestionCount ?? this.testQuestionCount,
@@ -45,7 +42,6 @@ class GeneratorState extends Equatable {
 
   @override
   List<Object?> get props => [
-        type,
         practiceQuestionCount,
         testQuestionCount,
         singleCategory,

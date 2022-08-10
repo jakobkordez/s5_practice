@@ -29,6 +29,11 @@ class App extends StatelessWidget {
 
             return null;
           },
+          theme: ThemeData(
+            inputDecorationTheme: const InputDecorationTheme(
+              border: OutlineInputBorder(),
+            ),
+          ),
         ),
       );
 }

@@ -28,7 +28,7 @@ class PracticeTab extends StatelessWidget {
               final mxW = constraints.maxWidth - 80;
               return Wrap(
                 alignment: WrapAlignment.center,
-                spacing: 20,
+                spacing: 10,
                 crossAxisAlignment: WrapCrossAlignment.end,
                 children: [
                   Container(
@@ -77,8 +77,6 @@ class _CategoryInput extends StatelessWidget {
       BlocBuilder<QuestionsCubit, QuestionsState>(
         builder: (context, qstate) =>
             BlocBuilder<GeneratorCubit, GeneratorState>(
-          buildWhen: (previous, current) =>
-              current.type == GeneratorType.practice,
           builder: (context, gstate) {
             qstate as QuestionsLoaded;
 
@@ -92,6 +90,7 @@ class _CategoryInput extends StatelessWidget {
                 suffixIcon: gstate.category == null
                     ? null
                     : IconButton(
+                        splashRadius: 18,
                         icon: const Icon(Icons.clear),
                         onPressed: () => context
                             .read<GeneratorCubit>()
@@ -178,7 +177,7 @@ class TestTab extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Expanded(child: _TestQuestionNumberInput()),
-              const SizedBox(width: 20),
+              const SizedBox(width: 10),
               Expanded(child: _DurationInput()),
             ],
           ),
