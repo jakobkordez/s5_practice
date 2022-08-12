@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:s5_practice/src/components/sized_card.dart';
-import 'package:s5_practice/src/quiz/cubit/quiz_cubit.dart';
 import 'package:timer_builder/timer_builder.dart';
 
+import '../components/sized_card.dart';
+import 'cubit/quiz_cubit.dart';
 import 'question_card.dart';
 
 class QuizScreen extends StatefulWidget {

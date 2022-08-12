@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:s5_practice/src/cubit/questions_cubit.dart';
-import 'package:s5_practice/src/generator/generator_form.dart';
 
 import 'components/sized_card.dart';
+import 'cubit/questions_cubit.dart';
 import 'generator/cubit/generator_cubit.dart';
+import 'generator/practice_tab.dart';
+import 'generator/test_tab.dart';
 
 class HomeScreen extends StatelessWidget {
   static const _tabs = [

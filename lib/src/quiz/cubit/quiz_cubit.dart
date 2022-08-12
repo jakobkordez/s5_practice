@@ -2,7 +2,8 @@ import 'dart:math';
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:s5_practice/src/models/question.dart';
+
+import '../../models/question.dart';
 
 part 'quiz_state.dart';
 
