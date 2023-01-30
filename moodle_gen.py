@@ -2,14 +2,15 @@ import json
 import base64
 
 def gen_vprasanje(ime, vprasanje, odgovori, pravilen , slika = None):
+    k = doloci_kategorijo(ime)
     c = f"""<question type="category">
     <category>
-      <text>$course$/top/{doloci_kategorijo(ime)}</text>
+      <text>$course$/top/{k}</text>
     </category>
     </question>
     """
     
-    if(slika != None):
+    if(slika != None and k != "Risanje"):
         with open(f"assets/images/{slika}", "rb") as image_file:
             vprasanje += f"<br><img src=\"data:image/png;base64, {str(base64.b64encode(image_file.read()))[2:-1]}\"/>"
 
