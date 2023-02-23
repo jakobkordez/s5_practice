@@ -1,0 +1,94 @@
+.exam {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  font-size: large;
+
+  & > * {
+    margin-bottom: 2rem;
+  }
+}
+
+.title {
+  display: flex;
+
+  h1 {
+    font-size: larger;
+    font-weight: normal;
+    margin: auto 0 auto 1rem;
+  }
+}
+
+.podatki {
+  & > div {
+    display: flex;
+    line-height: 2rem;
+    margin: 0.5rem 0;
+
+    & > span:last-child {
+      flex-grow: 1;
+      display: inline-block;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        border-bottom: 1px solid black;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.izjava {
+  & > *:last-child {
+    display: flex;
+
+    & > * {
+      &:last-child {
+        margin-left: auto;
+      }
+
+      & > span:last-child {
+        display: inline-block;
+
+        &::after {
+          content: "";
+          bottom: 0;
+          border-bottom: 1px solid black;
+          height: 2rem;
+          width: 100px;
+        }
+      }
+    }
+  }
+}
+
+.komisija {
+  border: 1px solid;
+
+  & > div {
+    &:not(:first-child) {
+      border-top: 1px solid;
+      font-size: small;
+    }
+
+    & > * {
+      margin: 0.5rem;
+    }
+  }
+}
+
+.body {
+  margin-top: 4rem;
+
+  & > div {
+    margin-top: 1.5rem;
+
+    ol {
+      list-style-type: upper-alpha;
+    }
+  }
+}
