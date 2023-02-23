@@ -2,6 +2,7 @@
 
 import { Question } from "@/interfaces/question";
 import styles from "@/styles/Exam.module.scss";
+import Image from "next/image";
 
 const questions = new Array<Question>(60).fill({
   id: 0,
@@ -41,7 +42,12 @@ function ExamHeader() {
   return (
     <div className={styles.header}>
       <div className={styles.title}>
-        <img src="/logo/zrs_logo_black.svg" height={100} width={100} />
+        <Image
+          src="/logo/zrs_logo_black.svg"
+          alt="ZRS Logo"
+          height={100}
+          width={100}
+        />
         <h1>
           IZPITNA POLA ZA AMATERSKE OPERATERJE <strong>{klasa}</strong> RAZREDA
         </h1>
