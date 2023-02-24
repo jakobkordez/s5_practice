@@ -26,8 +26,7 @@ export const getQuestions = async (): Promise<Question[]> => {
       image: question.image,
       answers: question.answers,
       correct: question.correct,
-      // TODO
-      category: 0,
+      category: question.category,
     }))
     .filter((question: Question) => question.correct != null);
 };
