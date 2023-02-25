@@ -19,16 +19,14 @@ const openFile = async (): Promise<QuestionFile> => {
 export const getQuestions = async (): Promise<Question[]> => {
   const file = await openFile();
 
-  return file.questions
-    .map((question: any) => ({
-      id: question.id,
-      question: question.question,
-      image: question.image,
-      answers: question.answers,
-      correct: question.correct,
-      category: question.category,
-    }))
-    .filter((question: Question) => question.correct != null);
+  return file.questions.map((question: any) => ({
+    id: question.id,
+    question: question.question,
+    image: question.image,
+    answers: question.answers,
+    correct: question.correct,
+    category: question.category,
+  }));
 };
 
 export const getCategories = async (): Promise<Category[]> => {
