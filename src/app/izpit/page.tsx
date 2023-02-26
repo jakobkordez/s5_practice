@@ -4,7 +4,7 @@ import { create } from "zustand";
 import Exam from "@/components/exam";
 
 import { getQuestions } from "@/util/question-util";
-import { PDFViewer, Document, Page, View, Text } from "@react-pdf/renderer";
+import { PDFViewer, Document } from "@react-pdf/renderer";
 
 interface IzpitState {
   doc: any | null;
@@ -39,15 +39,17 @@ export default function Izpit() {
 }
 
 async function generate() {
-  const questions = await getQuestions();
+  let questions = await getQuestions();
   // Shuffle questions
   questions.sort(() => Math.random() - 0.5);
+  questions = questions.slice(0, 60);
+  questions.sort((a, b) => a.id - b.id);
 
   const exam = Exam({
     op_class: "A",
     pass_threshold: 36,
     time: 90,
-    questions: questions.slice(0, 60),
+    questions,
   });
 
   const doc = <Document title="Izpitna pola">{exam}</Document>;
