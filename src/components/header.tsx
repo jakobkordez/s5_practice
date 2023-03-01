@@ -7,7 +7,8 @@ import { usePathname } from "next/navigation";
 const nav = [
   { href: "/", label: "Domov" },
   { href: "/priprave", label: "Priprave" },
-  { href: "/izpit", label: "Izpit" },
+  { href: "/izpit-sim", label: "Simulator izpita" },
+  // { href: "/izpit-gen", label: "Generator izpitnih pol" },
 ];
 
 export default function Header() {
@@ -20,8 +21,8 @@ export default function Header() {
           <div className="is-flex is-align-items-center">
             <figure className="image is-96x96">
               <Image
-                src="/logo/zrs_logo_white.svg"
-                alt="ZRS Logo"
+                src="/logo/S5_practice_front.png"
+                alt="Logo"
                 width={100}
                 height={100}
               />

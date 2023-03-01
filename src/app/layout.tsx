@@ -1,15 +1,34 @@
 import { AnalyticsWrapper } from "@/components/analytics";
 import Header from "@/components/header";
+import { Metadata } from "next";
 import "@/styles/globals.scss";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
     default: "Radioamaterski izpit",
     template: "%s | Radioamaterski izpit",
   },
-  description: "Priprave na radioamaterski izpit",
+  description: "Priprava na radioamaterski izpit",
   icons: {
-    shortcut: "/logo/zrs_logo_white.svg",
+    icon: "/logo/S5_practice.png",
+    shortcut: "/logo/S5_practice.png",
+  },
+  creator: "Jakob Kordež [S52KJ]",
+  themeColor: "#2196f3",
+  openGraph: {
+    title: "Radioamaterski izpit",
+    description: "Priprava na radioamaterski izpit",
+    url: "http://izpit.jkob.cc/",
+    locale: "sl_SL",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
   },
 };
 

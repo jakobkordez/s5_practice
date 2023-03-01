@@ -4,10 +4,8 @@ import { Question } from "@/interfaces/question";
 import { getCategories, getQuestions } from "@/util/question-util";
 import { useEffect } from "react";
 import { create } from "zustand";
-import styles from "@/styles/Quiz.module.scss";
 import { Category } from "@/interfaces/category";
-import { InlineMath } from "react-katex";
-import Image from "next/image";
+import QuestionCard from "@/components/question_card";
 
 const qPerPage = 5;
 
@@ -59,7 +57,7 @@ async function load(selectedCategory: string) {
   });
 }
 
-export default function Quiz() {
+export default function VajaQuiz() {
   const [
     isLoading,
     categories,
@@ -120,64 +118,21 @@ export default function Quiz() {
 
       <div>
         {questions.slice(0, displayed).map((question, qi) => (
-          <div key={qi} className="box">
-            <p>{question.id}</p>
-
-            <div className="title is-4">
-              <h3>{question.question}</h3>
-            </div>
-
-            {question.image && (
-              <figure className="image">
-                <Image
-                  className={styles.image}
-                  src={`/question_images/${question.image}`}
-                  alt={question.image}
-                  height={500}
-                  width={500}
-                />
-              </figure>
-            )}
-
-            <div className="buttons mt-5">
-              {question.answers.map((answer, i) => {
-                const revealed = answers[qi].includes(i);
-                const isCorrect = question.correct === i;
-                const isDone = answers[qi].includes(question.correct!);
-                const onClick = () => {
-                  if (answers[qi].includes(i)) return;
-
-                  const answersNew = Array.from(answers);
-                  answersNew[qi] = Array.from(answers[qi]);
-                  answersNew[qi].push(i);
-                  useStore.setState({ answers: answersNew });
-                };
-
-                return (
-                  <button
-                    key={i}
-                    className={`button is-fullwidth ${styles.answer} ${
-                      revealed
-                        ? isCorrect
-                          ? "is-success is-light is-static"
-                          : "is-danger is-light is-static"
-                        : isDone && "is-static"
-                    }`}
-                    onClick={onClick}
-                  >
-                    {String.fromCharCode(65 + i) + ". "}
-                    {answer.startsWith("$") ? (
-                      <span className="ml-2">
-                        <InlineMath math={answer.slice(1, answer.length - 1)} />
-                      </span>
-                    ) : (
-                      answer
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
+          <QuestionCard
+            key={qi}
+            question={question}
+            reveal={true}
+            selected={answers[qi]}
+            onClick={
+              answers[qi].includes(question.correct)
+                ? undefined
+                : (i) => {
+                    const newAnswers = [...answers];
+                    newAnswers[qi] = [...newAnswers[qi], i];
+                    useStore.setState({ answers: newAnswers });
+                  }
+            }
+          />
         ))}
       </div>
 

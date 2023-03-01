@@ -19,7 +19,7 @@
     "bulma": "^0.9.4",
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
-    "next": "13.1.7-canary.21",
+    "next": "^13.2.3",
     "node-sass": "^8.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",

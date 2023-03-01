@@ -1,9 +1,13 @@
 import Link from "next/link";
 
-const uporabne_povezave = [
+const povezave = [
   {
-    label: "Priročnik za radioamaterje",
+    label: "Priročnik za radioamaterje (3. izdaja)",
     href: "http://www.homemade.net/ra/prirocnik_novi.pdf",
+  },
+  {
+    label: "Priročnik za radioamaterje (2. izdaja)",
+    href: "https://www.radioamater.si/wp-content/uploads/2016/01/prirocnik-za-radioamaterje_2izd.pdf",
   },
   {
     label: "Etika in operaterski postopki",
@@ -14,12 +18,12 @@ const uporabne_povezave = [
     href: "http://www.hamradio.si/index.php?option=com_content&view=article&id=677&Itemid=118",
   },
   {
-    label: "Seznam zasedenih klicnih znakov",
-    href: "https://www.akos-rs.si/registri/seznam-registrov/radioamaterji",
-  },
-  {
     label: "Kriteriji za izpit",
     href: "https://zrs.si/files/kriteriji.pdf",
+  },
+  {
+    label: "Seznam zasedenih klicnih znakov",
+    href: "https://www.akos-rs.si/registri/seznam-registrov/radioamaterji",
   },
 ];
 
@@ -28,25 +32,20 @@ export default function Home() {
     <div className="section content">
       <h1>Pozdravljen!</h1>
       <p>
-        Ta spletna stran je namenjena pripravi na radioamaterski izpit. Na njej
-        najdete vse potrebne informacije, ki jih potrebujete za pripravo na
-        izpit. Vsebina je zasnovana tako, da je lahko dostopna tudi za
-        neizkušene radioamaterje.
+        Na podstrani <Link href="/priprave">Priprave</Link> so vaje za pripravo
+        na izpit. Vprašanja so razdeljena po kategorijah, pravilni odgovori pa
+        se razkrivajo sproti.
       </p>
 
-      <h2>Kaj je radioamaterski izpit?</h2>
       <p>
-        Radioamaterski izpit je izpit, ki ga mora opraviti vsak, ki želi postati
-        radioamater. Izpit je sestavljen iz dveh delov: teoretičnega in
-        praktičnega dela. Teoretični del izpita je sestavljen iz 50 vprašanj, od
-        katerih je potrebno odgovoriti na 40 pravilno. Praktični del izpita pa
-        je sestavljen iz 3 delov: izdelava antene, izdelava sprejemnika in
-        izdelava oddajnika. Vse tri naloge mora opraviti v 30 minutah.
+        Na podstrani <Link href="/izpit-sim">Simulator izpita</Link> lahko
+        preizkusiš svoje znanje. Vprašanja so generirana kot bi bila na
+        resničnem izpitu. Pravilni odgovori se razkrijejo šele po koncu.
       </p>
 
       <h2>Uporabne povezave</h2>
       <ul className="list-inside list-disc">
-        {uporabne_povezave.map(({ label, href }) => (
+        {povezave.map(({ label, href }) => (
           <li key={label}>
             <Link href={href}>{label}</Link>
           </li>

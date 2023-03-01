@@ -1,10 +1,9 @@
 "use client";
 
-import { create } from "zustand";
 import Exam from "@/components/exam";
-
 import { getQuestions } from "@/util/question-util";
-import { PDFViewer, Document } from "@react-pdf/renderer";
+import { Document, PDFViewer } from "@react-pdf/renderer";
+import { create } from "zustand";
 
 interface IzpitState {
   doc: any | null;
@@ -14,11 +13,11 @@ const useS = create<IzpitState>((set) => ({
   doc: null,
 }));
 
-export default function Izpit() {
+export default function Generator() {
   const doc = useS((s) => s.doc);
 
   return (
-    <div className="section">
+    <>
       <button className="button is-primary" onClick={generate}>
         Ustvari PDF
       </button>
@@ -34,7 +33,7 @@ export default function Izpit() {
           {doc}
         </PDFViewer>
       )}
-    </div>
+    </>
   );
 }
 

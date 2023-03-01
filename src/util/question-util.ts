@@ -38,3 +38,17 @@ export const getCategories = async (): Promise<Category[]> => {
     questions: category.questions,
   }));
 };
+
+export const getExamQuestions = async (
+  count: number = 60
+): Promise<Question[]> => {
+  let questions = await getQuestions();
+
+  // TODO Correct
+  // Shuffle questions
+  questions.sort(() => Math.random() - 0.5);
+  questions = questions.slice(0, count);
+  questions.sort((a, b) => a.id - b.id);
+
+  return questions;
+};
