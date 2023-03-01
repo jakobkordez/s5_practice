@@ -8,15 +8,15 @@ Uporabljene tehnologije:
 
 ## TODO
 
-- [ ] Domača stran
-  - [ ] Uvod
-  - [ ] Uporabne povezave
+- [x] Domača stran
+  - [x] Uvod
+  - [x] Uporabne povezave
 - [ ] Priprave
-  - [ ] Vaje po kategorijah
+  - [x] Vaje po kategorijah
   - [ ] Izpis vseh vprašanj
-  - [ ] Simulacija izpita
+  - [x] Simulacija izpita
   - [ ] Persistenca?
-  - [ ] Katex
+  - [x] Katex
 - [ ] Generator pol
   - [ ] A / N razred
   - [ ] Pravilno generiranje
