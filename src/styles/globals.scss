@@ -1,0 +1,15 @@
+$primary: #2196f3;
+$container-max-width: 1200px;
+$section-padding: 2rem 1.5rem;
+$body-font-size: 1.1em;
+
+@import "bulma/sass/utilities/_all.sass";
+@import "bulma/sass/base/_all.sass";
+@import "bulma/sass/elements/_all.sass";
+@import "bulma/sass/form/_all.sass";
+@import "bulma/sass/components/_all.sass";
+@import "bulma/sass/layout/_all.sass";
+@import "bulma/sass/grid/_all.sass";
+@import "bulma/sass/helpers/_all.sass";
+
+@import "katex/dist/katex.min.css";
