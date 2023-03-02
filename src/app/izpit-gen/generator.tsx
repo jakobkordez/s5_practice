@@ -1,7 +1,7 @@
 "use client";
 
 import Exam from "@/components/exam";
-import { getQuestions } from "@/util/question-util";
+import { getExamQuestions } from "@/util/question-util";
 import { Document, PDFViewer } from "@react-pdf/renderer";
 import { create } from "zustand";
 
@@ -38,11 +38,7 @@ export default function Generator() {
 }
 
 async function generate() {
-  let questions = await getQuestions();
-  // Shuffle questions
-  questions.sort(() => Math.random() - 0.5);
-  questions = questions.slice(0, 60);
-  questions.sort((a, b) => a.id - b.id);
+  let questions = await getExamQuestions();
 
   const exam = Exam({
     op_class: "A",

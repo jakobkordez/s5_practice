@@ -46,9 +46,19 @@ export const getExamQuestions = async (
 
   // TODO Correct
   // Shuffle questions
-  questions.sort(() => Math.random() - 0.5);
+  shuffle(questions);
   questions = questions.slice(0, count);
   questions.sort((a, b) => a.id - b.id);
 
   return questions;
+};
+
+// Fisher-Yates Shuffle
+const shuffle = (array: any[]) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
 };
