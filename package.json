@@ -10,7 +10,6 @@
     "format": "prettier --write ./src"
   },
   "dependencies": {
-    "@next/font": "13.1.6",
     "@react-pdf/renderer": "^3.1.6",
     "@types/node": "18.14.0",
     "@types/react": "18.0.28",

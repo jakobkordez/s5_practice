@@ -123,16 +123,17 @@ export default function IzpitQuiz() {
 
           <h1 className="is-size-3 my-3 has-text-centered">Napačni odgovori</h1>
 
-          {questions
-            ?.filter((q, qi) => q.correct !== answers![qi][0])
-            .map((question, qi) => (
-              <QuestionCard
-                key={qi}
-                question={question}
-                reveal={true}
-                selected={[answers![qi][0], question.correct]}
-              />
-            ))}
+          {questions?.map(
+            (question, qi) =>
+              question.correct !== answers![qi][0] && (
+                <QuestionCard
+                  key={qi}
+                  question={question}
+                  reveal={true}
+                  selected={[answers![qi][0], question.correct]}
+                />
+              )
+          )}
         </>
       )}
     </>
