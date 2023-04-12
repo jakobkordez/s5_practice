@@ -34,7 +34,7 @@ const useStore = create<IzpitQuizStore>((set) => ({
   load: async () => {
     set({ state: QuizState.Loading });
 
-    const questions = await getExamQuestions();
+    const questions = await getExamQuestions(new Date().valueOf());
 
     set({
       state: QuizState.InProgress,
