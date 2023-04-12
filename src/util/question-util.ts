@@ -1,5 +1,6 @@
 import { Category } from "@/interfaces/category";
 import { Question } from "@/interfaces/question";
+import Random from "./random";
 
 interface QuestionFile {
   questions: Question[];
@@ -40,23 +41,31 @@ export const getCategories = async (): Promise<Category[]> => {
 };
 
 export const getExamQuestions = async (
+  seed: number,
   count: number = 60
 ): Promise<Question[]> => {
+  const rnd = new Random(seed);
+
   let questions = await getQuestions();
 
   // TODO Correct
   // Shuffle questions
-  shuffle(questions);
+  shuffle(questions, rnd);
   questions = questions.slice(0, count);
   questions.sort((a, b) => a.id - b.id);
 
   return questions;
 };
 
-// Fisher-Yates Shuffle
-const shuffle = (array: any[]) => {
+/**
+ * In-place Fisher-Yates shuffle
+ *
+ * @param array Array of items to shuffle
+ * @param rnd Random number generator
+ */
+const shuffle = (array: any[], rnd: Random) => {
   for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
+    const j = rnd.nextInt() % (i + 1);
     const temp = array[i];
     array[i] = array[j];
     array[j] = temp;

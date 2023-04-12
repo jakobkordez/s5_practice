@@ -26,7 +26,7 @@ export default function Generator() {
         <PDFViewer
           style={{
             width: "100%",
-            height: "100vh",
+            height: "50rem",
             marginTop: "1rem",
           }}
         >
@@ -38,7 +38,7 @@ export default function Generator() {
 }
 
 async function generate() {
-  let questions = await getExamQuestions();
+  let questions = await getExamQuestions(new Date().valueOf());
 
   const exam = Exam({
     op_class: "A",

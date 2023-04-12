@@ -13,3 +13,9 @@ $body-font-size: 1.1em;
 @import "bulma/sass/helpers/_all.sass";
 
 @import "katex/dist/katex.min.css";
+
+.navbar {
+  @include until(1024px) {
+    min-height: 0;
+  }
+}

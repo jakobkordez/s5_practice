@@ -9046,7 +9046,7 @@
       "id": 885,
       "question": "Vod na sliki ima impedanco Z. S kakšnim bremenom R dobimo porazdelitev napetosti vzdolž voda, kot jo kaže slika?",
       "image": "image-115.png",
-      "answers": ["$R = Z$", "$R = 0$", "$R = \\infin$"],
+      "answers": ["R = Z", "R = 0", "R = ∞"],
       "correct": 0,
       "category": 32
     },
@@ -9054,7 +9054,7 @@
       "id": 886,
       "question": "Vod na sliki ima impedanco Z. S kakšnim bremenom R dobimo porazdelitev napetosti vzdolž voda, kot jo kaže slika?",
       "image": "image-116.png",
-      "answers": ["$R = Z$", "$R = 0$", "$R = \\infin$"],
+      "answers": ["R = Z", "R = 0", "R = ∞"],
       "correct": 1,
       "category": 32
     },
@@ -9062,7 +9062,7 @@
       "id": 887,
       "question": "Vod na sliki ima impedanco Z. S kakšnim bremenom R dobimo porazdelitev napetosti vzdolž voda, kot jo kaže slika?",
       "image": "image-117.png",
-      "answers": ["$R = Z$", "$R = 0$", "$R = \\infin$"],
+      "answers": ["R = Z", "R = 0", "R = ∞"],
       "correct": 2,
       "category": 32
     },
@@ -9070,7 +9070,7 @@
       "id": 888,
       "question": "Vod na sliki ima impedanco Z. S kakšnim bremenom R dobimo porazdelitev napetosti vzdolž voda, kot jo kaže slika?",
       "image": "image-118.png",
-      "answers": ["$R = Z$", "$R < Z$", "$R > Z$"],
+      "answers": ["R = Z", "R < Z", "R > Z"],
       "correct": 2,
       "category": 32
     },
@@ -9078,7 +9078,7 @@
       "id": 889,
       "question": "Vod na sliki ima impedanco Z. S kakšnim bremenom R dobimo porazdelitev napetosti vzdolž voda, kot jo kaže slika?",
       "image": "image-119.png",
-      "answers": ["$R = 0$", "$R < Z$", "$R > Z$"],
+      "answers": ["R = 0", "R < Z", "R > Z"],
       "correct": 1,
       "category": 32
     },

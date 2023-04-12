@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const nav = [
   { href: "/", label: "Domov" },
@@ -12,6 +13,8 @@ const nav = [
 ];
 
 export default function Header() {
+  const [navbar, setNavbar] = useState<boolean>(false);
+
   const pathname = usePathname();
 
   return (
@@ -31,6 +34,16 @@ export default function Header() {
               <h1 className="title is-size-3">Radioamaterski izpit</h1>
               <h6 className="subtitle">Pripravil: Jakob [S52KJ]</h6>
             </div>
+            <a
+              role="button"
+              className={`navbar-burger ${navbar ? "is-active" : ""}`}
+              aria-label="menu"
+              onClick={() => setNavbar(!navbar)}
+            >
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
           </div>
         </div>
       </div>
@@ -38,21 +51,20 @@ export default function Header() {
       <div className="hero-foot">
         <div className="container">
           <nav className="navbar">
-            <div className="navbar-menu is-active">
+            <div className={`navbar-menu ${navbar ? "is-active" : ""}`}>
               <div className="navbar-start">
-                {nav.map(({ href, label }) => {
-                  return (
-                    <Link
-                      key={href}
-                      className={`navbar-item ${
-                        href == pathname ? "is-active" : ""
-                      }`}
-                      href={href}
-                    >
-                      {label}
-                    </Link>
-                  );
-                })}
+                {nav.map(({ href, label }) => (
+                  <Link
+                    key={href}
+                    className={`navbar-item ${
+                      href == pathname ? "is-active" : ""
+                    }`}
+                    href={href}
+                    onClick={() => setNavbar(false)}
+                  >
+                    {label}
+                  </Link>
+                ))}
               </div>
               <div className="navbar-end">
                 <Link

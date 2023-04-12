@@ -1,0 +1,23 @@
+.input {
+  margin-left: 0.5rem;
+  border-bottom: 1px solid;
+  flex: 1;
+  height: 2rem;
+}
+
+.akey {
+  border: 1px solid;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 3px 8px;
+    border: 1px solid;
+    text-align: center;
+  }
+
+  th {
+    background-color: #eee;
+    border-bottom: 2px solid;
+  }
+}
