@@ -10,11 +10,12 @@ export const metadata: Metadata = {
   },
   description: "Priprava na radioamaterski izpit",
   icons: {
-    icon: "/logo/S5_practice.png",
-    shortcut: "/logo/S5_practice.png",
+    icon: "/logo/icon_512.png",
+    shortcut: "/logo/icon_512.png",
   },
   creator: "Jakob Kordež [S52KJ]",
   themeColor: "#2196f3",
+  manifest: "/manifest.json",
   openGraph: {
     title: "Radioamaterski izpit",
     description: "Priprava na radioamaterski izpit",

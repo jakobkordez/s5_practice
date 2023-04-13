@@ -24,10 +24,11 @@ export default function Header() {
           <div className="is-flex is-align-items-center">
             <figure className="image is-96x96">
               <Image
-                src="/logo/S5_practice_front.png"
+                src="/logo/logo_192.png"
                 alt="Logo"
-                width={100}
-                height={100}
+                height={96}
+                width={96}
+                style={{ height: "100%", width: "auto", margin: "auto" }}
               />
             </figure>
             <div className="ml-4">
