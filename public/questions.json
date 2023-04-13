@@ -5639,9 +5639,9 @@
       "question": "Po kateri formuli izračunamo resonančno frekvenco nihajnega kroga (L je induktivnost tuljave, C pa kapacitivnost kondenzatorja)?",
       "image": null,
       "answers": [
-        "$f_{res} = \\frac{1}{2\\pi\\sqrt{LC}}$",
+        "$f_{res} = \\dfrac{1}{2\\pi\\sqrt{LC}}$",
         "$f_{res} = 2\\pi\\sqrt{LC}$",
-        "$f_{res} = \\frac{2\\pi}{\\sqrt{LC}}$"
+        "$f_{res} = \\dfrac{2\\pi}{\\sqrt{LC}}$"
       ],
       "correct": 0,
       "category": 22
@@ -5650,7 +5650,7 @@
       "id": 561,
       "question": "X je velikost reaktance, R pa upornost. S katero formulo matematično zapišemo Q-faktor?",
       "image": null,
-      "answers": ["$Q = \\frac{R}{X}$", "$Q = RX$", "$Q = \\frac{X}{R}$"],
+      "answers": ["$Q = \\dfrac{R}{X}$", "$Q = RX$", "$Q = \\dfrac{X}{R}$"],
       "correct": 2,
       "category": 22
     },
@@ -5659,9 +5659,9 @@
       "question": "Po kateri formuli izračunamo Q-faktor nihajnega kroga, če sta dani pasovna širina B in resonančna frekvenca fres?",
       "image": null,
       "answers": [
-        "$Q = \\frac{B}{f_{res}}$",
-        "$Q = \\frac{f_{res}}{B}$",
-        "$Q = \\sqrt\\frac{B}{f_{res}}$"
+        "$Q = \\dfrac{B}{f_{res}}$",
+        "$Q = \\dfrac{f_{res}}{B}$",
+        "$Q = \\sqrt\\dfrac{B}{f_{res}}$"
       ],
       "correct": 1,
       "category": 22

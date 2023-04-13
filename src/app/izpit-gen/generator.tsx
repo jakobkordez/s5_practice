@@ -1,52 +1,163 @@
 "use client";
 
-import Exam from "@/components/exam";
-import { getExamQuestions } from "@/util/question-util";
-import { Document, PDFViewer } from "@react-pdf/renderer";
 import { create } from "zustand";
 
 interface IzpitState {
-  doc: any | null;
+  seed: number;
+  klasa: string;
+  count: number;
+  passThreshold: number;
+  time: number;
+  frameUrl: string | null;
+  updateFrameUrl: () => void;
+  randomize: () => void;
 }
 
 const useS = create<IzpitState>((set) => ({
-  doc: null,
+  seed: new Date().valueOf(),
+  klasa: "A",
+  count: 60,
+  passThreshold: 36,
+  time: 90,
+  frameUrl: null,
+  updateFrameUrl: () => {
+    set((s) => ({
+      frameUrl: `/exam?r=${s.seed.toString(36)}&class=${s.klasa}&count=${
+        s.count
+      }&time=${s.time}&pt=${s.passThreshold}`,
+    }));
+  },
+  randomize: () => set({ seed: Math.floor(Math.random() * 1000000000) }),
 }));
 
 export default function Generator() {
-  const doc = useS((s) => s.doc);
+  const [
+    seed,
+    klasa,
+    count,
+    passThreshold,
+    time,
+    frameUrl,
+    updateFrameUrl,
+    randomize,
+  ] = useS((s) => [
+    s.seed,
+    s.klasa,
+    s.count,
+    s.passThreshold,
+    s.time,
+    s.frameUrl,
+    s.updateFrameUrl,
+    s.randomize,
+  ]);
 
   return (
     <>
-      <button className="button is-primary" onClick={generate}>
-        Ustvari PDF
-      </button>
+      <div className="field">
+        <label className="label">Klasa</label>
+        <div className="control">
+          <div className="select">
+            <select
+              value={klasa}
+              onChange={(e) => useS.setState({ klasa: e.target.value })}
+            >
+              <option value="A">A</option>
+              <option value="N">N</option>
+            </select>
+          </div>
+        </div>
+      </div>
 
-      {doc && (
-        <PDFViewer
+      <div className="field">
+        <label className="label">Število vprašanj</label>
+        <div className="control">
+          <input
+            className="input"
+            type="number"
+            value={count}
+            onChange={(e) => useS.setState({ count: parseInt(e.target.value) })}
+          />
+        </div>
+      </div>
+
+      <label className="label">Čas</label>
+      <div className="field has-addons">
+        <div className="control is-expanded">
+          <input
+            className="input"
+            type="number"
+            value={time}
+            onChange={(e) => useS.setState({ time: parseInt(e.target.value) })}
+          />
+        </div>
+        <p className="control">
+          <a className="button is-static">minut</a>
+        </p>
+      </div>
+
+      <div className="field">
+        <label className="label">Potrebno za uspeh</label>
+        <div className="control">
+          <input
+            className="input"
+            type="number"
+            value={passThreshold}
+            onChange={(e) =>
+              useS.setState({ passThreshold: parseInt(e.target.value) })
+            }
+          />
+        </div>
+      </div>
+
+      <label className="label">Naključno seme</label>
+      <div className="field has-addons">
+        <div className="control is-expanded">
+          <input
+            className="input"
+            type="text"
+            value={seed.toString(36).toUpperCase()}
+            onChange={(e) =>
+              useS.setState({ seed: parseInt(e.target.value, 36) })
+            }
+          />
+        </div>
+        <div className="control">
+          <button className="button is-primary is-light" onClick={randomize}>
+            Premešaj
+          </button>
+        </div>
+      </div>
+
+      <div className="buttons">
+        <button className="button is-primary" onClick={updateFrameUrl}>
+          Generiraj
+        </button>
+        {frameUrl && (
+          <button
+            className="button is-primary"
+            onClick={() =>
+              (
+                document.getElementById("exam-frame") as HTMLIFrameElement
+              )?.contentWindow?.print()
+            }
+          >
+            Natisni
+          </button>
+        )}
+      </div>
+
+      {frameUrl && (
+        <iframe
+          id="exam-frame"
+          src={frameUrl}
           style={{
             width: "100%",
             height: "50rem",
             marginTop: "1rem",
+            border: "1px solid #ccc",
           }}
-        >
-          {doc}
-        </PDFViewer>
+        />
       )}
     </>
   );
-}
-
-async function generate() {
-  let questions = await getExamQuestions(new Date().valueOf());
-
-  const exam = Exam({
-    op_class: "A",
-    pass_threshold: 36,
-    time: 90,
-    questions,
-  });
-
-  const doc = <Document title="Izpitna pola">{exam}</Document>;
-  useS.setState({ doc });
 }

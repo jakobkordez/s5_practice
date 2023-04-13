@@ -8,23 +8,23 @@
   "theme_color": "#2196f3",
   "icons": [
     {
-      "src": "/images/logo/icon_192.png",
+      "src": "/logo/icon_192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/images/logo/icon_512.png",
+      "src": "/logo/icon_512.png",
       "type": "image/png",
       "sizes": "512x512"
     },
     {
-      "src": "/images/logo/icon_m_192.png",
+      "src": "/logo/icon_m_192.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "maskable"
     },
     {
-      "src": "/images/logo/icon_m_512.png",
+      "src": "/logo/icon_m_512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "maskable"

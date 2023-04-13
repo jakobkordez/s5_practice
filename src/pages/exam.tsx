@@ -5,6 +5,9 @@ import { getExamQuestions } from "@/util/question-util";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import styles from "@/styles/Exam.module.scss";
+import { InlineMath } from "react-katex";
+
+import "katex/dist/katex.min.css";
 
 const podatki = [
   "Ime in priimek",
@@ -19,109 +22,64 @@ export default function Exam() {
   const params = useSearchParams();
 
   const r = params?.get("r");
+  const klasa = params?.get("class");
+  const count = params?.get("count");
+  const time = params?.get("time");
+  const passThreshold = params?.get("pt");
 
   if (!r || !/^[\dA-Z]+$/i.test(r)) {
     return <>Missing or invalid r</>;
   }
 
-  const questions = getExamQuestions(parseInt(r, 36), 60);
+  if (!klasa || !/^[AN]$/i.test(klasa)) {
+    return <>Missing or invalid class</>;
+  }
+
+  if (!count || !/^\d+$/.test(count)) {
+    return <>Missing or invalid count</>;
+  }
+
+  const countInt = parseInt(count);
+  if (countInt < 1) {
+    return <>Invalid count</>;
+  }
+
+  if (!time || !/^\d+$/.test(time) || parseInt(time) < 1) {
+    return <>Missing or invalid time</>;
+  }
+
+  if (
+    !passThreshold ||
+    !/^\d+$/.test(passThreshold) ||
+    parseInt(passThreshold) < 1
+  ) {
+    return <>Missing or invalid passThreshold</>;
+  }
+
+  const questions = getExamQuestions(parseInt(r, 36), countInt);
 
   return (
     <div style={{ fontFamily: "Arial" }}>
       <Suspense fallback={<p>Nalaganje...</p>}>
-        <ExamDoc promise={questions} />
+        <FrontPage
+          klasa={klasa}
+          qNumber={count}
+          passThreshold={passThreshold}
+          time={time}
+        />
+
+        {/* @ts-expect-error Server Component */}
+        <ExamDoc qPromise={questions} />
       </Suspense>
     </div>
   );
 }
 
-const ExamDoc = async function ExamDoc({
-  promise,
-}: {
-  promise: Promise<Question[]>;
-}) {
-  const q = await promise;
+async function ExamDoc({ qPromise }: { qPromise: Promise<Question[]> }) {
+  const q = await qPromise;
 
   return (
     <>
-      <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            gap: "2rem",
-          }}
-        >
-          <img
-            src="/logo/zrs_logo_black.png"
-            style={{ height: "10rem", width: "auto" }}
-          />
-          <div style={{ textAlign: "center", flex: 1, fontSize: "2rem" }}>
-            Izpitna pola za amaterske operaterje <strong>{"A"}</strong> razreda
-          </div>
-        </div>
-
-        <div>
-          {podatki.map((p) => (
-            <div key={p} style={{ display: "flex", alignItems: "baseline" }}>
-              <span>{p}:</span>
-              <span className={styles.input} />
-            </div>
-          ))}
-        </div>
-
-        <div>
-          <div>
-            Izjavljam, da sem izpitno polo izpolnil-a lastnoročno in pri tem
-            nisem uporabljal-a nedovoljenih načinov reševanja.
-          </div>
-          <div style={{ display: "flex", gap: "1rem" }}>
-            {izjava.map((f) => (
-              <div
-                key={f}
-                style={{ flex: 1, display: "flex", alignItems: "baseline" }}
-              >
-                <span>{f}:</span>
-                <span className={styles.input} />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div
-          style={{
-            border: "1px solid",
-            padding: "1rem",
-            display: "flex",
-            flexDirection: "column",
-            gap: "1rem",
-          }}
-        >
-          <div style={{ fontWeight: "bold" }}>Ocena izpitne komisije</div>
-
-          <div>
-            Kandidat-ka je pravilno odgovoril-a na _______ / {60} vprašanj in JE
-            - NI uspešno opravil-a izpit za radioamaterja {"A"} razreda.
-          </div>
-
-          <div style={{ display: "flex", alignItems: "baseline" }}>
-            <span>Podpis člana komisije:</span>
-            <span className={styles.input} />
-          </div>
-        </div>
-
-        <div>
-          Prag za uspešno opravljen izpit je {36} pravilnih odgovorov. Za
-          reševanje izpitne pole je na voljo {90} minut.
-        </div>
-        <div>
-          Navodilo: Pri vprašanjih obkroži ustrezno črko (A, B, C) pred
-          pravilnim odgovorom. Če popravljaš odgovor, se pri popravku podpiši,
-          napačen odgovor pa v celoti prečrtaj.
-        </div>
-      </div>
-
       <div style={{ pageBreakBefore: "always" }}>
         {q.map((q, i) => (
           <div
@@ -144,7 +102,13 @@ const ExamDoc = async function ExamDoc({
               <ol style={{ listStyleType: "upper-alpha" }}>
                 {q.answers.map((a, j) => (
                   <li key={j} style={{ marginBottom: "0.5rem" }}>
-                    {a}
+                    {a.startsWith("$") ? (
+                      <span style={{ marginLeft: "0.5rem" }}>
+                        <InlineMath math={a.slice(1, a.length - 1)} />
+                      </span>
+                    ) : (
+                      a
+                    )}
                   </li>
                 ))}
               </ol>
@@ -154,7 +118,7 @@ const ExamDoc = async function ExamDoc({
                 src={`/question_images/${q.image}`}
                 style={{
                   maxHeight: "20rem",
-                  maxWidth: "50vw",
+                  maxWidth: "50%",
                 }}
               />
             )}
@@ -173,7 +137,7 @@ const ExamDoc = async function ExamDoc({
             justifyContent: "space-evenly",
           }}
         >
-          {Array(q.length / 10)
+          {Array(Math.ceil(q.length / 10))
             .fill(0)
             .map((_, i) => (
               <table key={i} className={styles.akey}>
@@ -197,4 +161,96 @@ const ExamDoc = async function ExamDoc({
       </div>
     </>
   );
-} as unknown as ({ promise }: { promise: Promise<Question[]> }) => JSX.Element;
+}
+
+function FrontPage({
+  klasa,
+  qNumber,
+  passThreshold,
+  time,
+}: {
+  klasa: string;
+  qNumber: string;
+  passThreshold: string;
+  time: string;
+}) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          gap: "2rem",
+        }}
+      >
+        <img
+          src="/logo/zrs_logo_black.png"
+          style={{ height: "10rem", width: "auto" }}
+        />
+        <div style={{ textAlign: "center", flex: 1, fontSize: "2rem" }}>
+          Izpitna pola za amaterske operaterje <strong>{klasa}</strong> razreda
+        </div>
+      </div>
+
+      <div>
+        {podatki.map((p) => (
+          <div key={p} style={{ display: "flex", alignItems: "baseline" }}>
+            <span>{p}:</span>
+            <span className={styles.input} />
+          </div>
+        ))}
+      </div>
+
+      <div>
+        <div>
+          Izjavljam, da sem izpitno polo izpolnil-a lastnoročno in pri tem nisem
+          uporabljal-a nedovoljenih načinov reševanja.
+        </div>
+        <div style={{ display: "flex", gap: "1rem" }}>
+          {izjava.map((f) => (
+            <div
+              key={f}
+              style={{ flex: 1, display: "flex", alignItems: "baseline" }}
+            >
+              <span>{f}:</span>
+              <span className={styles.input} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div
+        style={{
+          border: "1px solid",
+          padding: "1rem",
+          display: "flex",
+          flexDirection: "column",
+          gap: "1rem",
+        }}
+      >
+        <div style={{ fontWeight: "bold" }}>Ocena izpitne komisije</div>
+
+        <div>
+          Kandidat-ka je pravilno odgovoril-a na _______ / {qNumber} vprašanj in
+          JE - NI uspešno opravil-a izpit za radioamaterja {klasa} razreda.
+        </div>
+
+        <div style={{ display: "flex", alignItems: "baseline" }}>
+          <span>Podpis člana komisije:</span>
+          <span className={styles.input} />
+        </div>
+      </div>
+
+      <div>
+        Prag za uspešno opravljen izpit je {passThreshold} pravilnih odgovorov.
+        Za reševanje izpitne pole je na voljo {time} minut.
+      </div>
+      <div>
+        Navodilo: Pri vprašanjih obkroži ustrezno črko (A, B, C) pred pravilnim
+        odgovorom. Če popravljaš odgovor, se pri popravku podpiši, napačen
+        odgovor pa v celoti prečrtaj.
+      </div>
+    </div>
+  );
+}
