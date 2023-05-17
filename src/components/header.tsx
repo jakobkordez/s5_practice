@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 
 const nav = [
-  { href: "/", label: "Domov" },
-  { href: "/priprave", label: "Priprave" },
-  { href: "/izpit-sim", label: "Simulator izpita" },
+  { href: '/', label: 'Domov' },
+  { href: '/priprave', label: 'Priprave' },
+  { href: '/izpit-sim', label: 'Simulator izpita' },
   // { href: "/izpit-gen", label: "Generator izpitnih pol" },
 ];
 
@@ -28,7 +28,7 @@ export default function Header() {
                 alt="Logo"
                 height={96}
                 width={96}
-                style={{ height: "100%", width: "auto", margin: "auto" }}
+                style={{ height: '100%', width: 'auto', margin: 'auto' }}
               />
             </figure>
             <div className="ml-4">
@@ -37,7 +37,7 @@ export default function Header() {
             </div>
             <a
               role="button"
-              className={`navbar-burger ${navbar ? "is-active" : ""}`}
+              className={`navbar-burger ${navbar ? 'is-active' : ''}`}
               aria-label="menu"
               onClick={() => setNavbar(!navbar)}
             >
@@ -52,13 +52,13 @@ export default function Header() {
       <div className="hero-foot">
         <div className="container">
           <nav className="navbar">
-            <div className={`navbar-menu ${navbar ? "is-active" : ""}`}>
+            <div className={`navbar-menu ${navbar ? 'is-active' : ''}`}>
               <div className="navbar-start">
                 {nav.map(({ href, label }) => (
                   <Link
                     key={href}
                     className={`navbar-item ${
-                      href == pathname ? "is-active" : ""
+                      href == pathname ? 'is-active' : ''
                     }`}
                     href={href}
                     onClick={() => setNavbar(false)}

@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { Question } from "@/interfaces/question";
-import { getExamQuestions } from "@/util/question-util";
-import { create } from "zustand";
-import QuestionCard from "@/components/question_card";
+import { Question } from '@/interfaces/question';
+import { getExamQuestions } from '@/util/question-util';
+import { create } from 'zustand';
+import QuestionCard from '@/components/question_card';
 
 enum QuizState {
   Loading,
@@ -140,9 +140,9 @@ export default function IzpitQuiz() {
   );
 }
 
-const isBrowser = () => typeof window !== "undefined";
+const isBrowser = () => typeof window !== 'undefined';
 
 function scrollToTop() {
   if (!isBrowser()) return;
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }

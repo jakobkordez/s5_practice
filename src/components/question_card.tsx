@@ -1,7 +1,7 @@
-import { Question } from "@/interfaces/question";
-import { InlineMath } from "react-katex";
-import styles from "@/styles/Quiz.module.scss";
-import Image from "next/image";
+import { Question } from '@/interfaces/question';
+import { InlineMath } from 'react-katex';
+import styles from '@/styles/Quiz.module.scss';
+import Image from 'next/image';
 
 interface QuestionCardProps {
   question: Question;
@@ -71,20 +71,20 @@ function Answer({
   onClick,
 }: AnswerProps) {
   let className = `button is-fullwidth ${styles.answer}`;
-  if (!onClick) className += " is-static";
+  if (!onClick) className += ' is-static';
   if (isSelected) {
     if (reveal) {
-      if (isCorrect) className += " is-success is-light";
-      else className += " is-danger is-light";
+      if (isCorrect) className += ' is-success is-light';
+      else className += ' is-danger is-light';
     } else {
-      className += " is-info";
+      className += ' is-info';
     }
   }
 
   return (
     <button className={className} onClick={onClick}>
-      {String.fromCharCode(65 + index) + ". "}
-      {answer.startsWith("$") ? (
+      {String.fromCharCode(65 + index) + '. '}
+      {answer.startsWith('$') ? (
         <span className="ml-2">
           <InlineMath math={answer.slice(1, answer.length - 1)} />
         </span>

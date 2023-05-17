@@ -1,9 +1,9 @@
-import { Metadata } from "next";
-import Generator from "./generator";
+import { Metadata } from 'next';
+import Generator from './generator';
 
 export const metadata: Metadata = {
-  title: "Generator izpitnih pol",
-  description: "Pripomoček za generiranje izpitnih pol za radioamaterski izpit",
+  title: 'Generator izpitnih pol',
+  description: 'Pripomoček za generiranje izpitnih pol za radioamaterski izpit',
 };
 
 export default function Izpit() {

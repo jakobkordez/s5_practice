@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { Question } from "@/interfaces/question";
-import { getCategories, getQuestions } from "@/util/question-util";
-import { useEffect } from "react";
-import { create } from "zustand";
-import { Category } from "@/interfaces/category";
-import QuestionCard from "@/components/question_card";
+import { Question } from '@/interfaces/question';
+import { getCategories, getQuestions } from '@/util/question-util';
+import { useEffect } from 'react';
+import { create } from 'zustand';
+import { Category } from '@/interfaces/category';
+import QuestionCard from '@/components/question_card';
 
 const qPerPage = 5;
 
@@ -25,7 +25,7 @@ const useStore = create<QuizStore>((set) => ({
   isLoading: false,
 
   categories: [],
-  selectedCategory: "all",
+  selectedCategory: 'all',
 
   questions: [],
   answers: [],
@@ -38,7 +38,7 @@ async function load(selectedCategory: string) {
 
   const categories = await getCategories();
   let questions = await getQuestions();
-  if (selectedCategory !== "all") {
+  if (selectedCategory !== 'all') {
     const catId = parseInt(selectedCategory);
     const cat = categories.find((cat) => cat.id == catId);
     if (!cat) return;
@@ -108,7 +108,7 @@ export default function VajaQuiz() {
 
         <div className="control">
           <button
-            className={`button is-primary ${isLoading ? "is-loading" : ""}`}
+            className={`button is-primary ${isLoading ? 'is-loading' : ''}`}
             onClick={() => load(selectedCategory)}
           >
             Naloži
@@ -150,9 +150,9 @@ export default function VajaQuiz() {
   );
 }
 
-const isBrowser = () => typeof window !== "undefined";
+const isBrowser = () => typeof window !== 'undefined';
 
 function scrollToTop() {
   if (!isBrowser()) return;
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }

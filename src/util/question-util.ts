@@ -1,6 +1,6 @@
-import { Category } from "@/interfaces/category";
-import { Question } from "@/interfaces/question";
-import Random from "./random";
+import { Category } from '@/interfaces/category';
+import { Question } from '@/interfaces/question';
+import Random from './random';
 
 interface QuestionFile {
   questions: Question[];
@@ -12,7 +12,7 @@ let json: QuestionFile | null = null;
 const openFile = async (): Promise<QuestionFile> => {
   if (json) return json;
 
-  json = JSON.parse(await fetch("/questions.json").then((res) => res.text()));
+  json = JSON.parse(await fetch('/questions.json').then((res) => res.text()));
 
   return json!;
 };

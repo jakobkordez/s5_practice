@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { create } from "zustand";
+import { create } from 'zustand';
 
 interface IzpitState {
   seed: number;
@@ -15,7 +15,7 @@ interface IzpitState {
 
 const useS = create<IzpitState>((set) => ({
   seed: new Date().valueOf(),
-  klasa: "A",
+  klasa: 'A',
   count: 60,
   passThreshold: 36,
   time: 90,
@@ -137,7 +137,7 @@ export default function Generator() {
             className="button is-primary"
             onClick={() =>
               (
-                document.getElementById("exam-frame") as HTMLIFrameElement
+                document.getElementById('exam-frame') as HTMLIFrameElement
               )?.contentWindow?.print()
             }
           >
@@ -151,10 +151,10 @@ export default function Generator() {
           id="exam-frame"
           src={frameUrl}
           style={{
-            width: "100%",
-            height: "50rem",
-            marginTop: "1rem",
-            border: "1px solid #ccc",
+            width: '100%',
+            height: '50rem',
+            marginTop: '1rem',
+            border: '1px solid #ccc',
           }}
         />
       )}
