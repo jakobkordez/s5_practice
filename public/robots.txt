@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://izpit.jkob.cc
-
-# Sitemaps
-Sitemap: https://izpit.jkob.cc/sitemap.xml
