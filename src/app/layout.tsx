@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   creator: 'Jakob Kordež [S52KJ]',
   themeColor: '#2196f3',
   manifest: '/manifest.json',
+  metadataBase: new URL('https://izpit.jkob.cc'),
   openGraph: {
     title: 'Radioamaterski izpit',
     description: 'Priprava na radioamaterski izpit',
