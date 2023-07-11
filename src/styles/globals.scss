@@ -1,16 +1,9 @@
-$primary: #2196f3;
-$container-max-width: 1200px;
-$section-padding: 2rem 1.5rem;
-$body-font-size: 1.1em;
-
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
 @import 'katex/dist/katex.min.css';
 
-// .navbar {
-//   @include until(1024px) {
-//     min-height: 0;
-//   }
-// }
+.link {
+  color: #2196f3;
+}
