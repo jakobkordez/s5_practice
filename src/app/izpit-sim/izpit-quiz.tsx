@@ -69,7 +69,7 @@ export default function IzpitQuiz() {
     <>
       {state === QuizState.Ready && (
         <div className="is-flex">
-          <button className="button is-primary mx-auto" onClick={load}>
+          <button className="button is-primary" onClick={load}>
             Začni
           </button>
         </div>
@@ -121,7 +121,7 @@ export default function IzpitQuiz() {
             </button>
           </div>
 
-          <h1 className="is-size-3 my-3 has-text-centered">Napačni odgovori</h1>
+          <h1 className="is-size-3 has-text-centered my-3">Napačni odgovori</h1>
 
           {questions?.map(
             (question, qi) =>

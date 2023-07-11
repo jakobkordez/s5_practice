@@ -1,13 +1,9 @@
-const withPwa = require('next-pwa')({
-  dest: 'public',
-  sw: 'service-worker.js',
-});
+// const withPwa = require('next-pwa')({
+//   dest: 'public',
+//   sw: 'service-worker.js',
+// });
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
-}
+const nextConfig = {}
 
-module.exports = withPwa(nextConfig);
+module.exports = nextConfig;

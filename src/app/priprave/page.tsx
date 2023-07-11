@@ -6,13 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function Priprave() {
-  return (
-    <div className="section">
-      <div className="content">
-        <h1>Priprave na izpit</h1>
-      </div>
-
-      <VajaQuiz />
-    </div>
-  );
+  return <VajaQuiz />;
 }
