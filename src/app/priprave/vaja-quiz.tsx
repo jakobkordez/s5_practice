@@ -6,6 +6,8 @@ import { useEffect } from 'react';
 import { create } from 'zustand';
 import { Category } from '@/interfaces/category';
 import QuestionCard from '@/components/question_card';
+import { SubHeader } from '@/components/sub_header';
+import { Button } from '@/components/button';
 
 const qPerPage = 5;
 
@@ -84,45 +86,40 @@ export default function VajaQuiz() {
 
   return (
     <div className="mb-10 flex flex-col gap-10">
-      <div className="bg-dark text-white">
-        <div className="container flex flex-col gap-6 py-8">
-          <h1 className="text-3xl font-bold">Priprava na izpit</h1>
+      <SubHeader title="Priprava na izpit">
+        <div>
+          <label htmlFor="category" className="mb-2 block font-medium">
+            Izberi kategorijo
+          </label>
+          <div className="flex flex-row gap-3">
+            <select
+              id="category"
+              name="category"
+              className="w-full flex-1 rounded-lg border border-gray-400 bg-white p-2.5 text-darker placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500"
+              value={selectedCategory}
+              onChange={(e) => {
+                const selectedCategory = e.target.value;
+                useStore.setState({ selectedCategory });
+                load(selectedCategory);
+              }}
+            >
+              <option value="all">Vse kategorije</option>
+              {categories.map((category, i) => (
+                <option key={i} value={category.id}>
+                  {category.title}
+                </option>
+              ))}
+            </select>
 
-          <div>
-            <label htmlFor="category" className="mb-2 block font-medium">
-              Izberi kategorijo
-            </label>
-            <div className="flex flex-row gap-3">
-              <select
-                id="category"
-                name="category"
-                className="w-full flex-1 rounded-lg border border-gray-400 bg-white p-2.5 text-darker placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500"
-                value={selectedCategory}
-                onChange={(e) => {
-                  const selectedCategory = e.target.value;
-                  useStore.setState({ selectedCategory });
-                  load(selectedCategory);
-                }}
-              >
-                <option value="all">Vse kategorije</option>
-                {categories.map((category, i) => (
-                  <option key={i} value={category.id}>
-                    {category.title}
-                  </option>
-                ))}
-              </select>
-
-              <button
-                className="rounded-lg bg-primary px-5 py-2.5 font-medium text-white disabled:opacity-70"
-                disabled={isLoading}
-                onClick={!isLoading ? () => load(selectedCategory) : undefined}
-              >
-                Naloži
-              </button>
-            </div>
+            <Button
+              disabled={isLoading}
+              onClick={!isLoading ? () => load(selectedCategory) : undefined}
+            >
+              Naloži
+            </Button>
           </div>
         </div>
-      </div>
+      </SubHeader>
 
       <div className="mx-auto flex max-w-xl flex-col gap-12">
         {questions.slice(0, displayed).map((question, qi) => (
@@ -147,19 +144,9 @@ export default function VajaQuiz() {
       <div className="mx-auto w-full max-w-xl">
         <div className="flex flex-row justify-end gap-3">
           {questions.length > displayed && (
-            <button
-              className="rounded-lg bg-primary px-5 py-2.5 font-medium text-white"
-              onClick={loadMore}
-            >
-              Naloži več
-            </button>
+            <Button onClick={loadMore}>Naloži več</Button>
           )}
-          <button
-            className="rounded-lg bg-primary px-5 py-2.5 font-medium text-white"
-            onClick={scrollToTop}
-          >
-            Na vrh
-          </button>
+          <Button onClick={scrollToTop}>Na vrh</Button>
         </div>
       </div>
     </div>

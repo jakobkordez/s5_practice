@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { QuestionList } from './list';
+import { SubHeader } from '@/components/sub_header';
 
 export const metadata: Metadata = {
   title: 'Zbirka vprašanj',
@@ -7,5 +8,14 @@ export const metadata: Metadata = {
 };
 
 export default function QuestionPool() {
-  return <QuestionList />;
+  return (
+    <>
+      <SubHeader title="Zbirka vprašanj">
+        <p className="text-lg">
+          Seznam vseh vprašanj, ki se lahko pojavijo na izpitu.
+        </p>
+      </SubHeader>
+      <QuestionList />;
+    </>
+  );
 }
