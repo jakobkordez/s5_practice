@@ -57,3 +57,13 @@
     margin-left: 0.5rem;
   }
 }
+
+.morse {
+  font-family: var(--font-morse);
+  letter-spacing: 0.6em;
+}
+
+.text-center .morse,
+.text-center.morse {
+  text-indent: 0.6em;
+}

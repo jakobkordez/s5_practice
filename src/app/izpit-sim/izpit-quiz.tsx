@@ -84,7 +84,7 @@ export default function IzpitQuiz() {
 
   function inProgress() {
     return (
-      <div className="mx-auto my-10 flex max-w-xl flex-col gap-12">
+      <div className="container my-10 flex max-w-xl flex-col gap-12">
         {questions?.map((question, qi) => (
           <QuestionCard
             key={qi}
@@ -133,7 +133,7 @@ export default function IzpitQuiz() {
         <div className="my-10">
           <h1 className="my-10 text-center text-2xl">Napačni odgovori</h1>
 
-          <div className="mx-auto flex max-w-xl flex-col gap-12">
+          <div className="container flex max-w-xl flex-col gap-12">
             {questions?.map(
               (question, qi) =>
                 question.correct !== answers![qi][0] && (

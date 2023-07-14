@@ -1,4 +1,4 @@
-import { faCheckCircle, faCircle } from '@fortawesome/free-regular-svg-icons';
+import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 
@@ -24,117 +24,122 @@ const povezave = [
 export default function Home() {
   return (
     <>
-      <div className="content container my-10">
+      <div className="content container my-12">
         <h3>Kaj je radioamaterstvo?</h3>
-        <p>.... --- .-- / ... .... --- ..- .-.. -.. / .. / -.- -. --- .--</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
 
-        <h3>Primerjava kategorij</h3>
-        <div className="flex flex-col gap-6 md:flex-row">
-          <div className="flex flex-1 flex-col gap-4 rounded-lg bg-light p-6 shadow-md">
-            <h4 className="text-center">N razred</h4>
-            <p>
-              N razred je namenjen začetnikom, ki se šele spoznavajo z
-              radioamaterstvom in niso še tako vešči v elektroniki.
-            </p>
+      <div className="bg-light">
+        <div className="content container py-12">
+          <h3 className="text-center">Primerjava kategorij</h3>
+          <div className="flex flex-col items-center justify-center gap-6 md:flex-row md:items-stretch">
+            <div className="flex max-w-sm flex-1 flex-col gap-4 rounded-2xl bg-white p-6">
+              <h4 className="text-center">N razred</h4>
+              <p>
+                N razred je namenjen začetnikom, ki se šele spoznavajo z
+                radioamaterstvom in niso še tako vešči v elektroniki.
+              </p>
 
-            <div className="border-t border-gray-400" />
+              <div className="border-t border-gray-400" />
 
-            <ul className="flex flex-col gap-2">
-              <li className="flex flex-row items-center gap-2">
-                <FontAwesomeIcon
-                  icon={faCircle}
-                  className="h-4 text-gray-500"
-                />
-                <span>Uporaba le glavnih radioamaterskih frekvenc</span>
-              </li>
-              <li className="flex flex-row items-center gap-2">
-                <FontAwesomeIcon
-                  icon={faCircle}
-                  className="h-4 text-gray-500"
-                />
-                <span>Manjša moč</span>
-              </li>
-              <li className="flex flex-row items-center gap-2">
-                <FontAwesomeIcon
-                  icon={faCircle}
-                  className="h-4 text-gray-500"
-                />
-                <span>Ozek izbor klicnih znakov</span>
-              </li>
-            </ul>
+              <ul className="flex flex-col gap-2">
+                <li className="flex flex-row items-baseline gap-2">
+                  <FontAwesomeIcon
+                    icon={faCheckCircle}
+                    className="h-3 text-primary"
+                  />
+                  <span>Uporaba le glavnih radioamaterskih frekvenc</span>
+                </li>
+                <li className="flex flex-row items-baseline gap-2">
+                  <FontAwesomeIcon
+                    icon={faCheckCircle}
+                    className="h-3 text-primary"
+                  />
+                  <span>Manjša moč</span>
+                </li>
+                <li className="flex flex-row items-baseline gap-2">
+                  <FontAwesomeIcon
+                    icon={faCheckCircle}
+                    className="h-3 text-primary"
+                  />
+                  <span>Ozek izbor klicnih znakov</span>
+                </li>
+              </ul>
 
-            <div className="border-t border-gray-400" />
+              <div className="border-t border-gray-400" />
 
-            <h5 className="text-center">Klicni znaki</h5>
-            <ul>
-              <li>S52AAA - S52XZZ in S52ZAA - S52ZZZ</li>
-              <li>S58AAA - S58XZZ</li>
-            </ul>
-          </div>
-          <div className="flex flex-1 flex-col gap-4 rounded-lg bg-light p-6 shadow-md">
-            <h4 className="text-center">A razred</h4>
-            <p>
-              A razred je namenjen tistim, ki želijo delovati na vseh amaterskih
-              frekvencah in z večjo močjo.
-            </p>
+              <h5 className="text-center">Klicni znaki</h5>
+              <ul>
+                <li>S52AAA - S52XZZ in S52ZAA - S52ZZZ</li>
+                <li>S58AAA - S58XZZ</li>
+              </ul>
+            </div>
+            <div className="flex max-w-sm flex-1 flex-col gap-4 rounded-2xl bg-dark p-6 text-white">
+              <h4 className="text-center">A razred</h4>
+              <p>
+                A razred je namenjen tistim, ki želijo delovati na vseh
+                amaterskih frekvencah in z večjo močjo.
+              </p>
 
-            <div className="border-t border-gray-400" />
+              <div className="border-t border-gray-400" />
 
-            <ul className="flex flex-col gap-2">
-              <li className="flex flex-row items-center gap-2">
-                <FontAwesomeIcon
-                  icon={faCheckCircle}
-                  className="h-4 text-green-500"
-                />
-                <span>Uporaba vseh radioamaterskih frekvenc</span>
-              </li>
-              <li className="flex flex-row items-center gap-2">
-                <FontAwesomeIcon
-                  icon={faCheckCircle}
-                  className="h-4 text-green-500"
-                />
-                <span>Večja moč</span>
-              </li>
-              <li className="flex flex-row items-center gap-2">
-                <FontAwesomeIcon
-                  icon={faCheckCircle}
-                  className="h-4 text-green-500"
-                />
-                <span>Širši izbor klicnih znakov</span>
-              </li>
-              <li className="flex flex-row items-center gap-2">
-                <FontAwesomeIcon
-                  icon={faCheckCircle}
-                  className="h-4 text-green-500"
-                />
-                <span>Uporaba radioamaterskih satelitskih storitev</span>
-              </li>
-            </ul>
+              <ul className="flex flex-col gap-2">
+                <li className="flex flex-row items-baseline gap-2">
+                  <FontAwesomeIcon
+                    icon={faCheckCircle}
+                    className="h-3 text-primary"
+                  />
+                  <span>Uporaba vseh radioamaterskih frekvenc</span>
+                </li>
+                <li className="flex flex-row items-baseline gap-2">
+                  <FontAwesomeIcon
+                    icon={faCheckCircle}
+                    className="h-3 text-primary"
+                  />
+                  <span>Večja moč</span>
+                </li>
+                <li className="flex flex-row items-baseline gap-2">
+                  <FontAwesomeIcon
+                    icon={faCheckCircle}
+                    className="h-3 text-primary"
+                  />
+                  <span>Širši izbor klicnih znakov</span>
+                </li>
+                <li className="flex flex-row items-baseline gap-2">
+                  <FontAwesomeIcon
+                    icon={faCheckCircle}
+                    className="h-3 text-primary"
+                  />
+                  <span>Uporaba radioamaterskih satelitskih storitev</span>
+                </li>
+              </ul>
 
-            <div className="border-t border-gray-400" />
+              <div className="border-t border-gray-400" />
 
-            <h5 className="text-center">Klicni znaki</h5>
-            <ul>
-              <li>S50A - S59Z</li>
-              <li>S50AA - S59ZZ</li>
-              <li>S50AAA - S50XZZ</li>
-              <li>S54AAA - S54XZZ in S54ZAA - S54ZZZ</li>
-              <li>S56AAA - S56XZZ in S56ZAA - S56ZZZ</li>
-              <li>S57AAA - S57XZZ in S57ZAA - S57ZZZ</li>
-              <li>S58ZAA - S58ZZZ</li>
-            </ul>
+              <h5 className="text-center">Klicni znaki</h5>
+              <ul>
+                <li>S50A - S59Z</li>
+                <li>S50AA - S59ZZ</li>
+                <li>S50AAA - S50XZZ</li>
+                <li>S54AAA - S54XZZ in S54ZAA - S54ZZZ</li>
+                <li>S56AAA - S56XZZ in S56ZAA - S56ZZZ</li>
+                <li>S57AAA - S57XZZ in S57ZAA - S57ZZZ</li>
+                <li>S58ZAA - S58ZZZ</li>
+              </ul>
+            </div>
           </div>
         </div>
+      </div>
 
-        <h5>Preizkus sprejema in oddaje Morzejevih znakov</h5>
-        <p>
-          Kandidat, ki na lastno željo opravlja izpit iz predmeta Sprejem in
-          oddaja Morzejevih znakov, mora dokazati, da je sposoben v Morzejevih
-          znakih (mednarodni Morse-kod) sprejemati na sluh in s tipkalom
-          oddajati odprti tekst, skupine številk, ločila in druge znake pri
-          hitrosti 25 znakov na minuto.
-        </p>
-
+      <div className="content container my-12">
         <h3>O izpitu</h3>
         <p>Na izpitu se preverja znanje iz naslednjih področij:</p>
         <ul>
@@ -155,6 +160,15 @@ export default function Home() {
             zbirko vprašanj
           </Link>
           , ki se lahko pojavijo na izpitu.
+        </p>
+
+        <h5>Preizkus sprejema in oddaje Morzejevih znakov</h5>
+        <p>
+          Kandidat, ki na lastno željo opravlja izpit iz predmeta Sprejem in
+          oddaja Morzejevih znakov, mora dokazati, da je sposoben v Morzejevih
+          znakih (mednarodni Morse-kod) sprejemati na sluh in s tipkalom
+          oddajati odprti tekst, skupine številk, ločila in druge znake pri
+          hitrosti 25 znakov na minuto.
         </p>
 
         <h3>Vsebine za pripravo na izpit</h3>
@@ -217,8 +231,8 @@ export default function Home() {
           Po opravljenem izpitu lahko zaprosiš za klicni znak (CEPT licenco) na
           agenciji za komunikacijska omrežja in storitve Republike Slovenije
           (AKOS). Več o tem si lahko prebereš na podstrani{' '}
-          <Link className="link" href="/znaki">
-            Klicni znaki
+          <Link className="link" href="/licenca">
+            Licenca
           </Link>
           .
         </p>

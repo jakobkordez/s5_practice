@@ -121,7 +121,7 @@ export default function VajaQuiz() {
         </div>
       </SubHeader>
 
-      <div className="mx-auto flex max-w-xl flex-col gap-12">
+      <div className="container flex max-w-xl flex-col gap-12">
         {questions.slice(0, displayed).map((question, qi) => (
           <QuestionCard
             key={qi}
@@ -141,7 +141,7 @@ export default function VajaQuiz() {
         ))}
       </div>
 
-      <div className="mx-auto w-full max-w-xl">
+      <div className="container w-full max-w-xl">
         <div className="flex flex-row justify-end gap-3">
           {questions.length > displayed && (
             <Button onClick={loadMore}>Naloži več</Button>

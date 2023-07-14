@@ -73,7 +73,7 @@ export default function License() {
         <p>
           Klicni znak si lahko izbereš glede na razred izpita, ki si ga opravil.
         </p>
-        <div className="flex flex-col gap-6 md:flex-row">
+        <div className="my-6 flex flex-col gap-6 md:flex-row">
           <div className="flex flex-1 flex-col gap-4 rounded-lg bg-light p-6 shadow-md">
             <h4 className="text-center">N razred</h4>
 
@@ -96,6 +96,10 @@ export default function License() {
             </ul>
           </div>
         </div>
+
+        <LinkButton href="/klicni-znak" className="w-full">
+          Pomagaj izbrati klicni znak
+        </LinkButton>
       </div>
 
       <div className="flex bg-light">
@@ -106,7 +110,23 @@ export default function License() {
             digitalnim potrdilom), ali pa z izpolnjenim obrazcem poslanega po
             pošti.
           </p>
-          <div className="flex flex-col gap-4 text-center md:flex-row">
+          <p>
+            Priporočljivo je, da na vlogi izpolniš vse tri klicne znake, ki jih
+            želiš imeti v primeru, da je prvi klicni znak že zaseden ali pa ga
+            zavrnejo.
+          </p>
+          <p>
+            Od začetka leta 2023 se za izdajo in podaljšanje radioamaterskega
+            dovoljenja <strong>plača uporabo dela radijskega spektra</strong>{' '}
+            (frekvenčnino) v višini 60 točk. Točka je vredna 0,50 €.
+          </p>
+          <p>
+            Radioamatersko dovoljenje velja 15 let, po tem času pa ga je
+            potrebno podaljšati. Po poteku veljavnosti velja še 10 letni
+            moratorij za klicni znak.
+          </p>
+
+          <div className="mt-6 flex flex-col gap-4 text-center md:flex-row">
             <LinkButton className="flex-1" href="https://evloge.akos-rs.si/">
               Elektronska vloga
             </LinkButton>

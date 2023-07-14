@@ -2,6 +2,7 @@ import { AnalyticsWrapper } from '@/components/analytics';
 import Header from '@/components/header';
 import { Metadata } from 'next';
 import '@/styles/globals.scss';
+import { morse } from '@/fonts/fonts';
 
 export const metadata: Metadata = {
   title: {
@@ -42,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="sl">
       <head />
-      <body>
+      <body className={morse.variable}>
         <Header />
 
         <main>{children}</main>
