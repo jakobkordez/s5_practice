@@ -6276,7 +6276,7 @@
     },
     {
       "id": 619,
-      "question": "Koliko bitni AD pretvornik potrebujemo, če kvantiziramo signal amplitude 1V in želimo doseči ločljivost na vsaj 2Mv natančno?",
+      "question": "Koliko bitni AD pretvornik potrebujemo, če kvantiziramo signal amplitude 1V in želimo doseči ločljivost na vsaj 2mV natančno?",
       "image": null,
       "answers": ["4-bitni", "8-bitni", "10-bitni"],
       "correct": 2,

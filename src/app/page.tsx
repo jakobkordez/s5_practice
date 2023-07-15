@@ -4,10 +4,6 @@ import Link from 'next/link';
 
 const povezave = [
   {
-    label: 'Etika in operaterski postopki',
-    href: 'http://www.hamradio.si/images/dokumenti/publikacije/etika_junij%202021.pdf',
-  },
-  {
     label: 'Izpitni roki ZRS',
     href: 'http://www.hamradio.si/index.php?option=com_content&view=article&id=677&Itemid=118',
   },
@@ -27,13 +23,14 @@ export default function Home() {
       <div className="content container my-12">
         <h3>Kaj je radioamaterstvo?</h3>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          Radioamaterstvo je ljubiteljsko, nepoklicno ukvarjanje z radiom in
+          radiotehniko. Vsak radioamater v radioamatestvu najde nekaj kar ga
+          zanima. Nekateri se ukvarjajo z gradnjo radijskih postaj, drugi z
+          vzpostavljanjem radijskih zvez, nekateri radi tekmujejo v
+          vzpostavljanju radijskih zvez ali pa iskanjem skritih oddajnikov.
+          Radioamaterji so tudi pomočniki v primeru naravnih nesreč, ko se
+          porušijo komunikacijske povezave. Radioamaterji uporabljajo določene
+          frekvence, ki so jim dodeljene s strani mednarodne organizacije ITU.
         </p>
       </div>
 
@@ -51,26 +48,28 @@ export default function Home() {
               <div className="border-t border-gray-400" />
 
               <ul className="flex flex-col gap-2">
-                <li className="flex flex-row items-baseline gap-2">
+                <li className="flex flex-row items-start gap-2">
                   <FontAwesomeIcon
                     icon={faCheckCircle}
-                    className="h-3 text-primary"
+                    className="mt-1 h-4 text-primary"
                   />
-                  <span>Uporaba le glavnih radioamaterskih frekvenc</span>
+                  <div className="flex-1">
+                    Uporaba le glavnih radioamaterskih frekvenc
+                  </div>
                 </li>
-                <li className="flex flex-row items-baseline gap-2">
+                <li className="flex flex-row items-start gap-2">
                   <FontAwesomeIcon
                     icon={faCheckCircle}
-                    className="h-3 text-primary"
+                    className="mt-1 h-4 text-primary"
                   />
-                  <span>Manjša moč</span>
+                  <div className="flex-1">Manjša moč</div>
                 </li>
-                <li className="flex flex-row items-baseline gap-2">
+                <li className="flex flex-row items-start gap-2">
                   <FontAwesomeIcon
                     icon={faCheckCircle}
-                    className="h-3 text-primary"
+                    className="mt-1 h-4 text-primary"
                   />
-                  <span>Ozek izbor klicnih znakov</span>
+                  <div className="flex-1">Ozek izbor klicnih znakov</div>
                 </li>
               </ul>
 
@@ -92,33 +91,37 @@ export default function Home() {
               <div className="border-t border-gray-400" />
 
               <ul className="flex flex-col gap-2">
-                <li className="flex flex-row items-baseline gap-2">
+                <li className="flex flex-row items-start gap-2">
                   <FontAwesomeIcon
                     icon={faCheckCircle}
-                    className="h-3 text-primary"
+                    className="mt-1 h-4 text-primary"
                   />
-                  <span>Uporaba vseh radioamaterskih frekvenc</span>
+                  <div className="flex-1">
+                    Uporaba vseh radioamaterskih frekvenc
+                  </div>
                 </li>
-                <li className="flex flex-row items-baseline gap-2">
+                <li className="flex flex-row items-start gap-2">
                   <FontAwesomeIcon
                     icon={faCheckCircle}
-                    className="h-3 text-primary"
+                    className="mt-1 h-4 text-primary"
                   />
-                  <span>Večja moč</span>
+                  <div className="flex-1">Večja moč</div>
                 </li>
-                <li className="flex flex-row items-baseline gap-2">
+                <li className="flex flex-row items-start gap-2">
                   <FontAwesomeIcon
                     icon={faCheckCircle}
-                    className="h-3 text-primary"
+                    className="mt-1 h-4 text-primary"
                   />
-                  <span>Širši izbor klicnih znakov</span>
+                  <div className="flex-1">Širši izbor klicnih znakov</div>
                 </li>
-                <li className="flex flex-row items-baseline gap-2">
+                <li className="flex flex-row items-start gap-2">
                   <FontAwesomeIcon
                     icon={faCheckCircle}
-                    className="h-3 text-primary"
+                    className="mt-1 h-4 text-primary"
                   />
-                  <span>Uporaba radioamaterskih satelitskih storitev</span>
+                  <div className="flex-1">
+                    Uporaba radioamaterskih satelitskih storitev
+                  </div>
                 </li>
               </ul>
 
@@ -171,6 +174,20 @@ export default function Home() {
           hitrosti 25 znakov na minuto.
         </p>
 
+        <h5>Izpitni roki</h5>
+        <p>
+          Zveza radioamaterjev Slovenije nekajkrat letno organizira izpite za
+          radioamaterje. Izpitni roki so objavljeni na{' '}
+          <Link
+            className="link"
+            href="http://www.hamradio.si/index.php?option=com_content&view=article&id=677&Itemid=118"
+          >
+            spletni strani ZRS
+          </Link>
+          . Poleg teh izpitov lahko radioklubi organizirajo izpite za svoje
+          tečajnike.
+        </p>
+
         <h3>Vsebine za pripravo na izpit</h3>
         <p>
           Vsa snov, ki se lahko pojavi v izpitnih vprašanjih je vsebovana v{' '}
@@ -197,7 +214,7 @@ export default function Home() {
           lahko v pomoč pri učenju.
         </p>
 
-        <h3>Vaja pred izpitom</h3>
+        <h3>Vaje za izpit</h3>
         <p>
           Pred izpitom si lahko ogledaš{' '}
           <Link className="link" href="/zbirka">

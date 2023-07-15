@@ -15,10 +15,6 @@ export default function Callsign() {
           Spodaj vpiši želen klicni znak in preveri, če je ta že zaseden in če
           je za pravi razred.
         </p>
-        <p className="text-lg">
-          Če v znaku uporabiš * (zvezdico), ti bodo prikazani vsi klicni znaki,
-          ki ustrezajo vnesenemu vzorcu.
-        </p>
       </SubHeader>
 
       <CallsignTool />

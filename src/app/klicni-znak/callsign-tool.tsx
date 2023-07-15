@@ -6,11 +6,30 @@ import {
   faXmarkCircle,
 } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { create } from 'zustand';
+
+interface TakenCallsigns {
+  taken?: Set<string>;
+}
+
+const useStore = create<TakenCallsigns>(() => ({}));
+
+async function loadCallsigns() {
+  const callsigns = await fetch('/api/akos').then((res) => res.json());
+  useStore.setState({ taken: new Set(callsigns) });
+}
 
 export default function CallsignTool() {
   const [clas, setClas] = useState(1);
   const [callsign, setCallsign] = useState('S50HQ');
+  const taken = useStore((state) => state.taken);
+
+  useEffect(() => {
+    if (taken === undefined) loadCallsigns();
+  }, [taken]);
+
+  const isTaken = taken?.has(callsign.toUpperCase()) ?? null;
 
   return (
     <div className="container my-10 flex flex-col gap-6">
@@ -57,7 +76,7 @@ export default function CallsignTool() {
             return (
               <div
                 key={i}
-                className={`flex flex-row items-center gap-4 px-5 py-3 text-lg ${
+                className={`flex flex-row items-center gap-4 border-b px-5 py-3 text-lg last:border-b-0 ${
                   result ? 'bg-green-100' : 'bg-red-100'
                 }`}
               >
@@ -71,6 +90,20 @@ export default function CallsignTool() {
               </div>
             );
           })}
+
+        {/^S5\d[A-Z]{1,3}$/i.test(callsign) && isTaken !== null && (
+          <div
+            className={`flex flex-row items-center gap-4 px-5 py-3 text-lg ${
+              !isTaken ? 'bg-green-100' : 'bg-red-100'
+            }`}
+          >
+            <FontAwesomeIcon
+              icon={!isTaken ? faCheckCircle : faXmarkCircle}
+              className={`w-5 ${!isTaken ? 'text-green-600' : 'text-red-600'}`}
+            />
+            <span>Klicni znak je {isTaken ? 'zaseden' : 'prost'}</span>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -103,7 +136,7 @@ const tests = [
     preTest: (clas: number, callsign: string) =>
       clas === 1 && /^S5\d[A-Z]{1,3}$/i.test(callsign),
     test: (callsign: string) =>
-      /^S5(\d[A-Z]{1,2}|([0457][A-X]|[4678]Z)[A-Z]{2})$/i.test(callsign),
+      /^S5(\d[A-Z]{1,2}|([0467][A-X]|[4678]Z)[A-Z]{2})$/i.test(callsign),
   },
   {
     name: 'Ustreza razredu N',
