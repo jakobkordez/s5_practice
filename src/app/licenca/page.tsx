@@ -15,21 +15,21 @@ export default function License() {
       <SubHeader title="Radioamatersko dovoljenje (CEPT licenca)">
         <p>
           Radioamaterska dovoljenja izdaja{' '}
-          <Link className="link-light" href="https://www.akos-rs.si/">
+          <a className="link-light" href="https://www.akos-rs.si/">
             agencija za komunikacijska omrežja in storitve Republike Slovenije
             (AKOS)
-          </Link>
+          </a>
           .
         </p>
         <p>
           Po opravljenem izpitu lahko zaprosiš za radioamatersko dovoljenje, ki
           ga lahko uporabljaš v vseh{' '}
-          <Link
+          <a
             className="link-light"
             href="https://en.wikipedia.org/wiki/European_Conference_of_Postal_and_Telecommunications_Administrations"
           >
             državah članicah CEPT
-          </Link>
+          </a>
           .
         </p>
       </SubHeader>
@@ -38,13 +38,13 @@ export default function License() {
         <h3>Klicni znak</h3>
         <p>
           Klicne znake v Sloveniji določa <strong>6. člen</strong>{' '}
-          <Link
+          <a
             className="link"
             href="https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2023-01-0256/splosni-akt-o-pogojih-za-uporabo-radijskih-frekvenc-namenjenih-radioamaterski-in-radioamaterski-satelitski-storitvi"
           >
             splošnega akta o pogojih za uporabo radijskih frekvenc, namenjenih
             radioamaterski in radioamaterski satelitski storitvi
-          </Link>
+          </a>
           .
         </p>
         <p>
@@ -62,12 +62,12 @@ export default function License() {
         <h4>Izbira klicnega znaka</h4>
         <p>
           Seznam zasedenih klicnih znakov je dostopen v{' '}
-          <Link
+          <a
             className="link"
             href="https://www.akos-rs.si/registri/seznam-registrov/radioamaterji"
           >
             registru radioamaterjev
-          </Link>
+          </a>
           .
         </p>
         <p>

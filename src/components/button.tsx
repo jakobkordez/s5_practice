@@ -35,7 +35,14 @@ interface LinkButtonProps {
 export function LinkButton({ children, className, href }: LinkButtonProps) {
   className ??= '';
 
-  return (
+  return href.startsWith('http') ? (
+    <a
+      className={`flex flex-row items-center justify-center rounded-lg bg-primary px-5 py-2 font-semibold text-white shadow-lg transition-colors hover:bg-primary-dark active:bg-primary-darker disabled:opacity-70 ${className}`}
+      href={href}
+    >
+      {children}
+    </a>
+  ) : (
     <Link
       className={`flex flex-row items-center justify-center rounded-lg bg-primary px-5 py-2 font-semibold text-white shadow-lg transition-colors hover:bg-primary-dark active:bg-primary-darker disabled:opacity-70 ${className}`}
       href={href}

@@ -155,9 +155,9 @@ export default function Home() {
         </ul>
         <p>
           Za točno vsebino, si oglej{' '}
-          <Link className="link" href="https://zrs.si/files/kriteriji.pdf">
+          <a className="link" href="https://zrs.si/files/kriteriji.pdf">
             kriterij za izpit
-          </Link>{' '}
+          </a>{' '}
           ali pa si oglej{' '}
           <Link className="link" href="/zbirka">
             zbirko vprašanj
@@ -178,12 +178,12 @@ export default function Home() {
         <p>
           Zveza radioamaterjev Slovenije nekajkrat letno organizira izpite za
           radioamaterje. Izpitni roki so objavljeni na{' '}
-          <Link
+          <a
             className="link"
             href="http://www.hamradio.si/index.php?option=com_content&view=article&id=677&Itemid=118"
           >
             spletni strani ZRS
-          </Link>
+          </a>
           . Poleg teh izpitov lahko radioklubi organizirajo izpite za svoje
           tečajnike.
         </p>
@@ -256,12 +256,12 @@ export default function Home() {
         </p>
         <p>
           Pred začetkom oddajanja pa je priporočljivo prebrati še{' '}
-          <Link
+          <a
             className="link"
             href="http://www.hamradio.si/images/dokumenti/publikacije/etika_junij%202021.pdf"
           >
             Etiko in operaterske postopke
-          </Link>
+          </a>
           .
         </p>
 
