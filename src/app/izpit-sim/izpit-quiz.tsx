@@ -4,6 +4,8 @@ import { Question } from '@/interfaces/question';
 import { getExamQuestions } from '@/util/question-util';
 import { create } from 'zustand';
 import QuestionCard from '@/components/question_card';
+import { Button } from '@/components/button';
+import { scrollToTop } from '@/components/scroll-to-top-button';
 
 enum QuizState {
   Loading,
@@ -68,81 +70,89 @@ export default function IzpitQuiz() {
   return (
     <>
       {state === QuizState.Ready && (
-        <div className="is-flex">
-          <button className="button is-primary mx-auto" onClick={load}>
+        <div className="section">
+          <Button className="mx-auto" onClick={load}>
             Začni
-          </button>
+          </Button>
         </div>
       )}
 
       {state === QuizState.Loading && <div>Pripravljanje ...</div>}
 
-      {state === QuizState.InProgress && (
-        <>
-          {questions?.map((question, qi) => (
-            <QuestionCard
-              key={qi}
-              question={question}
-              reveal={false}
-              selected={answers![qi]}
-              onClick={(i) => {
-                const newAnswers = [...answers!];
-                newAnswers[qi] = [i];
-                useStore.setState({ answers: newAnswers });
-              }}
-            />
-          ))}
+      {state === QuizState.InProgress && inProgress()}
 
-          <button
-            className="button is-primary"
-            onClick={() =>
-              finish(
-                questions!
-                  .map((q, qi) => q.correct === answers![qi][0])
-                  .reduce((acc, cur) => acc + (cur ? 1 : 0), 0)
-              )
-            }
-          >
-            Zaključi
-          </button>
-        </>
-      )}
+      {state === QuizState.Finished && finished()}
+    </>
+  );
 
-      {state === QuizState.Finished && (
-        <>
-          <div className="box notification is-info is-light is-flex is-flex-direction-column is-align-items-center">
-            <h2 className="is-size-4">Rezultat</h2>
-            <p className="is-size-2">
+  function inProgress() {
+    return (
+      <div className="section container flex max-w-xl flex-col gap-12">
+        {questions?.map((question, qi) => (
+          <QuestionCard
+            key={qi}
+            question={question}
+            reveal={false}
+            selected={answers![qi]}
+            onClick={(i) => {
+              const newAnswers = [...answers!];
+              newAnswers[qi] = [i];
+              useStore.setState({ answers: newAnswers });
+            }}
+          />
+        ))}
+
+        <Button
+          onClick={() =>
+            finish(
+              questions!
+                .map((q, qi) => q.correct === answers![qi][0])
+                .reduce((acc, cur) => acc + (cur ? 1 : 0), 0)
+            )
+          }
+        >
+          Zaključi
+        </Button>
+      </div>
+    );
+  }
+
+  function finished() {
+    return (
+      <>
+        <div className="bg-light">
+          <div className="section container flex flex-col items-center">
+            <h2 className="text-xl">Rezultat</h2>
+            <p className="text-4xl">
               {correctCount} / {answers!.length} (
               {Math.round((correctCount! / answers!.length) * 1000) / 10} %)
             </p>
-            <button className="button is-primary mt-3" onClick={reset}>
+            <Button className="mt-6" onClick={reset}>
               Nazaj na začetek
-            </button>
+            </Button>
           </div>
+        </div>
 
-          <h1 className="is-size-3 my-3 has-text-centered">Napačni odgovori</h1>
+        <div className="section">
+          <h1 className="mb-10 text-center text-2xl font-semibold">
+            Napačni odgovori
+          </h1>
 
-          {questions?.map(
-            (question, qi) =>
-              question.correct !== answers![qi][0] && (
-                <QuestionCard
-                  key={qi}
-                  question={question}
-                  reveal={true}
-                  selected={[answers![qi][0], question.correct]}
-                />
-              )
-          )}
-        </>
-      )}
-    </>
-  );
-}
-
-const isBrowser = () => typeof window !== 'undefined';
-
-function scrollToTop() {
-  if (!isBrowser()) return;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+          <div className="container flex max-w-xl flex-col gap-12">
+            {questions?.map(
+              (question, qi) =>
+                question.correct !== answers![qi][0] && (
+                  <QuestionCard
+                    key={qi}
+                    question={question}
+                    reveal={true}
+                    selected={[answers![qi][0], question.correct]}
+                  />
+                )
+            )}
+          </div>
+        </div>
+      </>
+    );
+  }
 }

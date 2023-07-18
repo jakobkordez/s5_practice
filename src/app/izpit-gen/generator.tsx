@@ -1,5 +1,6 @@
 'use client';
 
+import { Button } from '@/components/button';
 import { create } from 'zustand';
 
 interface IzpitState {
@@ -91,7 +92,7 @@ export default function Generator() {
           />
         </div>
         <p className="control">
-          <a className="button is-static">minut</a>
+          <span className="button is-static">minut</span>
         </p>
       </div>
 
@@ -122,19 +123,14 @@ export default function Generator() {
           />
         </div>
         <div className="control">
-          <button className="button is-primary is-light" onClick={randomize}>
-            Premešaj
-          </button>
+          <Button onClick={randomize}>Premešaj</Button>
         </div>
       </div>
 
       <div className="buttons">
-        <button className="button is-primary" onClick={updateFrameUrl}>
-          Generiraj
-        </button>
+        <Button onClick={updateFrameUrl}>Generiraj</Button>
         {frameUrl && (
-          <button
-            className="button is-primary"
+          <Button
             onClick={() =>
               (
                 document.getElementById('exam-frame') as HTMLIFrameElement
@@ -142,7 +138,7 @@ export default function Generator() {
             }
           >
             Natisni
-          </button>
+          </Button>
         )}
       </div>
 

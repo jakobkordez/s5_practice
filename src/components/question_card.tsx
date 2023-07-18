@@ -17,26 +17,25 @@ export default function QuestionCard({
   onClick,
 }: QuestionCardProps) {
   return (
-    <div className="box">
-      <p>{question.id}</p>
-
-      <div className="title is-4">
-        <h3>{question.question}</h3>
+    <div className="flex flex-col gap-5">
+      <div className="text-xl text-gray-700">
+        <span className="font-bold text-primary">
+          A{question.id.toString().padStart(3, '0')}:{' '}
+        </span>
+        {question.question}
       </div>
 
       {question.image && (
-        <figure className="image">
-          <Image
-            className={styles.image}
-            src={`/question_images/${question.image}`}
-            alt={question.image}
-            height={500}
-            width={500}
-          />
-        </figure>
+        <Image
+          className={styles.image}
+          src={`/question_images/${question.image}`}
+          alt={question.image}
+          height={500}
+          width={500}
+        />
       )}
 
-      <div className="buttons mt-5">
+      <div className="flex flex-col gap-2">
         {question.answers.map((answer, i) => (
           <Answer
             key={i}
@@ -70,27 +69,37 @@ function Answer({
   isSelected,
   onClick,
 }: AnswerProps) {
-  let className = `button is-fullwidth ${styles.answer}`;
-  if (!onClick) className += ' is-static';
-  if (isSelected) {
-    if (reveal) {
-      if (isCorrect) className += ' is-success is-light';
-      else className += ' is-danger is-light';
-    } else {
-      className += ' is-info';
-    }
-  }
-
   return (
-    <button className={className} onClick={onClick}>
-      {String.fromCharCode(65 + index) + '. '}
-      {answer.startsWith('$') ? (
-        <span className="ml-2">
-          <InlineMath math={answer.slice(1, answer.length - 1)} />
-        </span>
-      ) : (
-        answer
-      )}
+    <button
+      className={`flex w-full flex-row items-center gap-5 rounded border px-6 py-2 ${
+        !isSelected
+          ? 'border-gray-300'
+          : !reveal
+          ? 'border-sky-500 bg-sky-100'
+          : isCorrect
+          ? 'border-green-500 bg-green-100'
+          : 'border-red-600 bg-red-100'
+      }`}
+      disabled={!onClick}
+      onClick={onClick}
+    >
+      {!reveal && <input type="radio" checked={isSelected} readOnly />}
+      <div
+        className={`border-r py-2 pr-5 text-sm font-bold ${
+          !isSelected ? 'border-gray-200' : 'border-inherit'
+        }`}
+      >
+        {String.fromCharCode(65 + index)}
+      </div>
+      <div className="text-left text-lg text-gray-600">
+        {answer.startsWith('$') ? (
+          <span className="ml-2">
+            <InlineMath math={answer.slice(1, answer.length - 1)} />
+          </span>
+        ) : (
+          answer
+        )}
+      </div>
     </button>
   );
 }

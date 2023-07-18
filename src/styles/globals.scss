@@ -1,21 +1,74 @@
-$primary: #2196f3;
-$container-max-width: 1200px;
-$section-padding: 2rem 1.5rem;
-$body-font-size: 1.1em;
-
-@import 'bulma/sass/utilities/_all.sass';
-@import 'bulma/sass/base/_all.sass';
-@import 'bulma/sass/elements/_all.sass';
-@import 'bulma/sass/form/_all.sass';
-@import 'bulma/sass/components/_all.sass';
-@import 'bulma/sass/layout/_all.sass';
-@import 'bulma/sass/grid/_all.sass';
-@import 'bulma/sass/helpers/_all.sass';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 @import 'katex/dist/katex.min.css';
 
-.navbar {
-  @include until(1024px) {
-    min-height: 0;
+.link {
+  color: #0084f0;
+}
+
+.link-light {
+  color: #8fc2ec;
+}
+
+.section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.content {
+  & > h1,
+  & > h2,
+  & > h3,
+  & > h4,
+  & > h5,
+  & > h6 {
+    &:not(:first-child) {
+      margin-top: 2rem;
+    }
+    margin-bottom: 1.2rem;
   }
+
+  & > p {
+    margin-bottom: 0.8rem;
+
+    &:not(:first-child) {
+      margin-top: 0.4rem;
+    }
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 1.875rem /* 30px */;
+    line-height: 2.25rem /* 36px */;
+  }
+
+  h4 {
+    font-weight: 600;
+    font-size: 1.5rem /* 24px */;
+    line-height: 2rem /* 32px */;
+  }
+
+  h5 {
+    font-weight: 600;
+    font-size: 1.25rem /* 20px */;
+    line-height: 1.75rem /* 28px */;
+  }
+
+  ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    margin-left: 0.5rem;
+  }
+}
+
+.morse {
+  font-family: var(--font-morse);
+  letter-spacing: 0.6em;
+}
+
+.text-center .morse,
+.text-center.morse {
+  text-indent: 0.6em;
 }

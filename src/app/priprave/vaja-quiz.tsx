@@ -6,6 +6,8 @@ import { useEffect } from 'react';
 import { create } from 'zustand';
 import { Category } from '@/interfaces/category';
 import QuestionCard from '@/components/question_card';
+import { SubHeader } from '@/components/sub_header';
+import { Button } from '@/components/button';
 
 const qPerPage = 5;
 
@@ -84,11 +86,16 @@ export default function VajaQuiz() {
 
   return (
     <>
-      <div className="field has-addons mb-5">
-        <div className="control is-expanded">
-          <div className="select is-fullwidth">
+      <SubHeader title="Priprava na izpit">
+        <div>
+          <label htmlFor="category" className="mb-2 block font-medium">
+            Izberi kategorijo
+          </label>
+          <div className="flex flex-row gap-3">
             <select
+              id="category"
               name="category"
+              className="w-full flex-1 rounded-lg border border-gray-400 bg-white p-2.5 text-darker placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500"
               value={selectedCategory}
               onChange={(e) => {
                 const selectedCategory = e.target.value;
@@ -103,20 +110,18 @@ export default function VajaQuiz() {
                 </option>
               ))}
             </select>
+
+            <Button
+              disabled={isLoading}
+              onClick={!isLoading ? () => load(selectedCategory) : undefined}
+            >
+              Naloži
+            </Button>
           </div>
         </div>
+      </SubHeader>
 
-        <div className="control">
-          <button
-            className={`button is-primary ${isLoading ? 'is-loading' : ''}`}
-            onClick={() => load(selectedCategory)}
-          >
-            Naloži
-          </button>
-        </div>
-      </div>
-
-      <div>
+      <div className="section container flex max-w-xl flex-col gap-12">
         {questions.slice(0, displayed).map((question, qi) => (
           <QuestionCard
             key={qi}
@@ -134,25 +139,13 @@ export default function VajaQuiz() {
             }
           />
         ))}
-      </div>
 
-      <div className="buttons mt-5 is-justify-content-end">
         {questions.length > displayed && (
-          <button className="button is-primary is-rounded" onClick={loadMore}>
-            Naloži več
-          </button>
+          <div className="flex flex-row justify-center gap-3">
+            <Button onClick={loadMore}>Naloži več</Button>
+          </div>
         )}
-        <button className="button is-primary is-rounded" onClick={scrollToTop}>
-          Na vrh
-        </button>
       </div>
     </>
   );
-}
-
-const isBrowser = () => typeof window !== 'undefined';
-
-function scrollToTop() {
-  if (!isBrowser()) return;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 }

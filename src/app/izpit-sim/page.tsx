@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import IzpitQuiz from './izpit-quiz';
+import { SubHeader } from '@/components/sub_header';
 
 export const metadata: Metadata = {
   title: 'Simulator izpita',
@@ -8,20 +9,17 @@ export const metadata: Metadata = {
 
 export default function Priprave() {
   return (
-    <div className="section">
-      <div className="content">
-        <h1>Simulator izpita</h1>
-
+    <>
+      <SubHeader title="Simulator izpita">
         <p>
-          Kandidati za radioamaterja razreda A opravljajo izpit, ki je
-          sestavljen iz <strong>60 različnih vprašanj</strong>. Vsako vprašanje
-          ima 3 možne odgovore, od katerih je samo en pravilen. Kandidat ima na
-          voljo 90 minut za reševanje izpitne pole. Kandidat mora{' '}
-          <strong>pravilno odgovoriti vsaj na 36 vprašanj</strong> (60 %) .
+          Izpit je sestavljen iz <strong>60 različnih vprašanj</strong>. Vsako
+          vprašanje ima 3 možne odgovore, od katerih je samo en pravilen.
+          Kandidat ima na voljo 90 minut za reševanje izpitne pole. Kandidat
+          mora <strong>pravilno odgovoriti vsaj na 36 vprašanj</strong> (60 %).
         </p>
-      </div>
+      </SubHeader>
 
       <IzpitQuiz />
-    </div>
+    </>
   );
 }

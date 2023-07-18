@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { Question } from '@/interfaces/question';
@@ -68,7 +69,6 @@ export default function Exam() {
           time={time}
         />
 
-        {/* @ts-expect-error Server Component */}
         <ExamDoc qPromise={questions} />
       </Suspense>
     </div>
@@ -116,6 +116,7 @@ async function ExamDoc({ qPromise }: { qPromise: Promise<Question[]> }) {
             {q.image && (
               <img
                 src={`/question_images/${q.image}`}
+                alt=""
                 style={{
                   maxHeight: '20rem',
                   maxWidth: '50%',
@@ -186,6 +187,7 @@ function FrontPage({
       >
         <img
           src="/logo/zrs_logo_black.png"
+          alt=""
           style={{ height: '10rem', width: 'auto' }}
         />
         <div style={{ textAlign: 'center', flex: 1, fontSize: '2rem' }}>
