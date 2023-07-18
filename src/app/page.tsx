@@ -220,16 +220,17 @@ export default function Home() {
           <Link className="link" href="/zbirka">
             zbirko vprašanj
           </Link>
-          , ki se lahko pojavijo na izpitu. Cela zbirka vprašanj je na voljo
+          , ki se lahko pojavijo na izpitu.
+          {/* Cela zbirka vprašanj je na voljo
           tudi v{' '}
           <Link className="link" href="#">
             PDF obliki
           </Link>
-          .
+          . */}
         </p>
         <p>
           Nato si lahko tudi pomagaš s sistemom za{' '}
-          <Link className="link" href="/priprava">
+          <Link className="link" href="/priprave">
             vajo vprašanj
           </Link>
           , kjer lahko rešuješ vprašanja iz zbirke in se pravilni in napačni

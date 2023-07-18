@@ -47,7 +47,7 @@ export default function RootLayout({
       <body className={morse.variable}>
         <Header />
 
-        <main className="mb-8">{children}</main>
+        <main>{children}</main>
         <ScrollToTopButton />
 
         <Analytics />

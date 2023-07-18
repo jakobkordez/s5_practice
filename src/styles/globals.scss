@@ -17,6 +17,13 @@
   padding-bottom: 3rem;
 }
 
+main > :not(.section):last-child {
+  padding-bottom: 2rem;
+}
+main > .section:last-child {
+  padding-bottom: 5rem;
+}
+
 .content {
   & > h1,
   & > h2,
