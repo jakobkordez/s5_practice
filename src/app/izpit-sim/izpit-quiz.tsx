@@ -5,6 +5,7 @@ import { getExamQuestions } from '@/util/question-util';
 import { create } from 'zustand';
 import QuestionCard from '@/components/question_card';
 import { Button } from '@/components/button';
+import { scrollToTop } from '@/components/scroll-to-top-button';
 
 enum QuizState {
   Loading,
@@ -69,9 +70,11 @@ export default function IzpitQuiz() {
   return (
     <>
       {state === QuizState.Ready && (
-        <Button className="mx-auto my-10" onClick={load}>
-          Začni
-        </Button>
+        <div className="section">
+          <Button className="mx-auto" onClick={load}>
+            Začni
+          </Button>
+        </div>
       )}
 
       {state === QuizState.Loading && <div>Pripravljanje ...</div>}
@@ -84,7 +87,7 @@ export default function IzpitQuiz() {
 
   function inProgress() {
     return (
-      <div className="container my-10 flex max-w-xl flex-col gap-12">
+      <div className="section container flex max-w-xl flex-col gap-12">
         {questions?.map((question, qi) => (
           <QuestionCard
             key={qi}
@@ -118,7 +121,7 @@ export default function IzpitQuiz() {
     return (
       <>
         <div className="bg-light">
-          <div className="container flex flex-col items-center py-10">
+          <div className="section container flex flex-col items-center">
             <h2 className="text-xl">Rezultat</h2>
             <p className="text-4xl">
               {correctCount} / {answers!.length} (
@@ -130,8 +133,10 @@ export default function IzpitQuiz() {
           </div>
         </div>
 
-        <div className="my-10">
-          <h1 className="my-10 text-center text-2xl">Napačni odgovori</h1>
+        <div className="section">
+          <h1 className="mb-10 text-center text-2xl font-semibold">
+            Napačni odgovori
+          </h1>
 
           <div className="container flex max-w-xl flex-col gap-12">
             {questions?.map(
@@ -150,11 +155,4 @@ export default function IzpitQuiz() {
       </>
     );
   }
-}
-
-const isBrowser = () => typeof window !== 'undefined';
-
-function scrollToTop() {
-  if (!isBrowser()) return;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 }

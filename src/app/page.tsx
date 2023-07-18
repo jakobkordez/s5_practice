@@ -20,7 +20,7 @@ const povezave = [
 export default function Home() {
   return (
     <>
-      <div className="content container my-12">
+      <div className="content section container">
         <h3>Kaj je radioamaterstvo?</h3>
         <p>
           Radioamaterstvo je ljubiteljsko, nepoklicno ukvarjanje z radiom in
@@ -35,7 +35,7 @@ export default function Home() {
       </div>
 
       <div className="bg-light">
-        <div className="content container py-12">
+        <div className="content section container">
           <h3 className="text-center">Primerjava kategorij</h3>
           <div className="flex flex-col items-center justify-center gap-6 md:flex-row md:items-stretch">
             <div className="flex max-w-sm flex-1 flex-col gap-4 rounded-2xl bg-white p-6">
@@ -142,7 +142,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="content container my-12">
+      <div className="content section container">
         <h3>O izpitu</h3>
         <p>Na izpitu se preverja znanje iz naslednjih področij:</p>
         <ul>

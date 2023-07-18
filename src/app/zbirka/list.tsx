@@ -27,7 +27,7 @@ export function QuestionList() {
   }, [questions.length]);
 
   return (
-    <div className="container my-10 flex max-w-xl flex-col gap-12">
+    <div className="section container flex max-w-xl flex-col gap-12">
       {questions.map((question) => (
         <QuestionCard
           key={question.id}

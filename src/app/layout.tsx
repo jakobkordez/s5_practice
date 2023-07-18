@@ -3,6 +3,7 @@ import Header from '@/components/header';
 import { Metadata } from 'next';
 import '@/styles/globals.scss';
 import { morse } from '@/fonts/fonts';
+import { ScrollToTopButton } from '@/components/scroll-to-top-button';
 
 export const metadata: Metadata = {
   title: {
@@ -46,7 +47,8 @@ export default function RootLayout({
       <body className={morse.variable}>
         <Header />
 
-        <main>{children}</main>
+        <main className="mb-8">{children}</main>
+        <ScrollToTopButton />
 
         <AnalyticsWrapper />
       </body>

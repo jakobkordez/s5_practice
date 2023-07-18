@@ -24,7 +24,7 @@ export default function Header() {
             <Image src="/logo/logo_192.png" alt="Logo" height={32} width={32} />
             <div>
               <Link href="/">
-                <h1 className="text-4xl">Radioamaterski izpit</h1>
+                <h1 className="text-3xl sm:text-4xl">Radioamaterski izpit</h1>
               </Link>
               <div data-nosnippet className="morse mt-1 text-sm text-gray-400">
                 CQ|DE|ZRS

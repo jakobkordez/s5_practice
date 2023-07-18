@@ -34,7 +34,7 @@ export default function License() {
         </p>
       </SubHeader>
 
-      <div className="content container my-10">
+      <div className="content section container">
         <h3>Klicni znak</h3>
         <p>
           Klicne znake v Sloveniji določa <strong>6. člen</strong>{' '}
@@ -103,7 +103,7 @@ export default function License() {
       </div>
 
       <div className="flex bg-light">
-        <div className="content container my-10">
+        <div className="content section container">
           <h3>Vloga za radioamatersko dovoljenje</h3>
           <p>
             Vlogo za radioamatersko dovoljenje je možno oddati elektronsko (z

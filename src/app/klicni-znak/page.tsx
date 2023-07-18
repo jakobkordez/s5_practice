@@ -13,7 +13,7 @@ export default function Callsign() {
       <SubHeader title="Pomoč pri izbiri klicnega znaka">
         <p className="text-lg">
           Spodaj vpiši želen klicni znak in preveri, če je ta že zaseden in če
-          je za pravi razred.
+          ustreza izbranem razredu.
         </p>
       </SubHeader>
 

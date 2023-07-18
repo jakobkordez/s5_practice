@@ -85,7 +85,7 @@ export default function VajaQuiz() {
   }, [questions.length, selectedCategory]);
 
   return (
-    <div className="mb-10 flex flex-col gap-10">
+    <>
       <SubHeader title="Priprava na izpit">
         <div>
           <label htmlFor="category" className="mb-2 block font-medium">
@@ -121,7 +121,7 @@ export default function VajaQuiz() {
         </div>
       </SubHeader>
 
-      <div className="container flex max-w-xl flex-col gap-12">
+      <div className="section container flex max-w-xl flex-col gap-12">
         {questions.slice(0, displayed).map((question, qi) => (
           <QuestionCard
             key={qi}
@@ -139,23 +139,13 @@ export default function VajaQuiz() {
             }
           />
         ))}
-      </div>
 
-      <div className="container w-full max-w-xl">
-        <div className="flex flex-row justify-end gap-3">
-          {questions.length > displayed && (
+        {questions.length > displayed && (
+          <div className="flex flex-row justify-center gap-3">
             <Button onClick={loadMore}>Naloži več</Button>
-          )}
-          <Button onClick={scrollToTop}>Na vrh</Button>
-        </div>
+          </div>
+        )}
       </div>
-    </div>
+    </>
   );
-}
-
-const isBrowser = () => typeof window !== 'undefined';
-
-function scrollToTop() {
-  if (!isBrowser()) return;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
