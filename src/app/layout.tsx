@@ -1,4 +1,4 @@
-import { AnalyticsWrapper } from '@/components/analytics';
+import { Analytics } from '@vercel/analytics/react';
 import Header from '@/components/header';
 import { Metadata } from 'next';
 import '@/styles/globals.scss';
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     shortcut: '/logo/icon_512.png',
   },
   creator: 'Jakob Kordež [S52KJ]',
-  themeColor: '#2196f3',
+  themeColor: '#00ADB5',
   manifest: '/manifest.json',
   metadataBase: new URL('https://izpit.jkob.cc'),
   openGraph: {
@@ -50,7 +50,7 @@ export default function RootLayout({
         <main className="mb-8">{children}</main>
         <ScrollToTopButton />
 
-        <AnalyticsWrapper />
+        <Analytics />
       </body>
     </html>
   );

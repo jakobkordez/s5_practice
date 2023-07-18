@@ -1,15 +1,23 @@
 'use client';
 
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 
 const nav = [
   { href: '/', label: 'Domov' },
   { href: '/licenca', label: 'Licenca' },
-  { href: '/zbirka', label: 'Zbirka' },
-  { href: '/priprave', label: 'Priprave' },
-  { href: '/izpit-sim', label: 'Simulator izpita' },
+  {
+    label: 'Vaja',
+    children: [
+      { href: '/zbirka', label: 'Zbirka' },
+      { href: '/priprave', label: 'Priprave' },
+      { href: '/izpit-sim', label: 'Simulator izpita' },
+    ],
+  },
   // { href: "/izpit-gen", label: "Generator izpitnih pol" },
 ];
 
@@ -36,21 +44,72 @@ export default function Header() {
 
       <div className="bg-dark">
         <nav className="container flex flex-row flex-wrap justify-start">
-          {nav.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className={`px-4 py-2 transition-colors ${
-                href === pathname
-                  ? 'cursor-default bg-white/10'
-                  : 'hover:bg-white/10 active:bg-white/30'
-              }`}
-            >
-              {label}
-            </Link>
-          ))}
+          {nav.map(({ href, label, children }) =>
+            href ? (
+              <Link
+                key={href}
+                href={href}
+                className={`px-4 py-2 transition-colors ${
+                  href === pathname
+                    ? 'cursor-default bg-white/10'
+                    : 'hover:bg-white/10 active:bg-white/30'
+                }`}
+              >
+                {label}
+              </Link>
+            ) : (
+              <Dropdown key={label} label={label}>
+                {children?.map(({ href, label }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className={`px-4 py-2 transition-colors ${
+                      href === pathname
+                        ? 'cursor-default bg-white/10'
+                        : 'hover:bg-white/10 active:bg-white/30'
+                    }`}
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </Dropdown>
+            )
+          )}
         </nav>
       </div>
     </header>
+  );
+}
+
+interface DropdownProps {
+  label: string;
+  children: React.ReactNode;
+}
+
+function Dropdown({ label, children }: DropdownProps) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div onMouseLeave={() => setOpen(false)} className="relative">
+      <button
+        className={`flex flex-row items-center gap-2 px-4 py-2 transition-colors hover:bg-white/10 active:bg-white/30 ${
+          open ? 'bg-white/10' : ''
+        }`}
+        onMouseOver={() => setOpen(true)}
+        onClick={() => setOpen(!open)}
+      >
+        <span>{label}</span>
+        <FontAwesomeIcon icon={faAngleDown} className="pt-1" />
+      </button>
+
+      {open && (
+        <div
+          onClick={() => setOpen(false)}
+          className="absolute left-0 top-full z-10 flex w-40 flex-col bg-darker shadow-lg"
+        >
+          {children}
+        </div>
+      )}
+    </div>
   );
 }

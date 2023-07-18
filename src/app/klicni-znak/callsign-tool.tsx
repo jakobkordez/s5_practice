@@ -38,7 +38,7 @@ export default function CallsignTool() {
   const [showSimilar, setShowSimilar] = useState(false);
 
   function setCallsign(cs: string | undefined) {
-    if (!cs || !cs.length) return;
+    if (cs == null) return;
     setCs(cs);
     if (showSimilar) setShowSimilar(false);
   }
@@ -104,50 +104,45 @@ export default function CallsignTool() {
         </div>
       </div>
 
-      <div>
-        <h4 className="mb-1 text-xl font-semibold">O izbranem znaku</h4>
-        <div className="flex flex-col overflow-clip rounded-lg">
-          {tests
-            .filter((test) =>
-              test.preTest ? test.preTest(clas, callsign) : true
-            )
-            .map((test, i) => {
-              const result = test.test(callsign);
+      <div className="flex flex-col overflow-clip rounded-lg border">
+        {tests
+          .filter((test) =>
+            test.preTest ? test.preTest(clas, callsign) : true
+          )
+          .map((test, i) => {
+            const result = test.test(callsign);
 
-              return (
-                <div
-                  key={i}
-                  className={`flex flex-row items-center gap-4 border-b px-5 py-3 text-lg last:border-b-0 ${
-                    result ? 'bg-green-100' : 'bg-red-100'
-                  }`}
-                >
-                  <FontAwesomeIcon
-                    icon={result ? faCheckCircle : faXmarkCircle}
-                    className={`w-5 ${
-                      result ? 'text-green-600' : 'text-red-600'
-                    }`}
-                  />
-                  <span>{test.name}</span>
-                </div>
-              );
-            })}
-
-          {/^S5\d[A-Z]{1,3}$/i.test(callsign) && isTaken !== null && (
-            <div
-              className={`flex flex-row items-center gap-4 px-5 py-3 text-lg ${
-                !isTaken ? 'bg-green-100' : 'bg-red-100'
-              }`}
-            >
-              <FontAwesomeIcon
-                icon={!isTaken ? faCheckCircle : faXmarkCircle}
-                className={`w-5 ${
-                  !isTaken ? 'text-green-600' : 'text-red-600'
+            return (
+              <div
+                key={i}
+                className={`flex flex-row items-center gap-4 border-b px-5 py-3 text-lg last:border-b-0 ${
+                  result ? 'bg-green-100' : 'bg-red-100'
                 }`}
-              />
-              <span>Klicni znak je {isTaken ? 'zaseden' : 'prost'}</span>
-            </div>
-          )}
-        </div>
+              >
+                <FontAwesomeIcon
+                  icon={result ? faCheckCircle : faXmarkCircle}
+                  className={`w-5 ${
+                    result ? 'text-green-600' : 'text-red-600'
+                  }`}
+                />
+                <span>{test.name}</span>
+              </div>
+            );
+          })}
+
+        {/^S5\d[A-Z]{1,3}$/i.test(callsign) && isTaken !== null && (
+          <div
+            className={`flex flex-row items-center gap-4 px-5 py-3 text-lg ${
+              !isTaken ? 'bg-green-100' : 'bg-red-100'
+            }`}
+          >
+            <FontAwesomeIcon
+              icon={!isTaken ? faCheckCircle : faXmarkCircle}
+              className={`w-5 ${!isTaken ? 'text-green-600' : 'text-red-600'}`}
+            />
+            <span>Klicni znak je {isTaken ? 'zaseden' : 'prost'}</span>
+          </div>
+        )}
       </div>
 
       {showSimilar ? (
