@@ -2,7 +2,6 @@ import { SubHeader } from '@/components/sub_header';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import RandomCallsign from './random_callsign';
-import { LinkButton } from '@/components/button';
 
 export const metadata: Metadata = {
   title: 'Radioamatersko dovoljenje',
@@ -15,21 +14,21 @@ export default function License() {
       <SubHeader title="Radioamatersko dovoljenje (CEPT licenca)">
         <p>
           Radioamaterska dovoljenja izdaja{' '}
-          <a className="link-light" href="https://www.akos-rs.si/">
+          <Link className="link-light" href="https://www.akos-rs.si/">
             agencija za komunikacijska omrežja in storitve Republike Slovenije
             (AKOS)
-          </a>
+          </Link>
           .
         </p>
         <p>
           Po opravljenem izpitu lahko zaprosiš za radioamatersko dovoljenje, ki
           ga lahko uporabljaš v vseh{' '}
-          <a
+          <Link
             className="link-light"
             href="https://en.wikipedia.org/wiki/European_Conference_of_Postal_and_Telecommunications_Administrations"
           >
             državah članicah CEPT
-          </a>
+          </Link>
           .
         </p>
       </SubHeader>
@@ -38,13 +37,13 @@ export default function License() {
         <h3>Klicni znak</h3>
         <p>
           Klicne znake v Sloveniji določa <strong>6. člen</strong>{' '}
-          <a
+          <Link
             className="link"
             href="https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2023-01-0256/splosni-akt-o-pogojih-za-uporabo-radijskih-frekvenc-namenjenih-radioamaterski-in-radioamaterski-satelitski-storitvi"
           >
             splošnega akta o pogojih za uporabo radijskih frekvenc, namenjenih
             radioamaterski in radioamaterski satelitski storitvi
-          </a>
+          </Link>
           .
         </p>
         <p>
@@ -62,12 +61,12 @@ export default function License() {
         <h4>Izbira klicnega znaka</h4>
         <p>
           Seznam zasedenih klicnih znakov je dostopen v{' '}
-          <a
+          <Link
             className="link"
             href="https://www.akos-rs.si/registri/seznam-registrov/radioamaterji"
           >
             registru radioamaterjev
-          </a>
+          </Link>
           .
         </p>
         <p>
@@ -97,9 +96,9 @@ export default function License() {
           </div>
         </div>
 
-        <LinkButton href="/klicni-znak" className="w-full">
+        <Link href="/klicni-znak" className="button w-full">
           Pomagaj izbrati klicni znak
-        </LinkButton>
+        </Link>
       </div>
 
       <div className="flex bg-light">
@@ -127,15 +126,15 @@ export default function License() {
           </p>
 
           <div className="mt-6 flex flex-col gap-4 text-center md:flex-row">
-            <LinkButton className="flex-1" href="https://evloge.akos-rs.si/">
+            <Link className="button flex-1" href="https://evloge.akos-rs.si/">
               Elektronska vloga
-            </LinkButton>
-            <LinkButton
-              className="flex-1"
+            </Link>
+            <Link
+              className="button flex-1"
               href="https://www.akos-rs.si/fileadmin/user_upload/Vloga_za_radioamatersko_dovoljenje.dotx"
             >
               Obrazec
-            </LinkButton>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,6 +1,5 @@
 'use client';
 
-import { Button } from '@/components/button';
 import { robotoMono } from '@/fonts/fonts';
 import {
   generateAllCallsigns,
@@ -92,22 +91,28 @@ export default function CallsignTool() {
         />
         <div className="mt-1 flex flex-row gap-2">
           {clas ? (
-            <Button className="flex-1" onClick={() => setCallsign(randCall(5))}>
+            <button
+              className="button flex-1"
+              onClick={() => setCallsign(randCall(5))}
+            >
               Naključen prost 2-črkovni klicni znak
-            </Button>
+            </button>
           ) : (
             <></>
           )}
-          <Button className="flex-1" onClick={() => setCallsign(randCall(6))}>
+          <button
+            className="button flex-1"
+            onClick={() => setCallsign(randCall(6))}
+          >
             Naključen prost 3-črkovni klicni znak
-          </Button>
+          </button>
         </div>
       </div>
 
       <div className="flex flex-col overflow-clip rounded-lg border">
         {tests
           .filter((test) =>
-            test.preTest ? test.preTest(clas, callsign) : true
+            test.preTest ? test.preTest(clas, callsign) : true,
           )
           .map((test, i) => {
             const result = test.test(callsign);
@@ -169,9 +174,9 @@ export default function CallsignTool() {
           </div>
         </div>
       ) : (
-        <Button onClick={() => setShowSimilar(true)}>
+        <button className="button" onClick={() => setShowSimilar(true)}>
           Poišči podobne proste klicne znake
-        </Button>
+        </button>
       )}
     </div>
   );

@@ -20,7 +20,7 @@ const openFile = async (): Promise<QuestionFile> => {
 export const getQuestions = async (): Promise<Question[]> => {
   const file = await openFile();
 
-  return file.questions.map((question: any) => ({
+  return file.questions.map((question) => ({
     id: question.id,
     question: question.question,
     image: question.image,
@@ -33,16 +33,16 @@ export const getQuestions = async (): Promise<Question[]> => {
 export const getCategories = async (): Promise<Category[]> => {
   const file = await openFile();
 
-  return file.categories.map((category: any) => ({
+  return file.categories.map((category) => ({
     id: category.id,
     title: category.title,
-    questions: category.questions,
+    // questions: category.questions,
   }));
 };
 
 export const getExamQuestions = async (
   seed: number,
-  count: number = 60
+  count: number = 60,
 ): Promise<Question[]> => {
   const rnd = new Random(seed);
 
@@ -63,7 +63,7 @@ export const getExamQuestions = async (
  * @param array Array of items to shuffle
  * @param rnd Random number generator
  */
-const shuffle = (array: any[], rnd: Random) => {
+const shuffle = (array: unknown[], rnd: Random) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = rnd.nextInt() % (i + 1);
     const temp = array[i];

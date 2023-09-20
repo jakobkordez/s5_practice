@@ -155,9 +155,9 @@ export default function Home() {
         </ul>
         <p>
           Za točno vsebino, si oglej{' '}
-          <a className="link" href="https://zrs.si/files/kriteriji.pdf">
+          <Link className="link" href="https://zrs.si/files/kriteriji.pdf">
             kriterij za izpit
-          </a>{' '}
+          </Link>{' '}
           ali pa si oglej{' '}
           <Link className="link" href="/zbirka">
             zbirko vprašanj
@@ -178,12 +178,12 @@ export default function Home() {
         <p>
           Zveza radioamaterjev Slovenije nekajkrat letno organizira izpite za
           radioamaterje. Izpitni roki so objavljeni na{' '}
-          <a
+          <Link
             className="link"
             href="http://www.hamradio.si/index.php?option=com_content&view=article&id=677&Itemid=118"
           >
             spletni strani ZRS
-          </a>
+          </Link>
           . Poleg teh izpitov lahko radioklubi organizirajo izpite za svoje
           tečajnike.
         </p>
@@ -191,20 +191,20 @@ export default function Home() {
         <h3>Vsebine za pripravo na izpit</h3>
         <p>
           Vsa snov, ki se lahko pojavi v izpitnih vprašanjih je vsebovana v{' '}
-          <a
+          <Link
             className="link"
             href="http://www.homemade.net/ra/prirocnik_novi.pdf"
           >
             Priročniku za radioamaterje (3. izdaja)
-          </a>
+          </Link>
           . V 3. izdaji je bilo najdenih že nekaj napak in predvsem mankajoče
           poglavje o detektorjih, zato je bolj priporočljiva{' '}
-          <a
+          <Link
             className="link"
             href="https://www.radioamater.si/wp-content/uploads/2016/01/prirocnik-za-radioamaterje_2izd.pdf"
           >
             2. izdaja priročnika
-          </a>
+          </Link>
           .
         </p>
         <p>
@@ -256,12 +256,12 @@ export default function Home() {
         </p>
         <p>
           Pred začetkom oddajanja pa je priporočljivo prebrati še{' '}
-          <a
+          <Link
             className="link"
             href="http://www.hamradio.si/images/dokumenti/publikacije/etika_junij%202021.pdf"
           >
             Etiko in operaterske postopke
-          </a>
+          </Link>
           .
         </p>
 

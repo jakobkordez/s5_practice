@@ -7,7 +7,6 @@ import { create } from 'zustand';
 import { Category } from '@/interfaces/category';
 import QuestionCard from '@/components/question_card';
 import { SubHeader } from '@/components/sub_header';
-import { Button } from '@/components/button';
 
 const qPerPage = 5;
 
@@ -111,12 +110,13 @@ export default function VajaQuiz() {
               ))}
             </select>
 
-            <Button
+            <button
+              className="button"
               disabled={isLoading}
               onClick={!isLoading ? () => load(selectedCategory) : undefined}
             >
               Naloži
-            </Button>
+            </button>
           </div>
         </div>
       </SubHeader>
@@ -142,7 +142,9 @@ export default function VajaQuiz() {
 
         {questions.length > displayed && (
           <div className="flex flex-row justify-center gap-3">
-            <Button onClick={loadMore}>Naloži več</Button>
+            <button className="button" onClick={loadMore}>
+              Naloži več
+            </button>
           </div>
         )}
       </div>

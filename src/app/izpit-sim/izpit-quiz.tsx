@@ -4,7 +4,6 @@ import { Question } from '@/interfaces/question';
 import { getExamQuestions } from '@/util/question-util';
 import { create } from 'zustand';
 import QuestionCard from '@/components/question_card';
-import { Button } from '@/components/button';
 import { scrollToTop } from '@/components/scroll-to-top-button';
 
 enum QuizState {
@@ -71,9 +70,9 @@ export default function IzpitQuiz() {
     <>
       {state === QuizState.Ready && (
         <div className="section">
-          <Button className="mx-auto" onClick={load}>
+          <button className="button mx-auto" onClick={load}>
             Začni
-          </Button>
+          </button>
         </div>
       )}
 
@@ -102,17 +101,18 @@ export default function IzpitQuiz() {
           />
         ))}
 
-        <Button
+        <button
+          className="button"
           onClick={() =>
             finish(
               questions!
                 .map((q, qi) => q.correct === answers![qi][0])
-                .reduce((acc, cur) => acc + (cur ? 1 : 0), 0)
+                .reduce((acc, cur) => acc + (cur ? 1 : 0), 0),
             )
           }
         >
           Zaključi
-        </Button>
+        </button>
       </div>
     );
   }
@@ -127,9 +127,9 @@ export default function IzpitQuiz() {
               {correctCount} / {answers!.length} (
               {Math.round((correctCount! / answers!.length) * 1000) / 10} %)
             </p>
-            <Button className="mt-6" onClick={reset}>
+            <button className="button mt-6" onClick={reset}>
               Nazaj na začetek
-            </Button>
+            </button>
           </div>
         </div>
 
@@ -148,7 +148,7 @@ export default function IzpitQuiz() {
                     reveal={true}
                     selected={[answers![qi][0], question.correct]}
                   />
-                )
+                ),
             )}
           </div>
         </div>
