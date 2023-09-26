@@ -2568,7 +2568,7 @@
     },
     {
       "id": 262,
-      "question": "\"Nič nimam zate?\" se glasi:",
+      "question": "\"Nič nimam zate\" se glasi:",
       "image": null,
       "answers": ["QTR", "QRU", "QRW"],
       "correct": 1,

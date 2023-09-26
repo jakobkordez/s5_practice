@@ -6,6 +6,7 @@ import { morse } from '@/fonts/fonts';
 import { ScrollToTopButton } from '@/components/scroll-to-top-button';
 
 export const metadata: Metadata = {
+  applicationName: 'Radioamaterski izpit',
   title: {
     default: 'Radioamaterski izpit',
     template: '%s | Radioamaterski izpit',
