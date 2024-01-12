@@ -17,11 +17,55 @@ const povezave = [
   },
 ];
 
+const classes = [
+  {
+    premium: false,
+    name: 'N razred',
+    description:
+      'N razred je namenjen začetnikom, ki se šele spoznavajo z radioamaterstvom in niso še tako vešči v elektroniki.',
+    perks: [
+      <>
+        Uporaba le nekaterih frekvenčnih pasov{' '}
+        <span className="text-sm font-light">(4 KV, 4 UKV)</span>
+      </>,
+      <>
+        Manjša moč{' '}
+        <span className="text-sm font-light">(KV - 100 W, UKV - 25 W)</span>
+      </>,
+      <>Ozek izbor klicnih znakov</>,
+    ],
+    callsigns: ['S52AAA - S52XZZ in S52ZAA - S52ZZZ', 'S58AAA - S58XZZ'],
+  },
+  {
+    premium: true,
+    name: 'A razred',
+    description:
+      'A razred je namenjen tistim, ki želijo delovati na vseh amaterskih frekvencah in z večjo močjo.',
+    perks: [
+      <>Uporaba vseh radioamaterskih frekvenčnih pasov</>,
+      <>
+        Večja moč <span className="text-sm font-light">(do 1500 W)</span>
+      </>,
+      <>Širši izbor klicnih znakov</>,
+      <>Uporaba radioamaterskih satelitskih storitev</>,
+    ],
+    callsigns: [
+      'S50A - S59Z',
+      'S50AA - S59ZZ',
+      'S50AAA - S50XZZ',
+      'S54AAA - S54XZZ in S54ZAA - S54ZZZ',
+      'S56AAA - S56XZZ in S56ZAA - S56ZZZ',
+      'S57AAA - S57XZZ in S57ZAA - S57ZZZ',
+      'S58ZAA - S58ZZZ',
+    ],
+  },
+];
+
 export default function Home() {
   return (
     <>
-      <div className="content section container">
-        <h3>Kaj je radioamaterstvo?</h3>
+      <div className="section container prose">
+        <h1>Kaj je radioamaterstvo?</h1>
         <p>
           Radioamaterstvo je ljubiteljsko, nepoklicno ukvarjanje z radiom in
           radiotehniko. Vsak radioamater v radioamatestvu najde nekaj kar ga
@@ -35,115 +79,52 @@ export default function Home() {
       </div>
 
       <div className="bg-light">
-        <div className="content section container">
-          <h3 className="text-center">Primerjava kategorij</h3>
-          <div className="flex flex-col items-center justify-center gap-6 md:flex-row md:items-stretch">
-            <div className="flex max-w-sm flex-1 flex-col gap-4 rounded-2xl bg-white p-6">
-              <h4 className="text-center">N razred</h4>
-              <p>
-                N razred je namenjen začetnikom, ki se šele spoznavajo z
-                radioamaterstvom in niso še tako vešči v elektroniki.
-              </p>
+        <div className="section container">
+          <div className="prose mx-auto">
+            <h2 className="text-center">Razreda radioamaterjev</h2>
+          </div>
 
-              <div className="border-t border-gray-400" />
+          <div className="mt-10 flex flex-col items-center justify-center gap-6 md:flex-row md:items-stretch">
+            {classes.map((c) => (
+              <div
+                key={c.name}
+                className={`flex max-w-sm flex-1 flex-col rounded-2xl p-6 ${
+                  c.premium ? 'bg-dark text-light' : 'bg-white'
+                }`}
+              >
+                <h4 className="mb-4 text-center text-lg font-bold">{c.name}</h4>
+                <p>{c.description}</p>
 
-              <ul className="flex flex-col gap-2">
-                <li className="flex flex-row items-start gap-2">
-                  <FontAwesomeIcon
-                    icon={faCheckCircle}
-                    className="mt-1 h-4 text-primary"
-                  />
-                  <div className="flex-1">
-                    Uporaba le glavnih radioamaterskih frekvenc
-                  </div>
-                </li>
-                <li className="flex flex-row items-start gap-2">
-                  <FontAwesomeIcon
-                    icon={faCheckCircle}
-                    className="mt-1 h-4 text-primary"
-                  />
-                  <div className="flex-1">Manjša moč</div>
-                </li>
-                <li className="flex flex-row items-start gap-2">
-                  <FontAwesomeIcon
-                    icon={faCheckCircle}
-                    className="mt-1 h-4 text-primary"
-                  />
-                  <div className="flex-1">Ozek izbor klicnih znakov</div>
-                </li>
-              </ul>
+                <div className={`divider ${c.premium ? '!bg-gray-500' : ''}`} />
 
-              <div className="border-t border-gray-400" />
+                <ul className="flex flex-col gap-2">
+                  {c.perks.map((p, i) => (
+                    <li key={i} className="flex flex-row items-start gap-2">
+                      <FontAwesomeIcon
+                        icon={faCheckCircle}
+                        className="mt-1 h-4 w-4 text-primary"
+                      />
+                      <div className="flex-1">{p}</div>
+                    </li>
+                  ))}
+                </ul>
 
-              <h5 className="text-center">Klicni znaki</h5>
-              <ul>
-                <li>S52AAA - S52XZZ in S52ZAA - S52ZZZ</li>
-                <li>S58AAA - S58XZZ</li>
-              </ul>
-            </div>
-            <div className="flex max-w-sm flex-1 flex-col gap-4 rounded-2xl bg-dark p-6 text-white">
-              <h4 className="text-center">A razred</h4>
-              <p>
-                A razred je namenjen tistim, ki želijo delovati na vseh
-                amaterskih frekvencah in z večjo močjo.
-              </p>
+                <div className={`divider ${c.premium ? '!bg-gray-500' : ''}`} />
 
-              <div className="border-t border-gray-400" />
-
-              <ul className="flex flex-col gap-2">
-                <li className="flex flex-row items-start gap-2">
-                  <FontAwesomeIcon
-                    icon={faCheckCircle}
-                    className="mt-1 h-4 text-primary"
-                  />
-                  <div className="flex-1">
-                    Uporaba vseh radioamaterskih frekvenc
-                  </div>
-                </li>
-                <li className="flex flex-row items-start gap-2">
-                  <FontAwesomeIcon
-                    icon={faCheckCircle}
-                    className="mt-1 h-4 text-primary"
-                  />
-                  <div className="flex-1">Večja moč</div>
-                </li>
-                <li className="flex flex-row items-start gap-2">
-                  <FontAwesomeIcon
-                    icon={faCheckCircle}
-                    className="mt-1 h-4 text-primary"
-                  />
-                  <div className="flex-1">Širši izbor klicnih znakov</div>
-                </li>
-                <li className="flex flex-row items-start gap-2">
-                  <FontAwesomeIcon
-                    icon={faCheckCircle}
-                    className="mt-1 h-4 text-primary"
-                  />
-                  <div className="flex-1">
-                    Uporaba radioamaterskih satelitskih storitev
-                  </div>
-                </li>
-              </ul>
-
-              <div className="border-t border-gray-400" />
-
-              <h5 className="text-center">Klicni znaki</h5>
-              <ul>
-                <li>S50A - S59Z</li>
-                <li>S50AA - S59ZZ</li>
-                <li>S50AAA - S50XZZ</li>
-                <li>S54AAA - S54XZZ in S54ZAA - S54ZZZ</li>
-                <li>S56AAA - S56XZZ in S56ZAA - S56ZZZ</li>
-                <li>S57AAA - S57XZZ in S57ZAA - S57ZZZ</li>
-                <li>S58ZAA - S58ZZZ</li>
-              </ul>
-            </div>
+                <h5 className="mb-2 text-center font-semibold">Klicni znaki</h5>
+                <ul className="text-sm">
+                  {c.callsigns.map((cs, i) => (
+                    <li key={i}>{cs}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
-      <div className="content section container">
-        <h3>O izpitu</h3>
+      <div className="section container prose">
+        <h2>O izpitu</h2>
         <p>Na izpitu se preverja znanje iz naslednjih področij:</p>
         <ul>
           <li>Zgodovina, razvoj in pomen radioamaterstva</li>
@@ -155,17 +136,14 @@ export default function Home() {
         </ul>
         <p>
           Za točno vsebino, si oglej{' '}
-          <Link className="link" href="https://zrs.si/files/kriteriji.pdf">
+          <Link target="_blank" href="https://zrs.si/files/kriteriji.pdf">
             kriterij za izpit
           </Link>{' '}
-          ali pa si oglej{' '}
-          <Link className="link" href="/zbirka">
-            zbirko vprašanj
-          </Link>
-          , ki se lahko pojavijo na izpitu.
+          ali pa si oglej <Link href="/zbirka">zbirko vprašanj</Link>, ki se
+          lahko pojavijo na izpitu.
         </p>
 
-        <h5>Preizkus sprejema in oddaje Morzejevih znakov</h5>
+        <h3>Preizkus sprejema in oddaje Morzejevih znakov</h3>
         <p>
           Kandidat, ki na lastno željo opravlja izpit iz predmeta Sprejem in
           oddaja Morzejevih znakov, mora dokazati, da je sposoben v Morzejevih
@@ -174,12 +152,12 @@ export default function Home() {
           hitrosti 25 znakov na minuto.
         </p>
 
-        <h5>Izpitni roki</h5>
+        <h3>Izpitni roki</h3>
         <p>
           Zveza radioamaterjev Slovenije nekajkrat letno organizira izpite za
           radioamaterje. Izpitni roki so objavljeni na{' '}
           <Link
-            className="link"
+            target="_blank"
             href="http://www.hamradio.si/index.php?option=com_content&view=article&id=677&Itemid=118"
           >
             spletni strani ZRS
@@ -188,11 +166,11 @@ export default function Home() {
           tečajnike.
         </p>
 
-        <h3>Vsebine za pripravo na izpit</h3>
+        <h2>Vsebine za pripravo na izpit</h2>
         <p>
           Vsa snov, ki se lahko pojavi v izpitnih vprašanjih je vsebovana v{' '}
           <Link
-            className="link"
+            target="_blank"
             href="http://www.homemade.net/ra/prirocnik_novi.pdf"
           >
             Priročniku za radioamaterje (3. izdaja)
@@ -200,7 +178,7 @@ export default function Home() {
           . V 3. izdaji je bilo najdenih že nekaj napak in predvsem mankajoče
           poglavje o detektorjih, zato je bolj priporočljiva{' '}
           <Link
-            className="link"
+            target="_blank"
             href="https://www.radioamater.si/wp-content/uploads/2016/01/prirocnik-za-radioamaterje_2izd.pdf"
           >
             2. izdaja priročnika
@@ -214,50 +192,41 @@ export default function Home() {
           lahko v pomoč pri učenju.
         </p>
 
-        <h3>Vaje za izpit</h3>
+        <h2>Vaje za izpit</h2>
         <p>
           Pred izpitom si lahko ogledaš{' '}
-          <Link className="link" href="/zbirka">
-            zbirko vprašanj
-          </Link>
-          , ki se lahko pojavijo na izpitu.
+          <Link href="/zbirka">zbirko vprašanj</Link>, ki se lahko pojavijo na
+          izpitu.
           {/* Cela zbirka vprašanj je na voljo
           tudi v{' '}
-          <Link className="link" href="#">
+          <Link href="#">
             PDF obliki
           </Link>
           . */}
         </p>
         <p>
           Nato si lahko tudi pomagaš s sistemom za{' '}
-          <Link className="link" href="/priprave">
-            vajo vprašanj
-          </Link>
-          , kjer lahko rešuješ vprašanja iz zbirke in se pravilni in napačni
-          odgovori sproti prikazujejo.
+          <Link href="/priprave">vajo vprašanj</Link>, kjer lahko rešuješ
+          vprašanja iz zbirke in se pravilni in napačni odgovori sproti
+          prikazujejo.
         </p>
         <p>
           Lahko pa tudi poskusiš{' '}
-          <Link className="link" href="/izpit-sim">
-            rešiti preizkusni test
-          </Link>
-          , kjer imaš na voljo 90 minut časa za reševanje 60 vprašanj.
+          <Link href="/izpit-sim">rešiti preizkusni test</Link>, kjer imaš na
+          voljo 90 minut časa za reševanje 60 vprašanj.
         </p>
 
-        <h3>Po opravljenem izpitu</h3>
+        <h2>Po opravljenem izpitu</h2>
         <p>
           Po opravljenem izpitu lahko zaprosiš za klicni znak (CEPT licenco) na
           agenciji za komunikacijska omrežja in storitve Republike Slovenije
           (AKOS). Več o tem si lahko prebereš na podstrani{' '}
-          <Link className="link" href="/licenca">
-            Licenca
-          </Link>
-          .
+          <Link href="/licenca">Licenca</Link>.
         </p>
         <p>
           Pred začetkom oddajanja pa je priporočljivo prebrati še{' '}
           <Link
-            className="link"
+            target="_blank"
             href="http://www.hamradio.si/images/dokumenti/publikacije/etika_junij%202021.pdf"
           >
             Etiko in operaterske postopke
@@ -265,13 +234,11 @@ export default function Home() {
           .
         </p>
 
-        <h3>Uporabne povezave</h3>
+        <h2>Uporabne povezave</h2>
         <ul>
           {povezave.map(({ label, href }) => (
             <li key={label}>
-              <Link className="link" href={href}>
-                {label}
-              </Link>
+              <Link href={href}>{label}</Link>
             </li>
           ))}
         </ul>

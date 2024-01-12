@@ -5,7 +5,7 @@
 @import 'katex/dist/katex.min.css';
 
 .button {
-  @apply flex flex-row items-center justify-center rounded-lg bg-primary px-5 py-2 font-semibold text-white shadow-lg transition-colors hover:bg-primary-dark active:bg-primary-darker disabled:opacity-70;
+  @apply flex flex-row items-center justify-center rounded-lg bg-primary px-5 py-2 font-semibold text-white decoration-transparent shadow-lg transition-colors hover:bg-primary-dark active:bg-primary-darker disabled:opacity-70;
 }
 
 .link {
@@ -28,49 +28,25 @@ main > .section:last-child {
   padding-bottom: 5rem;
 }
 
-.content {
-  & > h1,
-  & > h2,
-  & > h3,
-  & > h4,
-  & > h5,
-  & > h6 {
-    &:not(:first-child) {
-      margin-top: 2rem;
-    }
-    margin-bottom: 1.2rem;
+.divider {
+  @apply my-4 h-[1px] w-full bg-gray-300;
+}
+
+.prose {
+  h1 {
+    @apply text-3xl font-semibold;
   }
 
-  & > p {
-    margin-bottom: 0.8rem;
-
-    &:not(:first-child) {
-      margin-top: 0.4rem;
-    }
+  h2 {
+    @apply text-2xl font-semibold;
   }
 
   h3 {
-    font-weight: 600;
-    font-size: 1.875rem /* 30px */;
-    line-height: 2.25rem /* 36px */;
+    @apply text-xl font-semibold;
   }
 
-  h4 {
-    font-weight: 600;
-    font-size: 1.5rem /* 24px */;
-    line-height: 2rem /* 32px */;
-  }
-
-  h5 {
-    font-weight: 600;
-    font-size: 1.25rem /* 20px */;
-    line-height: 1.75rem /* 28px */;
-  }
-
-  ul {
-    list-style-type: disc;
-    list-style-position: inside;
-    margin-left: 0.5rem;
+  a {
+    @apply decoration-[0.1em] underline-offset-2 transition-all;
   }
 }
 

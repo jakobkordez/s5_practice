@@ -10,7 +10,8 @@ export const metadata: Metadata = {
 export default function QuestionPool() {
   return (
     <>
-      <SubHeader title="Zbirka vprašanj">
+      <SubHeader>
+        <h1>Zbirka vprašanj</h1>
         <p className="text-lg">
           Seznam vseh vprašanj, ki se lahko pojavijo na izpitu.
         </p>

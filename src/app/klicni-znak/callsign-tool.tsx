@@ -32,7 +32,7 @@ async function loadCallsigns() {
 
 export default function CallsignTool() {
   const [clas, setClas] = useState(1);
-  const [callsign, setCs] = useState('S50HQ');
+  const [callsign, setCs] = useState('');
   const [taken, free] = useStore((state) => [state.taken, state.free]);
   const [showSimilar, setShowSimilar] = useState(false);
 
@@ -58,7 +58,7 @@ export default function CallsignTool() {
   const isTaken = taken?.has(callsign.toUpperCase()) ?? null;
 
   return (
-    <div className="section container flex flex-col gap-10">
+    <div className="section container prose flex flex-col gap-10">
       <div className="flex flex-col gap-1">
         <label className="text-sm font-semibold">Izberi razred</label>
         <div className="flex flex-row gap-4">
@@ -85,14 +85,15 @@ export default function CallsignTool() {
         <label className="text-sm font-semibold">Vnesi klicni znak</label>
         <input
           type="text"
-          className={`rounded-lg border border-light py-3 text-center text-3xl uppercase shadow-lg ${robotoMono.className}`}
+          className={`rounded-lg border border-light py-3 text-center text-3xl uppercase shadow-lg placeholder:font-sans placeholder:normal-case ${robotoMono.className}`}
           value={callsign}
           onChange={(e) => setCallsign(e.target.value)}
+          placeholder='npr. "S50HQ"'
         />
         <div className="mt-1 flex flex-row gap-2">
           {clas ? (
             <button
-              className="button flex-1"
+              className="button flex-1 text-sm"
               onClick={() => setCallsign(randCall(5))}
             >
               Naključen prost 2-črkovni klicni znak
@@ -101,7 +102,7 @@ export default function CallsignTool() {
             <></>
           )}
           <button
-            className="button flex-1"
+            className="button flex-1 text-sm"
             onClick={() => setCallsign(randCall(6))}
           >
             Naključen prost 3-črkovni klicni znak
@@ -185,6 +186,7 @@ export default function CallsignTool() {
 const tests = [
   {
     name: 'Se začne s S5',
+    preTest: (clas: number, callsign: string) => callsign.length > 0,
     test: (callsign: string) => /^S5/i.test(callsign),
   },
   {

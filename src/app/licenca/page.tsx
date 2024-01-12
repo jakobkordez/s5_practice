@@ -11,10 +11,15 @@ export const metadata: Metadata = {
 export default function License() {
   return (
     <>
-      <SubHeader title="Radioamatersko dovoljenje (CEPT licenca)">
+      <SubHeader>
+        <h1>
+          Radioamatersko dovoljenje
+          <br />
+          (CEPT licenca)
+        </h1>
         <p>
           Radioamaterska dovoljenja izdaja{' '}
-          <Link className="link-light" href="https://www.akos-rs.si/">
+          <Link target="_blank" href="https://www.akos-rs.si/">
             agencija za komunikacijska omrežja in storitve Republike Slovenije
             (AKOS)
           </Link>
@@ -24,7 +29,7 @@ export default function License() {
           Po opravljenem izpitu lahko zaprosiš za radioamatersko dovoljenje, ki
           ga lahko uporabljaš v vseh{' '}
           <Link
-            className="link-light"
+            target="_blank"
             href="https://en.wikipedia.org/wiki/European_Conference_of_Postal_and_Telecommunications_Administrations"
           >
             državah članicah CEPT
@@ -33,13 +38,13 @@ export default function License() {
         </p>
       </SubHeader>
 
-      <div className="content section container">
-        <h3>Klicni znak</h3>
+      <div className="section container prose">
+        <h2>Klicni znak</h2>
         <p>
           Klicne znake v Sloveniji določa <strong>6. člen</strong>{' '}
           <Link
-            className="link"
-            href="https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2023-01-0256/splosni-akt-o-pogojih-za-uporabo-radijskih-frekvenc-namenjenih-radioamaterski-in-radioamaterski-satelitski-storitvi"
+            target="_blank"
+            href="https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2023-01-0256/#(klicni%C2%A0znaki)"
           >
             splošnega akta o pogojih za uporabo radijskih frekvenc, namenjenih
             radioamaterski in radioamaterski satelitski storitvi
@@ -58,11 +63,11 @@ export default function License() {
 
         <RandomCallsign />
 
-        <h4>Izbira klicnega znaka</h4>
+        <h3>Izbira klicnega znaka</h3>
         <p>
           Seznam zasedenih klicnih znakov je dostopen v{' '}
           <Link
-            className="link"
+            target="_blank"
             href="https://www.akos-rs.si/registri/seznam-registrov/radioamaterji"
           >
             registru radioamaterjev
@@ -73,16 +78,16 @@ export default function License() {
           Klicni znak si lahko izbereš glede na razred izpita, ki si ga opravil.
         </p>
         <div className="my-6 flex flex-col gap-6 md:flex-row">
-          <div className="flex flex-1 flex-col gap-4 rounded-lg bg-light p-6 shadow-md">
-            <h4 className="text-center">N razred</h4>
+          <div className="flex flex-1 flex-col gap-4 rounded-lg bg-light px-4 shadow-md">
+            <h3 className="text-center">N razred</h3>
 
             <ul>
               <li>S52AAA - S52XZZ in S52ZAA - S52ZZZ</li>
               <li>S58AAA - S58XZZ</li>
             </ul>
           </div>
-          <div className="flex flex-1 flex-col gap-4 rounded-lg bg-light p-6 shadow-md">
-            <h4 className="text-center">A razred</h4>
+          <div className="flex flex-1 flex-col gap-4 rounded-lg bg-light px-4 shadow-md">
+            <h3 className="text-center">A razred</h3>
 
             <ul>
               <li>S50A - S59Z</li>
@@ -102,8 +107,8 @@ export default function License() {
       </div>
 
       <div className="flex bg-light">
-        <div className="content section container">
-          <h3>Vloga za radioamatersko dovoljenje</h3>
+        <div className="section container prose">
+          <h2>Vloga za radioamatersko dovoljenje</h2>
           <p>
             Vlogo za radioamatersko dovoljenje je možno oddati elektronsko (z
             digitalnim potrdilom), ali pa z izpolnjenim obrazcem poslanega po
@@ -126,10 +131,15 @@ export default function License() {
           </p>
 
           <div className="mt-6 flex flex-col gap-4 text-center md:flex-row">
-            <Link className="button flex-1" href="https://evloge.akos-rs.si/">
+            <Link
+              target="_blank"
+              className="button flex-1"
+              href="https://evloge.akos-rs.si/"
+            >
               Elektronska vloga
             </Link>
             <Link
+              target="_blank"
               className="button flex-1"
               href="https://www.akos-rs.si/fileadmin/user_upload/Vloga_za_radioamatersko_dovoljenje.dotx"
             >

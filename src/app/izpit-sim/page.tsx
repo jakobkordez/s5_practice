@@ -10,7 +10,8 @@ export const metadata: Metadata = {
 export default function Priprave() {
   return (
     <>
-      <SubHeader title="Simulator izpita">
+      <SubHeader>
+        <h1>Simulator izpita</h1>
         <p>
           Izpit je sestavljen iz <strong>60 različnih vprašanj</strong>. Vsako
           vprašanje ima 3 možne odgovore, od katerih je samo en pravilen.

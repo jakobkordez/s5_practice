@@ -35,7 +35,7 @@ export default function Header() {
                 <h1 className="text-3xl sm:text-4xl">Radioamaterski izpit</h1>
               </Link>
               <div data-nosnippet className="morse mt-1 text-sm text-gray-400">
-                CQ|DE|ZRS
+                CQ|DE|HAMS
               </div>
             </div>
           </div>

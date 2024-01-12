@@ -85,7 +85,8 @@ export default function VajaQuiz() {
 
   return (
     <>
-      <SubHeader title="Priprava na izpit">
+      <SubHeader>
+        <h1>Priprava na izpit</h1>
         <div>
           <label htmlFor="category" className="mb-2 block font-medium">
             Izberi kategorijo

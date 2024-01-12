@@ -2,7 +2,7 @@ import { Analytics } from '@vercel/analytics/react';
 import Header from '@/components/header';
 import { Metadata } from 'next';
 import '@/styles/globals.scss';
-import { morse } from '@/fonts/fonts';
+import { inter, morse } from '@/fonts/fonts';
 import { ScrollToTopButton } from '@/components/scroll-to-top-button';
 
 export const metadata: Metadata = {
@@ -45,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="sl">
       <head />
-      <body className={morse.variable}>
+      <body className={`${inter.className} ${morse.variable}`}>
         <Header />
 
         <main>{children}</main>

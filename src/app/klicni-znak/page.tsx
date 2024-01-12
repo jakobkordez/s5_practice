@@ -10,7 +10,8 @@ export const metadata: Metadata = {
 export default function Callsign() {
   return (
     <>
-      <SubHeader title="Pomoč pri izbiri klicnega znaka">
+      <SubHeader>
+        <h1>Pomoč pri izbiri klicnega znaka</h1>
         <p className="text-lg">
           Spodaj vpiši želen klicni znak in preveri, če je ta že zaseden in če
           ustreza izbranem razredu.
