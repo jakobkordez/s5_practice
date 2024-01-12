@@ -43,18 +43,32 @@ export const getCategories = async (): Promise<Category[]> => {
 export const getExamQuestions = async (
   seed: number,
   count: number = 60,
+  maxPerCategory: number = 2,
 ): Promise<Question[]> => {
   const rnd = new Random(seed);
 
-  let questions = await getQuestions();
+  const questions = await getQuestions();
 
   // TODO Correct
   // Shuffle questions
   shuffle(questions, rnd);
-  questions = questions.slice(0, count);
-  questions.sort((a, b) => a.id - b.id);
 
-  return questions;
+  const selected: Question[] = [];
+  const categoryCounter: Map<number, number> = new Map();
+
+  for (let i = 0; i < questions.length && selected.length < count; i++) {
+    const question = questions[i];
+    const categoryCount = categoryCounter.get(question.category) ?? 0;
+
+    if (categoryCount < maxPerCategory) {
+      selected.push(question);
+      categoryCounter.set(question.category, categoryCount + 1);
+    }
+  }
+
+  selected.sort((a, b) => a.id - b.id);
+
+  return selected;
 };
 
 /**
