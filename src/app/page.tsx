@@ -5,7 +5,7 @@ import Link from 'next/link';
 const povezave = [
   {
     label: 'Izpitni roki ZRS',
-    href: 'http://www.hamradio.si/index.php?option=com_content&view=article&id=677&Itemid=118',
+    href: 'https://www.hamradio.si/kako-postati-radioamater/',
   },
   {
     label: 'Kriteriji za izpit',
@@ -158,7 +158,7 @@ export default function Home() {
           radioamaterje. Izpitni roki so objavljeni na{' '}
           <Link
             target="_blank"
-            href="http://www.hamradio.si/index.php?option=com_content&view=article&id=677&Itemid=118"
+            href="https://www.hamradio.si/kako-postati-radioamater/"
           >
             spletni strani ZRS
           </Link>
@@ -227,7 +227,7 @@ export default function Home() {
           Pred začetkom oddajanja pa je priporočljivo prebrati še{' '}
           <Link
             target="_blank"
-            href="http://www.hamradio.si/images/dokumenti/publikacije/etika_junij%202021.pdf"
+            href="https://www.hamradio.si/files/2024/01/etika_junij-2021.pdf"
           >
             Etiko in operaterske postopke
           </Link>
