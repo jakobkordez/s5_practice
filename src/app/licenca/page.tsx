@@ -122,7 +122,7 @@ export default function License() {
           <p>
             Od začetka leta 2023 se za izdajo in podaljšanje radioamaterskega
             dovoljenja <strong>plača uporabo dela radijskega spektra</strong>{' '}
-            (frekvenčnino) v višini 60 točk. Točka je vredna 0,50 €.
+            (frekvenčnino) v višini 60 točk. Točka je vredna 0,66 € (2024).
           </p>
           <p>
             Radioamatersko dovoljenje velja 15 let, po tem času pa ga je
