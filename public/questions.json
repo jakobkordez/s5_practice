@@ -3440,10 +3440,10 @@
     },
     {
       "id": 343,
-      "question": "Kolikšna je razlika med UTC in MEZ ?",
+      "question": "Kolikšna je razlika med UTC in MEZ?",
       "image": null,
       "answers": ["Razlike ni", "MEZ je ena ura manj", "MEZ je ena ura več"],
-      "correct": 1,
+      "correct": 2,
       "category": 14
     },
     {
