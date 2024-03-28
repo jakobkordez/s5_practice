@@ -4,7 +4,11 @@ import { SubHeader } from '@/components/sub_header';
 
 export const metadata: Metadata = {
   title: 'Zbirka vprašanj',
-  description: 'Zbirka vprašanj za izpit',
+  description: 'Zbirka vprašanj, ki se lahko pojavijo na izpitu.',
+  openGraph: {
+    title: 'Zbirka vprašanj',
+    description: 'Zbirka vprašanj, ki se lahko pojavijo na izpitu.',
+  },
 };
 
 export default function QuestionPool() {

@@ -5,6 +5,10 @@ import CallsignTool from './callsign-tool';
 export const metadata: Metadata = {
   title: 'Izbira klicnega znaka',
   description: 'Pomoč pri izbiri klicnega znaka',
+  openGraph: {
+    title: 'Izbira klicnega znaka',
+    description: 'Pomoč pri izbiri klicnega znaka',
+  },
 };
 
 export default function Callsign() {

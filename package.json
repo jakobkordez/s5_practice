@@ -10,7 +10,7 @@
     "format": "prettier --write ./src"
   },
   "dependencies": {
-    "@ducanh2912/next-pwa": "^9.7.1",
+    "@ducanh2912/next-pwa": "^10.2.5",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
@@ -21,13 +21,14 @@
     "@vercel/analytics": "^1.0.2",
     "autoprefixer": "^10.4.15",
     "eslint": "^8.49.0",
-    "eslint-config-next": "^13.5.1",
-    "next": "^13.5.3",
+    "eslint-config-next": "^14.1.4",
+    "next": "^14.1.4",
     "node-sass": "^9.0.0",
     "postcss": "^8.4.30",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-katex": "^3.0.1",
+    "sharp": "^0.32.6",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.2.2",
     "zustand": "^4.4.1"
@@ -35,8 +36,8 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
     "@types/react-katex": "^3.0.0",
-    "@typescript-eslint/eslint-plugin": "^6.7.2",
-    "@typescript-eslint/parser": "^6.7.2",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "prettier": "^3.0.3",

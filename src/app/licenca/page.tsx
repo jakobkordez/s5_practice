@@ -6,6 +6,10 @@ import RandomCallsign from './random_callsign';
 export const metadata: Metadata = {
   title: 'Radioamatersko dovoljenje',
   description: 'O radioamaterskem dovoljenju in klicnem znaku',
+  openGraph: {
+    title: 'Radioamatersko dovoljenje',
+    description: 'O radioamaterskem dovoljenju in klicnem znaku',
+  },
 };
 
 export default function License() {

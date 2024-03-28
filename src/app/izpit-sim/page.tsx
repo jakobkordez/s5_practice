@@ -5,6 +5,10 @@ import { SubHeader } from '@/components/sub_header';
 export const metadata: Metadata = {
   title: 'Simulator izpita',
   description: 'Pripomoček za simuliranje izpita za radioamaterski izpit',
+  openGraph: {
+    title: 'Simulator izpita',
+    description: 'Pripomoček za simuliranje izpita za radioamaterski izpit',
+  },
 };
 
 export default function Priprave() {

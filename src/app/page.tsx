@@ -1,6 +1,15 @@
 import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  description: 'Informacije o radioamaterstvu in izpitu za pridobitev licence',
+  openGraph: {
+    description:
+      'Informacije o radioamaterstvu in izpitu za pridobitev licence',
+  },
+};
 
 const povezave = [
   {
