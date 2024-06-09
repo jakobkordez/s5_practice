@@ -46,7 +46,7 @@
     },
     {
       "id": 14,
-      "title": "Časocvne cone in UTC"
+      "title": "Časovne cone in UTC"
     },
     {
       "id": 15,
@@ -351,7 +351,7 @@
       "question": "Kako je skladno z mednarodnim pravilnikom (ITU Radio Regulations) definirana amaterska satelitska služba (Amateur-Satellite Service)?",
       "image": null,
       "answers": [
-        "Amaterska satelitska služba je radiokomunikacijska služba, ki uporablja vesoljske postaje na zemljinih satelitih za iste namene kot amaterska služba",
+        "Amaterska satelitska služba je radiokomunikacijska služba, ki uporablja vesoljske postaje na Zemljinih satelitih za iste namene kot amaterska služba",
         "Sateliti ne spadajo v področje ITU in zato omenjeni pravilnik tega ne ureja",
         "Amaterska satelitska služba je posebna služba, ki skrbi za dovoljenja za delo preko satelitov"
       ],
@@ -740,10 +740,10 @@
     },
     {
       "id": 63,
-      "question": "Na katerem delu 20-meterskega pasu operaterjem A razreda ni dovoljeno oddajati?",
+      "question": "Na katerem delu 20-metrskega pasu operaterjem A razreda ni dovoljeno oddajati?",
       "image": null,
       "answers": [
-        "Operaterji A razreda lahko oddajajo na celem 20-meterskem pasu",
+        "Operaterji A razreda lahko oddajajo na celem 20-metrskem pasu",
         "14050 kHz - 14100 kHz, vendar samo v tekmovanjih",
         "14099 kHz - 14101 kHz, ki je namenjeno radijskim svetilnikom"
       ],
@@ -857,7 +857,7 @@
       "answers": [
         "100 W",
         "300 W",
-        "Operaterjem N razreda ni dovoljeno delo na 15-meterskem pasu"
+        "Operaterjem N razreda ni dovoljeno delo na 15-metrskem pasu"
       ],
       "correct": 0,
       "category": 3
@@ -965,7 +965,7 @@
       "answers": [
         "100 W",
         "300 W",
-        "Operaterjem N razreda ni dovoljeno oddajati na 10-meterskem pasu"
+        "Operaterjem N razreda ni dovoljeno oddajati na 10-metrskem pasu"
       ],
       "correct": 0,
       "category": 3
@@ -1008,7 +1008,7 @@
     },
     {
       "id": 87,
-      "question": "Katero del 4-mmeterskega pasu je v Sloveniji namenjen radioamaterjem?",
+      "question": "Katero del 4-metrskega pasu je v Sloveniji namenjen radioamaterjem?",
       "image": null,
       "answers": [
         "70,000 MHz – 70,500 MHz",
@@ -1032,7 +1032,7 @@
     },
     {
       "id": 89,
-      "question": "Kateri del 70-centimeterskega pasu je v Sloveniji namenjen radioamaterjem?",
+      "question": "Kateri del 70-centimetrskega pasu je v Sloveniji namenjen radioamaterjem?",
       "image": null,
       "answers": [
         "432,000 MHz – 440,000 MHz",
@@ -1112,7 +1112,7 @@
     },
     {
       "id": 96,
-      "question": "S kakšno največjo močjo lahko oddajajo operaterji A razreda na 4-meterskem pasu?",
+      "question": "S kakšno največjo močjo lahko oddajajo operaterji A razreda na 4-metrskem pasu?",
       "image": null,
       "answers": ["25 W", "100 W", "300 W"],
       "correct": 1,
@@ -1120,7 +1120,7 @@
     },
     {
       "id": 97,
-      "question": "S kakšno največjo močjo lahko oddajajo operaterji N razreda na 4-meterskem pasu?",
+      "question": "S kakšno največjo močjo lahko oddajajo operaterji N razreda na 4-metrskem pasu?",
       "image": null,
       "answers": ["10 W", "25 W", "100 W"],
       "correct": 1,
@@ -1280,7 +1280,7 @@
     },
     {
       "id": 113,
-      "question": "Notranji pas 80-meterskega področja določen izključno za CW in digimode delo je:",
+      "question": "Notranji pas 80-metrskega področja določen izključno za CW in digimode delo je:",
       "image": null,
       "answers": [
         "3 500 kHz – 3 800 kHz",
@@ -1292,7 +1292,7 @@
     },
     {
       "id": 114,
-      "question": "Notranji pas 40-meterskerga področja določen izključno za CW in digimode delo je:",
+      "question": "Notranji pas 40-metrskega področja določen izključno za CW in digimode delo je:",
       "image": null,
       "answers": [
         "7 000 kHz – 7 050 kHz",
@@ -1304,7 +1304,7 @@
     },
     {
       "id": 115,
-      "question": "Notranji pas 20-meterskega področja določen izključno za CW in digimode delo je:",
+      "question": "Notranji pas 20-metrskega področja določen izključno za CW in digimode delo je:",
       "image": null,
       "answers": [
         "14 000 kHz – 14 099 kHz",
@@ -1316,7 +1316,7 @@
     },
     {
       "id": 116,
-      "question": "Katere modulacije smemo uporabljati na 30-meterskem pasu?",
+      "question": "Katere modulacije smemo uporabljati na 30-metrskem pasu?",
       "image": null,
       "answers": ["CW in fone", "CW, digimode in fone", "CW in digimode"],
       "correct": 2,
@@ -1324,7 +1324,7 @@
     },
     {
       "id": 117,
-      "question": "S kakšno največjo močjo je operaterjem A razreda dovoljeno oddajati na 2200-meterskem pasu?",
+      "question": "S kakšno največjo močjo je operaterjem A razreda dovoljeno oddajati na 2200-metrskem pasu?",
       "image": null,
       "answers": ["100 W eirp", "25 W eirp", "1 W eirp"],
       "correct": 2,
@@ -1484,10 +1484,10 @@
     },
     {
       "id": 132,
-      "question": "Ali mednarodni predpisi določajo preizkus znanja Morsejevih znakov kot obvezno sestavino izpita za radioamaterja, ki želi uporabljati amatersko radijsko postajo?",
+      "question": "Ali mednarodni predpisi določajo preizkus znanja Morzejevih znakov kot obvezno sestavino izpita za radioamaterja, ki želi uporabljati amatersko radijsko postajo?",
       "image": null,
       "answers": [
-        "Da. V vsakem primeru je obvezno znanje Morsejevih znakov",
+        "Da. V vsakem primeru je obvezno znanje Morzejevih znakov",
         "Ne",
         "Mednarodni predpisi o tem ne govorijo"
       ],
@@ -1561,7 +1561,7 @@
       "answers": [
         "V Republiki Sloveniji ni predpisa, ki ureja vrste oddaj za amaterske radijske postaje",
         "V Republiki Sloveniji so predpisane vrste oddaj, ki jih smejo uporabljati radioamaterji v skladu z razredom amaterskega operaterja, za katerega imajo opravljen izpit",
-        "V Republiki Sloveniji sicer imamo neke predpise, ki pa preveč posegajao v osebne svoboščine radioamaterjev in jih skladno s procesi demokratizacije, decentralizacije in deregulacije ni več potrebno spoštovati"
+        "V Republiki Sloveniji sicer imamo neke predpise, ki pa preveč posegajo v osebne svoboščine radioamaterjev in jih skladno s procesi demokratizacije, decentralizacije in deregulacije ni več potrebno spoštovati"
       ],
       "correct": 1,
       "category": 4
@@ -1828,7 +1828,7 @@
       "image": null,
       "answers": [
         "Pozdrav",
-        "Tvoj signal niha (feding)",
+        "Tvoj signal niha (fading)",
         "Razdalja med postajama"
       ],
       "correct": 1,
@@ -1940,7 +1940,7 @@
     },
     {
       "id": 178,
-      "question": "Katera kratica pomeni isto kot TRCV?",
+      "question": "Katera kratica pomeni isto kot TCVR?",
       "image": null,
       "answers": ["TRX", "TX", "RX"],
       "correct": 0,
@@ -2860,7 +2860,7 @@
     },
     {
       "id": 290,
-      "question": "Kaj pomeni sledeče črkovanje: Whiskey Papa Four November Meritime-mobile?",
+      "question": "Kaj pomeni sledeče črkovanje: Whiskey Papa Four November Maritime-mobile?",
       "image": null,
       "answers": ["WP4NM", "WP4N/M", "WP4N/MM"],
       "correct": 2,
@@ -3049,7 +3049,7 @@
       "answers": [
         "Algoritem za nadzor dostopa do komunikacijskega kanala",
         "Vrsta paketne modulacije za višje hitrosti",
-        "Računalniški standard za prenos datotek preko packetnega radia"
+        "Računalniški standard za prenos datotek preko paketnega radia"
       ],
       "correct": 0,
       "category": 11
@@ -3083,7 +3083,7 @@
       "question": "MGM je kratica, ki v radioamaterstvu pomeni:",
       "image": null,
       "answers": [
-        "Metro-Goldwin-Mayer",
+        "Metro-Goldwyn-Mayer",
         "Machine Generated Mode",
         "Manual Gain Mute"
       ],
@@ -3896,7 +3896,7 @@
       "image": null,
       "answers": [
         "DX postaji postavljamo vprašanje »QRZ?« oz. »What is your call?«, dokler nas ne sliši",
-        "Na isti frekvenci vprašamo drugega klicočega, katero postajo kliče",
+        "Na isti frekvenci vprašamo drugega kličočega, katero postajo kliče",
         "Poslušamo. Ne sprašujemo, temveč počakamo, da se DX postaja ponovno identificira"
       ],
       "correct": 2,
@@ -4592,7 +4592,7 @@
     },
     {
       "id": 453,
-      "question": "Akumulator ima napetost 12 V. Njegova notranja upornost je 0.1 ohma. Kako velik kratkostični tok steče, če sklenemo pola akumulatorja?",
+      "question": "Akumulator ima napetost 12 V. Njegova notranja upornost je 0.1 Ω. Kako velik kratkostični tok steče, če sklenemo pola akumulatorja?",
       "image": null,
       "answers": ["1.2 A", "12 A", "120 A"],
       "correct": 2,
@@ -4716,7 +4716,7 @@
     },
     {
       "id": 467,
-      "question": "Baterijo z napetostjo 10 V priključimo na upor z vrednostjo 100 ohmov. Kolikšen tok bo stekel?",
+      "question": "Baterijo z napetostjo 10 V priključimo na upor z vrednostjo 100 Ω. Kolikšen tok bo stekel?",
       "image": null,
       "answers": ["0.01 A", "0.1 A", "1 A"],
       "correct": 1,
@@ -4724,7 +4724,7 @@
     },
     {
       "id": 468,
-      "question": "Skozi upor z vrednostjo 50 ohmov teče tok 100mA. Kolikšna je napetost na uporu?",
+      "question": "Skozi upor z vrednostjo 50 Ω teče tok 100 mA. Kolikšna je napetost na uporu?",
       "image": null,
       "answers": ["50 V", "5 V", "2 V"],
       "correct": 1,
@@ -4734,7 +4734,7 @@
       "id": 469,
       "question": "Baterija z napetostjo 10 V je priključena na breme, skozi katero teče tok 2 A. Kolikšna je upornost bremena?",
       "image": null,
-      "answers": ["10 ohmov", "4.5 ohmov", "5 ohmov"],
+      "answers": ["10 Ω", "4.5 Ω", "5 Ω"],
       "correct": 2,
       "category": 18
     },
@@ -4752,17 +4752,17 @@
     },
     {
       "id": 471,
-      "question": "Zaporedno povežemo dva upora po 10 ohmov. Kolikšna je skupna upornost?",
+      "question": "Zaporedno povežemo dva upora po 10 Ω. Kolikšna je skupna upornost?",
       "image": null,
-      "answers": ["5 ohmov", "10 ohmov", "20 ohmov"],
+      "answers": ["5 Ω", "10 Ω", "20 Ω"],
       "correct": 2,
       "category": 18
     },
     {
       "id": 472,
-      "question": "Zaporedno povežemo tri upore: R1=5 ohmov, R2=10 ohmov, R3=20 ohmov. Kolikšna je skupna upornost?",
+      "question": "Zaporedno povežemo tri upore: R1=5 Ω, R2=10 Ω, R3=20 Ω. Kolikšna je skupna upornost?",
       "image": null,
-      "answers": ["15 ohmov", "25 ohmov", "35 ohmov"],
+      "answers": ["15 Ω", "25 Ω", "35 Ω"],
       "correct": 2,
       "category": 18
     },
@@ -4780,9 +4780,9 @@
     },
     {
       "id": 474,
-      "question": "Vzporedno povežemo dva upora po 100 ohmov. Kolikšna je skupna upornost?",
+      "question": "Vzporedno povežemo dva upora po 100 Ω. Kolikšna je skupna upornost?",
       "image": null,
-      "answers": ["200 ohmov", "100 ohmov", "50 ohmov"],
+      "answers": ["200 Ω", "100 Ω", "50 Ω"],
       "correct": 2,
       "category": 18
     },
@@ -4790,7 +4790,7 @@
       "id": 475,
       "question": "Kolikšna je skupna upornost vezja na sliki?",
       "image": "image-083.png",
-      "answers": ["1000 ohmov", "500 ohmov", "250 ohmov"],
+      "answers": ["1000 Ω", "500 Ω", "250 Ω"],
       "correct": 2,
       "category": 18
     },
@@ -4798,7 +4798,7 @@
       "id": 476,
       "question": "Kolikšna je skupna upornost vezja na sliki?",
       "image": "image-084.png",
-      "answers": ["60 ohmov", "30 ohmov", "15 ohmov"],
+      "answers": ["60 Ω", "30 Ω", "15 Ω"],
       "correct": 2,
       "category": 18
     },
@@ -4806,7 +4806,7 @@
       "id": 477,
       "question": "Kolikšna je skupna upornost vezja na sliki?",
       "image": "image-085.png",
-      "answers": ["10 ohmov", "15 ohmov", "30 ohmov"],
+      "answers": ["10 Ω", "15 Ω", "30 Ω"],
       "correct": 1,
       "category": 18
     },
@@ -4814,7 +4814,7 @@
       "id": 478,
       "question": "Kolikšna je skupna upornost vezja na sliki?",
       "image": "image-086.png",
-      "answers": ["20 ohmov", "40 ohmov", "10 ohmov"],
+      "answers": ["20 Ω", "40 Ω", "10 Ω"],
       "correct": 0,
       "category": 18
     },
@@ -4828,7 +4828,7 @@
     },
     {
       "id": 480,
-      "question": "Kolikšna je napetost na uporu R=10 ohmov, skozi katerega teče tok I=500 mA?",
+      "question": "Kolikšna je napetost na uporu R=10 Ω, skozi katerega teče tok I=500 mA?",
       "image": null,
       "answers": ["20 V", "2 V", "5 V"],
       "correct": 2,
@@ -4836,7 +4836,7 @@
     },
     {
       "id": 481,
-      "question": "Napetost na uporu R=1 kohm je 5 V. Kolikšen tok teče skozi upor?",
+      "question": "Napetost na uporu R=1 kΩ je 5 V. Kolikšen tok teče skozi upor?",
       "image": null,
       "answers": ["5 mA", "50 mA", "500 mA"],
       "correct": 0,
@@ -4854,7 +4854,7 @@
       "id": 483,
       "question": "Izračunaj notranjo upornost generatorja!",
       "image": "image-043.png",
-      "answers": ["0,1 ohma", "1,0 ohm", "2,0 ohma"],
+      "answers": ["0,1 Ω", "1,0 Ω", "2,0 Ω"],
       "correct": 1,
       "category": 18
     },
@@ -4916,7 +4916,7 @@
     },
     {
       "id": 491,
-      "question": "Izračunaj moč, ki se troši na bremenu z upornostjo 1 ohm, če nanj priključimo napetost 10V.",
+      "question": "Izračunaj moč, ki se troši na bremenu z upornostjo 1 Ω, če nanj priključimo napetost 10V.",
       "image": null,
       "answers": ["100 W", "10 W", "1 W"],
       "correct": 0,
@@ -4972,9 +4972,9 @@
     },
     {
       "id": 497,
-      "question": "Generator ima notranjo upornost 50 ohmov. Pri kateri upornosti bremena dobimo največji prenos moči?",
+      "question": "Generator ima notranjo upornost 50 Ω. Pri kateri upornosti bremena dobimo največji prenos moči?",
       "image": null,
-      "answers": ["25 ohmov", "50 ohmov", "75 ohmov"],
+      "answers": ["25 Ω", "50 Ω", "75 Ω"],
       "correct": 1,
       "category": 20
     },
@@ -5424,9 +5424,9 @@
     },
     {
       "id": 541,
-      "question": "Kolikšna je impedanca zaporedne vezave upora (R = 10 ohmov), tuljave (XL = 20 ohmov) in kondenzatorja (XC = 10 ohmov)?",
+      "question": "Kolikšna je impedanca zaporedne vezave upora (R = 10 Ω), tuljave (XL = 20 Ω) in kondenzatorja (XC = 10 Ω)?",
       "image": null,
-      "answers": ["(10 + j30) ohm", "(10 - j30) ohm", "(10 + j10) ohm"],
+      "answers": ["(10 + j30) Ω", "(10 - j30) Ω", "(10 + j10) Ω"],
       "correct": 2,
       "category": 21
     },
@@ -5656,7 +5656,7 @@
     },
     {
       "id": 562,
-      "question": "Po kateri formuli izračunamo Q-faktor nihajnega kroga, če sta dani pasovna širina B in resonančna frekvenca fres?",
+      "question": "Po kateri formuli izračunamo Q-faktor nihajnega kroga, če sta dani pasovna širina B in resonančna frekvenca $f_{res}$?",
       "image": null,
       "answers": [
         "$Q = \\dfrac{B}{f_{res}}$",
@@ -5847,7 +5847,7 @@
       "question": "Tokovno ojačenje tranzistorja v orientaciji s skupnim emitorjem izračunamo na osnovi:",
       "image": null,
       "answers": [
-        "razmerja kolektorskega in emiterskoga toka",
+        "razmerja kolektorskega in emitorskega toka",
         "razmerja kolektorskega in baznega toka",
         "razmerja emitorskega in baznega toka"
       ],
@@ -5926,7 +5926,7 @@
       "id": 587,
       "question": "Na sliki je simbol za:",
       "image": "image-074.png",
-      "answers": ["vrata NE", "vrata NEALI", "vrata NEIN"],
+      "answers": ["vrata NE", "vrata NE-ALI", "vrata NE-IN"],
       "correct": 1,
       "category": 23
     },
@@ -6947,8 +6947,8 @@
       "question": "Kaj je ideja PLL sintetizatorja?",
       "image": null,
       "answers": [
-        "Uporabiti povratno zanko za dosego čimvečjega faznega šuma",
-        "Uporabiti povratno zanko za dosego čimvečjega amplitudnega šuma",
+        "Uporabiti povratno zanko za dosego čim večjega faznega šuma",
+        "Uporabiti povratno zanko za dosego čim večjega amplitudnega šuma",
         "Uporabiti VCO, ki ga s pomočjo povratne zanke stabiliziramo"
       ],
       "correct": 2,
@@ -7011,9 +7011,9 @@
       "question": "Kaj je glavna naloga ločilne stopnje?",
       "image": null,
       "answers": [
-        "Zagotoviti čimvečji vpliv naslednje stopnje na predhodno",
+        "Zagotoviti čim večji vpliv naslednje stopnje na predhodno",
         "Preprečiti vpliv naslednje stopnje na predhodno",
-        "Zagotoviti čimvečji vpliv krmilne stopnje na oscilator"
+        "Zagotoviti čim večji vpliv krmilne stopnje na oscilator"
       ],
       "correct": 1,
       "category": 28
@@ -7025,7 +7025,7 @@
       "answers": [
         "Ojačiti signal na zahtevan nivo ter filtrirati izhodni signal",
         "Oslabiti signal na zahtevan nivo",
-        "Omogočiti čimvečji vpliv naslednje stopnje na oscilator"
+        "Omogočiti čim večji vpliv naslednje stopnje na oscilator"
       ],
       "correct": 0,
       "category": 28
@@ -7081,7 +7081,7 @@
       "answers": [
         "Ostri robovi signala povzročajo stranske frekvenčne komponente v spektru RF signala, ki se na sprejemni strani slišijo kot \"klik\" vsakič, ko pritisnemo ali spustimo taster",
         "Ostrina robov ne vpliva na stranske frekvenčne komponente",
-        "Ostrina robov vpliva samo na frekvečno stabilnost oddajnika"
+        "Ostrina robov vpliva samo na frekvenčno stabilnost oddajnika"
       ],
       "correct": 0,
       "category": 28
@@ -7355,7 +7355,7 @@
       "question": "Kaj je šumno število?",
       "image": null,
       "answers": [
-        "To je šumni faktor, izražen v kelvinih",
+        "To je šumni faktor, izražen v Kelvinih",
         "To je šumni faktor, izražen v decibelih",
         "To je šumni faktor, izražen v mikrovoltih šumne napetosti"
       ],
@@ -7408,7 +7408,7 @@
     },
     {
       "id": 724,
-      "question": "Ali lahko z dobrim (malošumnim z velikim ojačenjem) predojačevalnikom pred prejemnikom izboljšamo razmerje signal-šum na njegovem izhodu?",
+      "question": "Ali lahko z dobrim (nizkošumnim z velikim ojačenjem) predojačevalnikom pred prejemnikom izboljšamo razmerje signal-šum na njegovem izhodu?",
       "image": null,
       "answers": [
         "Da, vedno",
@@ -7483,7 +7483,7 @@
       "question": "Kaj pomeni selektivnost?",
       "image": null,
       "answers": [
-        "Selektivnost pomeni sposobnost prepuščanja signalov na želenem (navadno ozkem) frekvenčnem pasu in hkrati sposobnost čimvečjega dušenja signalov izven njega",
+        "Selektivnost pomeni sposobnost prepuščanja signalov na želenem (navadno ozkem) frekvenčnem pasu in hkrati sposobnost čim večjega dušenja signalov izven njega",
         "Selektivnost pomeni sposobnost zaznavanja šibkih signalov",
         "Selektivnost pomeni sposobnost povečanja dinamičnega območja sprejemnika"
       ],
@@ -7760,7 +7760,7 @@
     },
     {
       "id": 754,
-      "question": "S sprejemnikom z direktnim mešanjem želimo sprejemati CW signal na frekvenci 3600 kHz. VFO sprejemnika nastavimo na frekvenco 3601 kHz. Kaj slišimo na izhodu sprejemnka?",
+      "question": "S sprejemnikom z direktnim mešanjem želimo sprejemati CW signal na frekvenci 3600 kHz. VFO sprejemnika nastavimo na frekvenco 3601 kHz. Kaj slišimo na izhodu sprejemnika?",
       "image": null,
       "answers": [
         "Slišimo ton frekvence 1 kHz",
@@ -7784,7 +7784,7 @@
     },
     {
       "id": 756,
-      "question": "S sprejemnikom z direktnim mešanjem želimo sprejemati CW signal na frekvenci 3600 kHz. VFO sprejemnika nastavimo na frekvenco 3600 kHz. Kaj slišimo na izhodu sprejemnka?",
+      "question": "S sprejemnikom z direktnim mešanjem želimo sprejemati CW signal na frekvenci 3600 kHz. VFO sprejemnika nastavimo na frekvenco 3600 kHz. Kaj slišimo na izhodu sprejemnika?",
       "image": null,
       "answers": [
         "Slišimo ton frekvence 1 kHz",
@@ -7796,7 +7796,7 @@
     },
     {
       "id": 757,
-      "question": "S sprejemnikom z direktnim mešanjem želimo sprejemati CW signal na frekvenci 3600 kHz. VFO sprejemnika nastavimo na frekvenco 3599 kHz. Kaj slišimo na izhodu sprejemnka?",
+      "question": "S sprejemnikom z direktnim mešanjem želimo sprejemati CW signal na frekvenci 3600 kHz. VFO sprejemnika nastavimo na frekvenco 3599 kHz. Kaj slišimo na izhodu sprejemnika?",
       "image": null,
       "answers": [
         "Slišimo ton frekvence 1 kHz",
@@ -8276,7 +8276,7 @@
       "image": null,
       "answers": [
         "Visoka temperatura",
-        "Ultraviolično in rentgensko sevanje sonca in drugih zvezd",
+        "Ultravijolično in rentgensko sevanje sonca in drugih zvezd",
         "Nizka temperatura"
       ],
       "correct": 1,
@@ -8434,7 +8434,7 @@
       "id": 825,
       "question": "Kako imenujemo nihanje jakosti signala v zvočniku sprejemnika?",
       "image": null,
-      "answers": ["Feding", "Mikrofonija", "Utripanje"],
+      "answers": ["Fading", "Mikrofonija", "Utripanje"],
       "correct": 0,
       "category": 30
     },
@@ -8771,9 +8771,9 @@
       "question": "Kateri od naštetih vodov je s stališča prilagoditve impedance najbolj ugoden za napajanje zavitega dipola?",
       "image": null,
       "answers": [
-        "Koaksialni vod impedance 50 ohmov",
-        "Koaksialni vod impedance 75 ohmov",
-        "Dvožilni simetrični vod impedance 300 ohmov"
+        "Koaksialni vod impedance 50 Ω",
+        "Koaksialni vod impedance 75 Ω",
+        "Dvožilni simetrični vod impedance 300 Ω"
       ],
       "correct": 2,
       "category": 31
@@ -8977,7 +8977,7 @@
       "answers": [
         "Simetrični dvožilni vod z zračnim dielektrikom ima večje izgube kot koaksialni vod",
         "Bližina kovinskih predmetov (žlebovi, stolpi) lahko spremeni lastnosti voda",
-        "Tipična impedanca za dvožilni vod z zračnim dielektrikom se giblje v območju med 200 in 600 ohmi"
+        "Tipična impedanca za dvožilni vod z zračnim dielektrikom se giblje v območju med 200 in 600 Ω"
       ],
       "correct": 0,
       "category": 32
@@ -8998,7 +8998,7 @@
       "id": 880,
       "question": "Katera od naštetih impedanc ni tipična za koaksialni vod?",
       "image": null,
-      "answers": ["50 ohm", "75 ohm", "300 ohm"],
+      "answers": ["50 Ω", "75 Ω", "300 Ω"],
       "correct": 2,
       "category": 32
     },
@@ -9036,7 +9036,7 @@
     },
     {
       "id": 884,
-      "question": "Z wattmetrom izmerimo moči na začetku in koncu koaksialnega voda. Ugotovimo, da je moč na začetku 10 W, na koncu pa 5 W. Kakšno je slabljenje voda?",
+      "question": "Z vatmetrom izmerimo moči na začetku in koncu koaksialnega voda. Ugotovimo, da je moč na začetku 10 W, na koncu pa 5 W. Kakšno je slabljenje voda?",
       "image": null,
       "answers": ["2 dB", "3 dB", "5 dB"],
       "correct": 1,
@@ -9096,17 +9096,17 @@
     },
     {
       "id": 891,
-      "question": "Vod dolg 1/4 valovne dolžine ima karakteristično impedanco 50 ohmov. En konec voda zaključimo z impedanco 100 ohmov. Kolikšno impedanco dobimo na drugem koncu voda?",
+      "question": "Vod dolg 1/4 valovne dolžine ima karakteristično impedanco 50 Ω. En konec voda zaključimo z impedanco 100 Ω. Kolikšno impedanco dobimo na drugem koncu voda?",
       "image": null,
-      "answers": ["10 ohmov", "25 ohmov", "50 ohmov"],
+      "answers": ["10 Ω", "25 Ω", "50 Ω"],
       "correct": 1,
       "category": 32
     },
     {
       "id": 892,
-      "question": "Vod dolg 1/4 valovne dolžine zaključimo z impedanco 50 ohmov. Na drugem koncu voda izmerimo impedanco 50 ohmov. Kolikšna je impedanca voda?",
+      "question": "Vod dolg 1/4 valovne dolžine zaključimo z impedanco 50 Ω. Na drugem koncu voda izmerimo impedanco 50 Ω. Kolikšna je impedanca voda?",
       "image": null,
-      "answers": ["10 ohmov", "25 ohmov", "50 ohmov"],
+      "answers": ["10 Ω", "25 Ω", "50 Ω"],
       "correct": 2,
       "category": 32
     },
@@ -9124,7 +9124,7 @@
     },
     {
       "id": 894,
-      "question": "Kaj storimo, če želimo 300 ohmski napajalni vod priključiti na oddajnik, ki ima 50 ohmski izhod?",
+      "question": "Kaj storimo, če želimo 300 Ω napajalni vod priključiti na oddajnik, ki ima 50 Ω izhod?",
       "image": null,
       "answers": [
         "Tega ne moremo storiti",
@@ -9704,7 +9704,7 @@
     },
     {
       "id": 949,
-      "question": "Ali se velikost odbojnosti spremeni, če med breme in reflektometer vstavimo kos brez izgubnega koaksialnega kabla, ki ima karakteristično impedanco enako referenčni impedanci reflektometra?",
+      "question": "Ali se velikost odbojnosti spremeni, če med breme in reflektometer vstavimo kos brezizgubnega koaksialnega kabla, ki ima karakteristično impedanco enako referenčni impedanci reflektometra?",
       "image": null,
       "answers": ["Da", "Odvisno od dolžine kabla", "Ne"],
       "correct": 2,
@@ -9764,7 +9764,7 @@
     },
     {
       "id": 955,
-      "question": "Na kakšnem principu deluje absorbcijski frekvenčni merilnik?",
+      "question": "Na kakšnem principu deluje absorpcijski frekvenčni merilnik?",
       "image": null,
       "answers": [
         "Na principu iskanja resonančne frekvence",
@@ -9812,7 +9812,7 @@
       "image": null,
       "answers": [
         "S frekvenčnim števcem",
-        "Z absorbcijskim frekvenčnim merilnikom",
+        "Z absorpcijskim frekvenčnim merilnikom",
         "Z osciloskopom"
       ],
       "correct": 2,

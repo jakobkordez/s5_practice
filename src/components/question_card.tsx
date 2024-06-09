@@ -22,7 +22,7 @@ export default function QuestionCard({
         <span className="font-bold text-primary">
           A{question.id.toString().padStart(3, '0')}:{' '}
         </span>
-        {question.question}
+        <MaybeTeX text={question.question} />
       </div>
 
       {question.image && (
@@ -75,10 +75,10 @@ function Answer({
         !isSelected
           ? 'border-gray-300'
           : !reveal
-          ? 'border-sky-500 bg-sky-100'
-          : isCorrect
-          ? 'border-green-500 bg-green-100'
-          : 'border-red-600 bg-red-100'
+            ? 'border-sky-500 bg-sky-100'
+            : isCorrect
+              ? 'border-green-500 bg-green-100'
+              : 'border-red-600 bg-red-100'
       }`}
       disabled={!onClick}
       onClick={onClick}
@@ -92,14 +92,20 @@ function Answer({
         {String.fromCharCode(65 + index)}
       </div>
       <div className="text-left text-lg text-gray-600">
-        {answer.startsWith('$') ? (
-          <span className="ml-2">
-            <InlineMath math={answer.slice(1, answer.length - 1)} />
-          </span>
-        ) : (
-          answer
-        )}
+        <MaybeTeX text={answer} />
       </div>
     </button>
+  );
+}
+
+function MaybeTeX({ text }: { text: string }) {
+  const parts = text.split(/(?<!\\)\$+/);
+
+  return parts.map((part, i) =>
+    i % 2 === 0 ? (
+      <span key={i}>{part}</span>
+    ) : (
+      <InlineMath key={i} math={part} />
+    ),
   );
 }
