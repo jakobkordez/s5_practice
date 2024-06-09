@@ -102,7 +102,7 @@ function MaybeTeX({ text }: { text: string }) {
   const parts = text.split(/(?<!\\)\$+/);
 
   return parts.map((part, i) =>
-    i % 2 === 0 ? (
+    !part ? null : i % 2 === 0 ? (
       <span key={i}>{part}</span>
     ) : (
       <InlineMath key={i} math={part} />
