@@ -77,7 +77,7 @@ export default function Home() {
         <h1>Kaj je radioamaterstvo?</h1>
         <p>
           Radioamaterstvo je ljubiteljsko, nepoklicno ukvarjanje z radiom in
-          radiotehniko. Vsak radioamater v radioamatestvu najde nekaj kar ga
+          radiotehniko. Vsak radioamater v radioamaterstvu najde nekaj kar ga
           zanima. Nekateri se ukvarjajo z gradnjo radijskih postaj, drugi z
           vzpostavljanjem radijskih zvez, nekateri radi tekmujejo v
           vzpostavljanju radijskih zvez ali pa iskanjem skritih oddajnikov.
@@ -137,7 +137,7 @@ export default function Home() {
         <p>Na izpitu se preverja znanje iz naslednjih področij:</p>
         <ul>
           <li>Zgodovina, razvoj in pomen radioamaterstva</li>
-          <li>Osnovni pojmi o radijskih kominikacijah</li>
+          <li>Osnovni pojmi o radijskih komunikacijah</li>
           <li>Predpisi za amaterske radijske komunikacije</li>
           <li>Pravila in praksa v amaterskih radijskih komunikacijah</li>
           <li>Elektrotehnika</li>
@@ -180,11 +180,11 @@ export default function Home() {
           Vsa snov, ki se lahko pojavi v izpitnih vprašanjih je vsebovana v{' '}
           <Link
             target="_blank"
-            href="http://www.homemade.net/ra/prirocnik_novi.pdf"
+            href="https://www.s59veg.si/files/prirocnik_2019.pdf"
           >
             Priročniku za radioamaterje (3. izdaja)
           </Link>
-          . V 3. izdaji je bilo najdenih že nekaj napak in predvsem mankajoče
+          . V 3. izdaji je bilo najdenih že nekaj napak in predvsem manjkajoče
           poglavje o detektorjih, zato je bolj priporočljiva{' '}
           <Link
             target="_blank"
@@ -236,7 +236,7 @@ export default function Home() {
           Pred začetkom oddajanja pa je priporočljivo prebrati še{' '}
           <Link
             target="_blank"
-            href="https://www.hamradio.si/files/2024/01/etika_junij-2021.pdf"
+            href="https://www.s59veg.si/files/etika_junij_2021.pdf"
           >
             Etiko in operaterske postopke
           </Link>

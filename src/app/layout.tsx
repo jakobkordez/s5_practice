@@ -31,7 +31,7 @@ export const metadata: Metadata = {
       template: '%s | Radioamaterski izpit',
     },
     description: 'Priprava na radioamaterski izpit',
-    url: 'http://izpit.jkob.cc/',
+    url: 'https://izpit.jkob.cc/',
     locale: 'sl_SL',
     type: 'website',
   },
