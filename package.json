@@ -10,11 +10,11 @@
     "format": "prettier --write ./src"
   },
   "dependencies": {
-    "@ducanh2912/next-pwa": "^10.2.5",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@serwist/next": "^9.0.3",
     "@vercel/analytics": "^1.0.2",
     "next": "^14.1.4",
     "postcss": "^8.4.30",
@@ -40,6 +40,7 @@
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.6.4",
     "sass": "^1.67.0",
+    "serwist": "^9.0.3",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.2.2",
     "webpack": "^5.88.2"
