@@ -4,11 +4,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  description: 'Informacije o radioamaterstvu in izpitu za pridobitev licence',
-  openGraph: {
-    description:
-      'Informacije o radioamaterstvu in izpitu za pridobitev licence',
-  },
+  title: 'Radioamaterstvo, izpit in dovoljenje',
+  description:
+    'Izvedite kaj pomeni biti radioamater, kako začeti s hobijem, kako se pripraviti na izpit in kako pridobiti radioamatersko dovoljenje',
 };
 
 const povezave = [
@@ -82,8 +80,13 @@ export default function Home() {
           vzpostavljanjem radijskih zvez, nekateri radi tekmujejo v
           vzpostavljanju radijskih zvez ali pa iskanjem skritih oddajnikov.
           Radioamaterji so tudi pomočniki v primeru naravnih nesreč, ko se
-          porušijo komunikacijske povezave. Radioamaterji uporabljajo določene
-          frekvence, ki so jim dodeljene s strani mednarodne organizacije ITU.
+          porušijo komunikacijske povezave.
+        </p>
+        <p>
+          Radioamaterji uporabljajo določene frekvence, ki so jim dodeljene s
+          strani mednarodne organizacije ITU. Za uporabo teh frekvenc je
+          potrebno opraviti radioamaterski izpit in pridobiti radioamatersko
+          dovoljenje (CEPT licenco).
         </p>
       </div>
 

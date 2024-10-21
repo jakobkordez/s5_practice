@@ -3,19 +3,23 @@ import IzpitQuiz from './izpit-quiz';
 import { SubHeader } from '@/components/sub_header';
 
 export const metadata: Metadata = {
-  title: 'Simulator izpita',
-  description: 'Pripomoček za simuliranje izpita za radioamaterski izpit',
-  openGraph: {
-    title: 'Simulator izpita',
-    description: 'Pripomoček za simuliranje izpita za radioamaterski izpit',
-  },
+  title: 'Preizkusni izpit',
+  description:
+    'Rešite preizkusni radioamaterski izpit in preverite svoje znanje iz radioamaterstva',
+  keywords: [
+    'izpit',
+    'preizkus',
+    'preverjanje znanje',
+    'preizkusni izpit',
+    'radioamaterski izpit',
+  ],
 };
 
 export default function Priprave() {
   return (
     <>
       <SubHeader>
-        <h1>Simulator izpita</h1>
+        <h1>Preizkusni izpit</h1>
         <p>
           Izpit je sestavljen iz <strong>60 različnih vprašanj</strong>. Vsako
           vprašanje ima 3 možne odgovore, od katerih je samo en pravilen.

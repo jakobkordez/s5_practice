@@ -44,34 +44,43 @@ export function generateAllCallsigns({
 }
 
 export function levenshteinDistance(from: string, to: string): number {
-  const addWeight = 5;
-  const removeWeight = 0;
+  const addWeight = 1.6;
+  const removeWeight = 0.4;
   const replaceWeight = 1;
+  const swapWeight = 0.5;
 
   from = from.toUpperCase();
   to = to.toUpperCase();
 
-  let prev: number[] = [];
-  for (let i = 0; i < to.length + 1; i++) prev[i] = i;
+  const table: number[][] = [[]];
+  for (let i = 0; i < to.length + 1; i++) table[0][i] = i * addWeight;
 
   for (let i = 1; i < from.length + 1; i++) {
     const curr: number[] = [];
-    curr[0] = i;
+    curr[0] = i * removeWeight;
 
     for (let j = 1; j < to.length + 1; j++) {
       const cost =
         from[i - 1] === to[j - 1] || from[i - 1] === '*' ? 0 : replaceWeight;
       curr[j] = Math.min(
-        prev[j] + removeWeight,
+        table[i - 1][j] + removeWeight,
         curr[j - 1] + addWeight,
-        prev[j - 1] + cost,
+        table[i - 1][j - 1] + cost,
       );
+      if (
+        i > 1 &&
+        j > 1 &&
+        from[i - 2] === to[j - 1] &&
+        from[i - 1] === to[j - 2]
+      ) {
+        curr[j] = Math.min(curr[j], table[i - 2][j - 2] + swapWeight);
+      }
     }
 
-    prev = curr;
+    table.push(curr);
   }
 
-  return prev[to.length];
+  return table[from.length][to.length];
 }
 
 export function cwWeight(text: string): number {

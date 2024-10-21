@@ -5,7 +5,7 @@
 @import 'katex/dist/katex.min.css';
 
 .button {
-  @apply flex flex-row items-center justify-center rounded-lg bg-primary px-5 py-2 font-semibold text-white decoration-transparent shadow-lg transition-colors hover:bg-primary-dark active:bg-primary-darker disabled:opacity-70;
+  @apply flex flex-row items-center justify-center rounded-lg bg-primary px-5 py-2 font-semibold text-white decoration-transparent transition-colors hover:bg-primary-dark active:bg-primary-darker disabled:opacity-70;
 }
 
 .link {
@@ -17,8 +17,7 @@
 }
 
 .section {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  @apply py-12;
 }
 
 main > :not(.section):last-child {
@@ -33,16 +32,10 @@ main > .section:last-child {
 }
 
 .prose {
-  h1 {
-    @apply text-3xl font-semibold;
-  }
-
-  h2 {
-    @apply text-2xl font-semibold;
-  }
-
+  h1,
+  h2,
   h3 {
-    @apply text-xl font-semibold;
+    @apply font-semibold;
   }
 
   a {

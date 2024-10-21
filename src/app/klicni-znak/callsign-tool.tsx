@@ -64,16 +64,16 @@ export default function CallsignTool() {
         <div className="flex flex-row gap-4">
           <button
             onClick={() => setClas(0)}
-            className={`flex-1 rounded-lg border-4 bg-light py-2 font-semibold text-dark shadow ${
-              !clas ? 'border-dark' : 'border-transparent'
+            className={`flex-1 rounded-lg border-2 bg-light py-2 font-semibold text-dark ${
+              !clas ? 'border-primary bg-primary/20' : 'border-transparent'
             }`}
           >
             N razred
           </button>
           <button
             onClick={() => setClas(1)}
-            className={`flex-1 rounded-lg border-4 bg-light py-2 font-semibold text-dark shadow ${
-              clas ? 'border-dark' : 'border-transparent'
+            className={`flex-1 rounded-lg border-2 bg-light py-2 font-semibold text-dark ${
+              clas ? 'border-primary bg-primary/20' : 'border-transparent'
             }`}
           >
             A razred
@@ -85,7 +85,7 @@ export default function CallsignTool() {
         <label className="text-sm font-semibold">Vnesi klicni znak</label>
         <input
           type="text"
-          className={`rounded-lg border border-light py-3 text-center text-3xl uppercase shadow-lg placeholder:font-sans placeholder:normal-case ${robotoMono.className}`}
+          className={`rounded-lg border border-gray-200 py-3 text-center text-3xl uppercase outline-primary placeholder:font-sans placeholder:normal-case ${robotoMono.className}`}
           value={callsign}
           onChange={(e) => setCallsign(e.target.value)}
           placeholder='npr. "S50HQ"'
@@ -153,23 +153,32 @@ export default function CallsignTool() {
 
       {showSimilar ? (
         <div>
-          <h4 className="mb-1 text-xl font-semibold">
+          <h4 className="mb-3 text-xl font-semibold">
             Podobni prosti klicni znaki
           </h4>
           <div
             className={`grid grid-cols-4 gap-2 md:grid-cols-5 ${robotoMono.className}`}
           >
             {free
-              ?.map((c) => [levenshteinDistance(callsign, c), c])
-              .sort()
+              ?.map((c) => ({
+                call: c,
+                diff: levenshteinDistance(callsign, c),
+              }))
+              .filter(
+                ({ call }) => call.toLowerCase() !== callsign.toLowerCase(),
+              )
+              .sort((a, b) => {
+                if (a.diff !== b.diff) return a.diff - b.diff;
+                return a.call.localeCompare(b.call);
+              })
               .slice(0, 100)
-              .map((c) => (
+              .map(({ call }) => (
                 <button
-                  key={c[1]}
-                  onClick={() => setCallsign(c[1] as string)}
+                  key={call}
+                  onClick={() => setCallsign(call)}
                   className="rounded-lg border bg-light p-1 text-center hover:border-dark"
                 >
-                  {c[1]}
+                  {call}
                 </button>
               ))}
           </div>

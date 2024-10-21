@@ -1,15 +1,22 @@
 import { SubHeader } from '@/components/sub_header';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import RandomCallsign from './random_callsign';
+import RandomCallsign from './random-callsign';
 
 export const metadata: Metadata = {
   title: 'Radioamatersko dovoljenje',
-  description: 'O radioamaterskem dovoljenju in klicnem znaku',
-  openGraph: {
-    title: 'Radioamatersko dovoljenje',
-    description: 'O radioamaterskem dovoljenju in klicnem znaku',
-  },
+  description:
+    'Radioamatersko dovoljenje (CEPT licenca), ki vam omogoča, da začnete uporabljati radioamaterske frekvence',
+  keywords: [
+    'dovoljenje',
+    'radioamatersko dovoljenje',
+    'licenca',
+    'CEPT licenca',
+    'radioamaterska licenca',
+    'klicni znak',
+    'callsign',
+    'call sign',
+  ],
 };
 
 export default function License() {
@@ -82,7 +89,7 @@ export default function License() {
           Klicni znak si lahko izbereš glede na razred izpita, ki si ga opravil.
         </p>
         <div className="my-6 flex flex-col gap-6 md:flex-row">
-          <div className="flex flex-1 flex-col gap-4 rounded-lg bg-light px-4 shadow-md">
+          <div className="flex flex-1 flex-col rounded-lg bg-light px-4 shadow-md">
             <h3 className="text-center">N razred</h3>
 
             <ul>
@@ -90,7 +97,7 @@ export default function License() {
               <li>S58AAA - S58XZZ</li>
             </ul>
           </div>
-          <div className="flex flex-1 flex-col gap-4 rounded-lg bg-light px-4 shadow-md">
+          <div className="flex flex-1 flex-col rounded-lg bg-light px-4 shadow-md">
             <h3 className="text-center">A razred</h3>
 
             <ul>

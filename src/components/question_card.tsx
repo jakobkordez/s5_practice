@@ -1,12 +1,11 @@
 import { Question } from '@/interfaces/question';
-import { InlineMath } from 'react-katex';
-import styles from '@/styles/Quiz.module.scss';
+import { MaybeTeX } from './lazy-tex';
 import Image from 'next/image';
 
 interface QuestionCardProps {
   question: Question;
   reveal: boolean;
-  selected: number[];
+  selected: number[] | number;
   onClick?: (answer: number) => void;
 }
 
@@ -19,19 +18,21 @@ export default function QuestionCard({
   return (
     <div className="flex flex-col gap-5">
       <div className="text-xl text-gray-700">
-        <span className="font-bold text-primary">
-          A{question.id.toString().padStart(3, '0')}:{' '}
+        <span className="font-medium text-primary">
+          <span className="text-sm">#</span>
+          {question.id.toString().padStart(3, '0')}:{' '}
         </span>
         <MaybeTeX text={question.question} />
       </div>
 
       {question.image && (
         <Image
-          className={styles.image}
+          className="max-h-80 max-w-full object-contain"
           src={`/question_images/${question.image}`}
           alt={question.image}
           height={500}
           width={500}
+          style={{ width: '100%', height: 'auto' }}
         />
       )}
 
@@ -43,7 +44,9 @@ export default function QuestionCard({
             answer={answer}
             reveal={reveal}
             isCorrect={question.correct === i}
-            isSelected={selected.includes(i)}
+            isSelected={
+              selected instanceof Array ? selected.includes(i) : selected === i
+            }
             onClick={!onClick ? undefined : () => onClick(i)}
           />
         ))}
@@ -71,41 +74,21 @@ function Answer({
 }: AnswerProps) {
   return (
     <button
-      className={`flex w-full flex-row items-center gap-5 rounded border px-6 py-2 ${
+      className={`flex h-auto flex-nowrap items-center justify-start gap-6 rounded-lg px-6 py-1 font-normal normal-case ${
         !isSelected
-          ? 'border-gray-300'
+          ? 'bg-light'
           : !reveal
-            ? 'border-sky-500 bg-sky-100'
+            ? 'bg-primary/30'
             : isCorrect
-              ? 'border-green-500 bg-green-100'
-              : 'border-red-600 bg-red-100'
-      }`}
-      disabled={!onClick}
+              ? 'bg-green-200 text-green-950'
+              : 'bg-red-200 text-red-950'
+      } ${!onClick || isSelected ? 'cursor-default' : 'hover:bg-primary/10'}`}
       onClick={onClick}
     >
-      {!reveal && <input type="radio" checked={isSelected} readOnly />}
-      <div
-        className={`border-r py-2 pr-5 text-sm font-bold ${
-          !isSelected ? 'border-gray-200' : 'border-inherit'
-        }`}
-      >
-        {String.fromCharCode(65 + index)}
-      </div>
-      <div className="text-left text-lg text-gray-600">
+      <div className="text-sm font-bold">{String.fromCharCode(65 + index)}</div>
+      <div className="py-2 text-left text-base">
         <MaybeTeX text={answer} />
       </div>
     </button>
-  );
-}
-
-function MaybeTeX({ text }: { text: string }) {
-  const parts = text.split(/(?<!\\)\$+/);
-
-  return parts.map((part, i) =>
-    !part ? null : i % 2 === 0 ? (
-      <span key={i}>{part}</span>
-    ) : (
-      <InlineMath key={i} math={part} />
-    ),
   );
 }

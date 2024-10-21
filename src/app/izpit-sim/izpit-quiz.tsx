@@ -5,6 +5,7 @@ import { getExamQuestions } from '@/util/question-util';
 import { create } from 'zustand';
 import QuestionCard from '@/components/question_card';
 import { scrollToTop } from '@/components/scroll-to-top-button';
+import { useEffect, useState } from 'react';
 
 enum QuizState {
   Loading,
@@ -19,18 +20,20 @@ interface IzpitQuizStore {
   questions?: Question[];
   answers?: number[][];
   correctCount?: number;
+  endTime?: Date;
 
   load: () => Promise<void>;
-  finish: (correctCount: number) => Promise<void>;
+  finish: () => Promise<void>;
   reset: () => Promise<void>;
 }
 
-const useStore = create<IzpitQuizStore>((set) => ({
+const useStore = create<IzpitQuizStore>((set, get) => ({
   state: QuizState.Ready,
 
   questions: undefined,
   answers: undefined,
   correctCount: undefined,
+  endTime: undefined,
 
   load: async () => {
     set({ state: QuizState.Loading });
@@ -41,10 +44,17 @@ const useStore = create<IzpitQuizStore>((set) => ({
       state: QuizState.InProgress,
       questions,
       answers: Array(questions.length).fill([-1]),
+      endTime: new Date(Date.now() + 1000 * 60 * 90),
     });
   },
 
-  finish: async (correctCount: number) => {
+  finish: async () => {
+    const { questions, answers } = get();
+
+    const correctCount = questions!
+      .map((q, qi) => q.correct === answers![qi][0])
+      .reduce((acc, cur) => acc + (cur ? 1 : 0), 0);
+
     set({ state: QuizState.Finished, correctCount });
     scrollToTop();
   },
@@ -55,16 +65,25 @@ const useStore = create<IzpitQuizStore>((set) => ({
 }));
 
 export default function IzpitQuiz() {
-  const [state, questions, answers, correctCount, load, finish, reset] =
-    useStore((state) => [
-      state.state,
-      state.questions,
-      state.answers,
-      state.correctCount,
-      state.load,
-      state.finish,
-      state.reset,
-    ]);
+  const [
+    state,
+    questions,
+    answers,
+    correctCount,
+    endTime,
+    load,
+    finish,
+    reset,
+  ] = useStore((state) => [
+    state.state,
+    state.questions,
+    state.answers,
+    state.correctCount,
+    state.endTime,
+    state.load,
+    state.finish,
+    state.reset,
+  ]);
 
   return (
     <>
@@ -101,18 +120,17 @@ export default function IzpitQuiz() {
           />
         ))}
 
-        <button
-          className="button"
-          onClick={() =>
-            finish(
-              questions!
-                .map((q, qi) => q.correct === answers![qi][0])
-                .reduce((acc, cur) => acc + (cur ? 1 : 0), 0),
-            )
-          }
-        >
-          Zaključi
-        </button>
+        <div className="sticky inset-0 top-auto mb-10 flex select-none p-5">
+          <div className="mx-auto flex items-center gap-6 rounded-lg border bg-white px-6 py-4 shadow-lg">
+            <div className="text-lg">
+              {answers!.filter(([v]) => v >= 0).length} / {answers!.length}
+            </div>
+            <Countdown timeEnd={endTime!} />
+            <button className="button text-sm" onClick={() => finish()}>
+              Zaključi
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
@@ -155,4 +173,31 @@ export default function IzpitQuiz() {
       </>
     );
   }
+}
+
+export function Countdown({ timeEnd }: { timeEnd: Date }) {
+  const finish = useStore((state) => state.finish);
+  const [remaining, setRemaining] = useState(timeEnd.valueOf() - Date.now());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const newVal = Math.max(0, timeEnd.valueOf() - Date.now());
+      setRemaining(newVal);
+      if (newVal === 0) {
+        clearInterval(interval);
+        finish();
+      }
+    }, 500);
+
+    return () => clearInterval(interval);
+  }, [timeEnd, finish]);
+
+  return (
+    <div className="text-lg">
+      {Math.floor(remaining / 1000 / 60)}:
+      {Math.floor((remaining / 1000) % 60)
+        .toString()
+        .padStart(2, '0')}
+    </div>
+  );
 }

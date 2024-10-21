@@ -2,12 +2,17 @@ import { Metadata } from 'next';
 import VajaQuiz from './vaja-quiz';
 
 export const metadata: Metadata = {
-  title: 'Priprave na izpit',
-  description: 'Naloge za pripravo na izpit',
-  openGraph: {
-    title: 'Priprave na izpit',
-    description: 'Naloge za pripravo na izpit',
-  },
+  title: 'Vaja',
+  description:
+    'Pripravite se na radioamaterski izpit z vajo reševanja vprašanj, ki se lahko pojavijo na izpitu',
+  keywords: [
+    'vaja za izpit',
+    'radioamaterske naloge',
+    'radioamaterske vaje',
+    'priprava na izpit',
+    'vprašanja za izpit',
+    'izpitna vprašanja',
+  ],
 };
 
 export default function Priprave() {

@@ -4,11 +4,15 @@ import { SubHeader } from '@/components/sub_header';
 
 export const metadata: Metadata = {
   title: 'Zbirka vprašanj',
-  description: 'Zbirka vprašanj, ki se lahko pojavijo na izpitu.',
-  openGraph: {
-    title: 'Zbirka vprašanj',
-    description: 'Zbirka vprašanj, ki se lahko pojavijo na izpitu.',
-  },
+  description:
+    'Pregled cele zbirke vprašanj, ki se lahko pojavijo na radioamaterskem izpitu',
+  keywords: [
+    'vprašanja',
+    'naloge',
+    'radioamaterski izpit',
+    'zbirka vprašanj',
+    'zbirka nalog',
+  ],
 };
 
 export default function QuestionPool() {

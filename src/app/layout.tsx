@@ -1,5 +1,5 @@
 import { Analytics } from '@vercel/analytics/react';
-import Header from '@/components/header';
+import { Header } from '@/components/header';
 import { Metadata } from 'next';
 import '@/styles/globals.scss';
 import { inter, morse } from '@/fonts/fonts';
@@ -17,7 +17,27 @@ export const metadata: Metadata = {
     default: 'Radioamaterski izpit',
     template: '%s | Radioamaterski izpit',
   },
-  description: 'Priprava na radioamaterski izpit',
+  description:
+    'Vse o radioamaterskem izpitu, pripravi na izpit in pridobitev radioamaterskega dovoljenja in klicnega znaka',
+  keywords: [
+    'radioamater',
+    'izpit',
+    'radio',
+    'KV',
+    'HF',
+    'VHF',
+    'UKV',
+    'dovoljenje',
+    'licenca',
+    'CEPT',
+    'AKOS',
+    'ZRS',
+    'Zveza radioamaterjev Slovenije',
+    'radiotehnika',
+    'radioamaterstvo',
+    'Morzejeva abeceda',
+    'Morse kod',
+  ],
   icons: {
     icon: '/logo/icon_512.png',
     shortcut: '/logo/icon_512.png',
@@ -26,14 +46,9 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
   metadataBase: new URL('https://izpit.jkob.cc'),
   openGraph: {
-    title: {
-      default: 'Radioamaterski izpit',
-      template: '%s | Radioamaterski izpit',
-    },
-    description: 'Priprava na radioamaterski izpit',
-    url: 'https://izpit.jkob.cc/',
-    locale: 'sl_SL',
+    locale: 'sl',
     type: 'website',
+    siteName: 'Radioamaterski tečaj',
   },
   robots: {
     index: true,
