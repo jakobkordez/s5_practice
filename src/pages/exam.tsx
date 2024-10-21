@@ -6,9 +6,9 @@ import { getExamQuestions } from '@/util/question-util';
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
 import styles from '@/styles/Exam.module.scss';
-import { InlineMath } from 'react-katex';
 
 import 'katex/dist/katex.min.css';
+import { MaybeTeX } from '@/components/lazy-tex';
 
 const podatki = [
   'Ime in priimek',
@@ -102,13 +102,7 @@ async function ExamDoc({ qPromise }: { qPromise: Promise<Question[]> }) {
               <ol style={{ listStyleType: 'upper-alpha' }}>
                 {q.answers.map((a, j) => (
                   <li key={j} style={{ marginBottom: '0.5rem' }}>
-                    {a.startsWith('$') ? (
-                      <span style={{ marginLeft: '0.5rem' }}>
-                        <InlineMath math={a.slice(1, a.length - 1)} />
-                      </span>
-                    ) : (
-                      a
-                    )}
+                    <MaybeTeX text={a} />
                   </li>
                 ))}
               </ol>
