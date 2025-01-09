@@ -5,6 +5,7 @@ import '@/styles/globals.scss';
 import { inter, morse } from '@/fonts/fonts';
 import { ScrollToTopButton } from '@/components/scroll-to-top-button';
 import { Viewport } from 'next/dist/lib/metadata/types/metadata-interface';
+import { UmamiAnalytics } from '@/components/umami-analytics';
 
 export const viewport: Viewport = {
   themeColor: '#00ADB5',
@@ -75,6 +76,7 @@ export default function RootLayout({
         <ScrollToTopButton />
 
         <Analytics />
+        <UmamiAnalytics />
       </body>
     </html>
   );
