@@ -65,7 +65,7 @@ const useStore = create<IzpitQuizStore>((set, get) => ({
 }));
 
 export default function IzpitQuiz() {
-  const [
+  const {
     state,
     questions,
     answers,
@@ -74,16 +74,7 @@ export default function IzpitQuiz() {
     load,
     finish,
     reset,
-  ] = useStore((state) => [
-    state.state,
-    state.questions,
-    state.answers,
-    state.correctCount,
-    state.endTime,
-    state.load,
-    state.finish,
-    state.reset,
-  ]);
+  } = useStore();
 
   return (
     <>

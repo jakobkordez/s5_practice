@@ -33,7 +33,7 @@ async function loadCallsigns() {
 export default function CallsignTool() {
   const [clas, setClas] = useState(1);
   const [callsign, setCs] = useState('');
-  const [taken, free] = useStore((state) => [state.taken, state.free]);
+  const { taken, free } = useStore();
   const [showSimilar, setShowSimilar] = useState(false);
 
   function setCallsign(cs: string | undefined) {

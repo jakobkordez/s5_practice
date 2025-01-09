@@ -59,7 +59,7 @@ async function load(selectedCategory: string) {
 }
 
 export default function VajaQuiz() {
-  const [
+  const {
     isLoading,
     categories,
     selectedCategory,
@@ -67,15 +67,7 @@ export default function VajaQuiz() {
     answers,
     displayed,
     loadMore,
-  ] = useStore((state) => [
-    state.isLoading,
-    state.categories,
-    state.selectedCategory,
-    state.questions,
-    state.answers,
-    state.displayed,
-    state.loadMore,
-  ]);
+  } = useStore();
 
   useEffect(() => {
     if (questions.length === 0) {

@@ -31,7 +31,7 @@ const useS = create<IzpitState>((set) => ({
 }));
 
 export default function Generator() {
-  const [
+  const {
     seed,
     klasa,
     count,
@@ -40,16 +40,7 @@ export default function Generator() {
     frameUrl,
     updateFrameUrl,
     randomize,
-  ] = useS((s) => [
-    s.seed,
-    s.klasa,
-    s.count,
-    s.passThreshold,
-    s.time,
-    s.frameUrl,
-    s.updateFrameUrl,
-    s.randomize,
-  ]);
+  } = useS();
 
   return (
     <>
