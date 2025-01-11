@@ -5,13 +5,10 @@ import Script from 'next/script';
 const ANALYTICS_URL = process.env.NEXT_PUBLIC_ANALYTICS_URL;
 const ANALYTICS_ID = process.env.NEXT_PUBLIC_ANALYTICS_ID;
 
-export function umamiTrack(
-  eventName: string,
-  data?: { [key: string]: string | number },
-) {
+export function useUmami() {
   if (typeof window === 'undefined') return;
 
-  const umami = (
+  return (
     window as unknown as {
       umami:
         | {
@@ -23,9 +20,6 @@ export function umamiTrack(
         | undefined;
     }
   ).umami;
-
-  console.log('umami', umami);
-  umami?.track(eventName, data);
 }
 
 export function UmamiAnalytics() {
