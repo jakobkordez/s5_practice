@@ -6,7 +6,7 @@ import { create } from 'zustand';
 import QuestionCard from '@/components/question_card';
 import { scrollToTop } from '@/components/scroll-to-top-button';
 import { useEffect, useState } from 'react';
-import { useUmami } from '@/components/umami-analytics';
+import { umamiTrack } from '@/components/umami-analytics';
 
 enum QuizState {
   Loading,
@@ -56,7 +56,7 @@ const useStore = create<IzpitQuizStore>((set, get) => ({
       .map((q, qi) => q.correct === answers![qi][0])
       .reduce((acc, cur) => acc + (cur ? 1 : 0), 0);
 
-    useUmami()?.track('quiz-finished', {
+    umamiTrack('quiz-finished', {
       correctCount: correctCount / questions!.length,
     });
 
