@@ -57,7 +57,7 @@ const useStore = create<IzpitQuizStore>((set, get) => ({
       .reduce((acc, cur) => acc + (cur ? 1 : 0), 0);
 
     umamiTrack('quiz-finished', {
-      correctCount: correctCount / questions!.length,
+      correctPercent: Math.round((correctCount / questions!.length) * 10) * 10,
     });
 
     set({ state: QuizState.Finished, correctCount });
