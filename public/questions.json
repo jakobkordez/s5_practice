@@ -7815,7 +7815,7 @@
         "\"Zero beat\"",
         "Kritična frekvenca"
       ],
-      "correct": 2,
+      "correct": 1,
       "category": 29
     },
     {
@@ -9171,7 +9171,7 @@
       "question": "Kateri element lahko nadomesti manj kot 1/4 valovne dolžine dolg kos voda, ki je na enem koncu odprt?",
       "image": null,
       "answers": ["Kondenzator", "Tuljava", "Transformator za simetriranje"],
-      "correct": 2,
+      "correct": 0,
       "category": 32
     },
     {
